@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const gaCode = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.goagletagmanager.com/gtag/js?id=G-GHQS0XRZ6D"></script>
+<script async src="https://www.goagletagmanager.com/gtag/js?id=G-F52E7VZMM8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-GHQS0XRZ6D');
+  gtag('config', 'G-F52E7VZMM8');
 </script>`;
 
 function addGAToFile(filePath) {
@@ -15,7 +15,7 @@ function addGAToFile(filePath) {
 
     let content = fs.readFileSync(filePath, 'utf-8');
 
-    if (content.includes('G-GHQS0XRZ6D')) {
+    if (content.includes('G-F52E7VZMM8')) {
         console.log('Already has GA:', filePath);
         return;
     }
