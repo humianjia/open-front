@@ -16,6 +16,9 @@ function loadMainGame() {
         
         if (icon && firstGame.imageUrl) {
             icon.src = firstGame.imageUrl.replace('game_icon', 'icon');
+            icon.onerror = function() {
+                this.src = 'img/icon/veckIo.jpg';
+            };
         }
     }
 }
@@ -38,6 +41,9 @@ function loadGame(gameIndex) {
         
         if (icon && game.imageUrl) {
             icon.src = game.imageUrl.replace('game_icon', 'icon');
+            icon.onerror = function() {
+                this.src = 'img/icon/veckIo.jpg';
+            };
         }
     }
 }
