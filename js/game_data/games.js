@@ -2,7 +2,7 @@ var gamesData = [
     {
         "id": "frontwars io",
         "name": "Frontwars.io",
-        "imageUrl": "img/icon/model.jpg",
+        "imageUrl": "img/icon/frontwarsio.jpg",
         "gameType": "Index",
         "rating": "4.8",
         "description": "FrontWars.io is a fast-paced multiplayer real-time strategy game where dozens of players battle for map dominance. Conquer territories, build cities, construct ports, and forge alliances. Victory comes when you control 72% of the map! Play for free on browser.",
