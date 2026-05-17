@@ -13,7 +13,7 @@
     <meta property="og:description" content="Welcome to the world of Mine Shooter Monsters Royale. You are a lone blocky survivor looking for some brutal action. Your Mission Is Very Simple. Just shoot to kill. There are some Zombies and Huggy Wuggy after you. Will you survive ? Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/Mine_Shooter_Monsters_Royale.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/a84f74f938c9408e98b3bf8f7270a9f9-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/Mine_Shooter_Monsters_Royale.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mine Shooter Monsters Royale - Play Free Online | open front">
     <meta name="twitter:description" content="Welcome to the world of Mine Shooter Monsters Royale. You are a lone blocky survivor looking for some brutal action. Your Mission Is Very Simple. Just shoot to kill. There are some Zombies and Huggy Wuggy after you. Will you survive ?">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/a84f74f938c9408e98b3bf8f7270a9f9-512x512.jpg" id="game-icon" class="game-icon" alt="Mine Shooter Monsters Royale" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/Mine_Shooter_Monsters_Royale.jpeg" id="game-icon" class="game-icon" alt="Mine Shooter Monsters Royale" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Mine Shooter Monsters Royale</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <meta property="og:description" content="Pixel Arena Game FPS multiplayer free to play against much enemy AI like soldier and realistic zombie pixel, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/FPS/Pixel_Arena_Game_FPS.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/090a6a819ccb48b3ad0ea9457ef96770-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/FPS/Pixel_Arena_Game_FPS.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pixel Arena Game FPS - Play Free Online | open front">
     <meta name="twitter:description" content="Pixel Arena Game FPS multiplayer free to play against much enemy AI like soldier and realistic zombie pixel, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/090a6a819ccb48b3ad0ea9457ef96770-512x512.jpg" id="game-icon" class="game-icon" alt="Pixel Arena Game FPS" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/FPS/Pixel_Arena_Game_FPS.jpeg" id="game-icon" class="game-icon" alt="Pixel Arena Game FPS" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Pixel Arena Game FPS</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

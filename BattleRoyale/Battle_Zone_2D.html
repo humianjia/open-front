@@ -13,7 +13,7 @@
     <meta property="og:description" content="Immerse yourself in a dynamic 2D top-down shooter. Fight on a vast map, search for weapons, ammo, and gear to survive epic battles. Use strategy, cover, and tactics to become the last survivor. Simple controls, fast-paced matches, and thrilling gameplay make the game accessible to everyone. Test your skills, defeat enemies, and prove that you are the best fighter! Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/Battle_Zone_2D.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/ca12cc5666a1430aa557452c3fbb0039-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/Battle_Zone_2D.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Battle Zone 2D - Play Free Online | open front">
     <meta name="twitter:description" content="Immerse yourself in a dynamic 2D top-down shooter. Fight on a vast map, search for weapons, ammo, and gear to survive epic battles. Use strategy, cover, and tactics to become the last survivor. Simple controls, fast-paced matches, and thrilling gameplay make the game accessible to everyone. Test your skills, defeat enemies, and prove that you are the best fighter!">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/ca12cc5666a1430aa557452c3fbb0039-512x512.jpg" id="game-icon" class="game-icon" alt="Battle Zone 2D" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/Battle_Zone_2D.jpg" id="game-icon" class="game-icon" alt="Battle Zone 2D" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Battle Zone 2D</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

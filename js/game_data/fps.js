@@ -2,7 +2,7 @@ var fpsData = [
     {
         "id": "090a6a819ccb48b3ad0ea9457ef96770",
         "name": "Pixel Arena Game FPS",
-        "imageUrl": "https://img.gamedistribution.com/090a6a819ccb48b3ad0ea9457ef96770-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Pixel_Arena_Game_FPS.jpeg",
         "gameType": "FPS",
         "rating": "4.4",
         "description": "Pixel Arena Game FPS multiplayer free to play against much enemy AI like soldier and realistic zombie pixel, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here.",
@@ -19,7 +19,7 @@ var fpsData = [
     {
         "id": "fdc53cbb755243509b7a7722597ea11c",
         "name": "WW2 Cold War Game Fps",
-        "imageUrl": "https://img.gamedistribution.com/fdc53cbb755243509b7a7722597ea11c-512x512.jpg",
+        "imageUrl": "img/icon/FPS/WW2_Cold_War_Game_Fps.jpeg",
         "gameType": "FPS",
         "rating": "4.5",
         "description": "WW2 Cold War Game Fps , Welcome in the past where you will be able to fun with soldier, weapons, tank and aircraft from ww2 war, much fx effects waiting you to fun with friends around the world, 20 quality ww2 war gun is waiting you and 5 heavy tanks ready to shoot with projectile and bullet, explosion are epic and character is good quality German and us army. Have fun.",
@@ -36,7 +36,7 @@ var fpsData = [
     {
         "id": "91b6347341ec4febbcbead10ca311cf1",
         "name": "Pixel Fps SWAT Command",
-        "imageUrl": "https://img.gamedistribution.com/91b6347341ec4febbcbead10ca311cf1-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Pixel_Fps_SWAT_Command.jpeg",
         "gameType": "FPS",
         "rating": "4.6",
         "description": "Fight in battle fps pixel with real players around the world. 9 guns waiting you to play in high quality of maps block and pixilated maps. Have Fun",
@@ -53,7 +53,7 @@ var fpsData = [
     {
         "id": "483afadadbf943c8b2ec7d4594da012b",
         "name": "Shooting Zombie fps Xtreme Good vs Bad Boys",
-        "imageUrl": "https://img.gamedistribution.com/483afadadbf943c8b2ec7d4594da012b-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Shooting_Zombie_fps_Xtreme_Good_vs_Bad_Boys.jpeg",
         "gameType": "FPS",
         "rating": "4.7",
         "description": "Shooting Zombie fps Xtreme Good vs Bad Boys free to play against much enemy AI like soldier and realistic zombie, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here.",
@@ -70,7 +70,7 @@ var fpsData = [
     {
         "id": "d4f3e9184ee044669935ae5fedb89e81",
         "name": "Zombie Virus FPS",
-        "imageUrl": "https://img.gamedistribution.com/d4f3e9184ee044669935ae5fedb89e81-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Zombie_Virus_FPS.jpeg",
         "gameType": "FPS",
         "rating": "4.8",
         "description": "Survival Zombie virus shooting is here with a great jungle map and awesome mission in offline, each campaign have own difficulty with different number of enemy to destroy also much game mode waiting you to try with guns around the world a. Have fun here.",
@@ -87,7 +87,7 @@ var fpsData = [
     {
         "id": "32ba9ee1361648f2abf104bfa088ea3f",
         "name": "Get To The Chopper",
-        "imageUrl": "https://img.gamedistribution.com/32ba9ee1361648f2abf104bfa088ea3f-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Get_To_The_Chopper.jpg",
         "gameType": "FPS",
         "rating": "4.1",
         "description": "Gear up and fight your way to safety in Get To The Chopper, a thrilling 3D first-person shooter where every mission is a battle for survival! Your objective is clear: reach the extraction chopper while eliminating all enemies standing in your way. Armed with a fully customizable loadout-including a primary gun, secondary weapon, grenades, and a melee weapon-you'll face waves of enemies across dynamic battlefields such as forests, deserts, and more.",
@@ -104,7 +104,7 @@ var fpsData = [
     {
         "id": "2e53f90d22e74cef93eb9ac3533155cd",
         "name": "Stickman Gun Shooter",
-        "imageUrl": "https://img.gamedistribution.com/2e53f90d22e74cef93eb9ac3533155cd-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Stickman_Gun_Shooter.jpg",
         "gameType": "FPS",
         "rating": "4.2",
         "description": "Get ready to dive into a unique shooting experience with Stickman Gun Shooter! Enjoy an experience that invites you to take control of an expert shooter as you use a spinning gun to defeat fun Stickmans. The game combines realistic ragdoll physics with exciting and simple gameplay - your goal will be to destroy the yellow Stickmans that get in your way, overcoming different levels with different challenges and obstacles, while demonstrating your sniper skills!",
@@ -121,7 +121,7 @@ var fpsData = [
     {
         "id": "f4afd7f4fcdb43fd8acfa370460f89f7",
         "name": "Real Bottle Shooter 3D",
-        "imageUrl": "https://img.gamedistribution.com/f4afd7f4fcdb43fd8acfa370460f89f7-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Real_Bottle_Shooter_3D.jpeg",
         "gameType": "FPS",
         "rating": "4.3",
         "description": "Real Bottle Shooter 3D game is a simulation game where you can practice shooting with bottles. Levels continue from simple to difficult. You will need to calculate moving platforms, obstacles and distance. You should also use the limited number of bullets sparingly.",
@@ -138,7 +138,7 @@ var fpsData = [
     {
         "id": "b42d9c5983134c19a5a074eb78b40c31",
         "name": "Zombie Shooter 3D",
-        "imageUrl": "https://img.gamedistribution.com/b42d9c5983134c19a5a074eb78b40c31-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Zombie_Shooter_3D.jpeg",
         "gameType": "FPS",
         "rating": "4.4",
         "description": "Go to the closed dark forest. Clear the area from crowds of zombies. Watch as enemies are blown apart. In your arsenal: pistol, machine guns, grenades, shotgun, sniper rifle and grenade launcher. Protect the world from the zombie invasion. Destroy them all!!!",
@@ -155,7 +155,7 @@ var fpsData = [
     {
         "id": "223c7220f1e54e82a62fc25e39ce6700",
         "name": "Zombie Shooter D",
-        "imageUrl": "https://img.gamedistribution.com/223c7220f1e54e82a62fc25e39ce6700-512x512.jpg",
+        "imageUrl": "img/icon/FPS/Zombie_Shooter_D.jpeg",
         "gameType": "FPS",
         "rating": "4.5",
         "description": "Gun down the walking dead",

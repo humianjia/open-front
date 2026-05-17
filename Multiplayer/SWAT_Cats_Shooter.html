@@ -13,7 +13,7 @@
     <meta property="og:description" content="SWAT Cats is an online shooter set in a world where every hero is a battle cat. Ready for purr-fect battle with wild action? Jump in, grab your helmet, and join the fight. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Multiplayer/SWAT_Cats_Shooter.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/bf6439db0088415593e786e19a04e5b3-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Multiplayer/SWAT_Cats_Shooter.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SWAT Cats Shooter - Play Free Online | open front">
     <meta name="twitter:description" content="SWAT Cats is an online shooter set in a world where every hero is a battle cat. Ready for purr-fect battle with wild action? Jump in, grab your helmet, and join the fight.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/bf6439db0088415593e786e19a04e5b3-512x512.jpg" id="game-icon" class="game-icon" alt="SWAT Cats Shooter" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Multiplayer/SWAT_Cats_Shooter.jpg" id="game-icon" class="game-icon" alt="SWAT Cats Shooter" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">SWAT Cats Shooter</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

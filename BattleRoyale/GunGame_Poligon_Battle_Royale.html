@@ -13,7 +13,7 @@
     <meta property="og:description" content="GunGame is here with powerful fire and 24 guns to play, you will fight with bots soldier and enemey zombies depend on what mode will choose, you have also survival game where you can fight with friends around the world.Have Fun. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/GunGame_Poligon_Battle_Royale.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/c43c108ebd914fbfa9dddfcbcbadcae2-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/GunGame_Poligon_Battle_Royale.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GunGame Poligon Battle Royale - Play Free Online | open front">
     <meta name="twitter:description" content="GunGame is here with powerful fire and 24 guns to play, you will fight with bots soldier and enemey zombies depend on what mode will choose, you have also survival game where you can fight with friends around the world.Have Fun.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/c43c108ebd914fbfa9dddfcbcbadcae2-512x512.jpg" id="game-icon" class="game-icon" alt="GunGame Poligon Battle Royale" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/GunGame_Poligon_Battle_Royale.jpeg" id="game-icon" class="game-icon" alt="GunGame Poligon Battle Royale" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">GunGame Poligon Battle Royale</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

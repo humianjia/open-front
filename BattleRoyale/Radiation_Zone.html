@@ -13,7 +13,7 @@
     <meta property="og:description" content="It is FPS shooter with zombies and military. Your mission is to clear area from all terrorists on the restricted radiation zone. You can find and use many kind of weapons and amo on the area. Available for You inventory, where you can collect a loot for surving. For make a tent, you need to collect a four clothes and four branches. Also You need to find a water and food for a life. Good luck for complex mission! Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/Radiation_Zone.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/80b73feee06f4c8497a4e9fd0fd3e89c-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/Radiation_Zone.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Radiation Zone - Play Free Online | open front">
     <meta name="twitter:description" content="It is FPS shooter with zombies and military. Your mission is to clear area from all terrorists on the restricted radiation zone. You can find and use many kind of weapons and amo on the area. Available for You inventory, where you can collect a loot for surving. For make a tent, you need to collect a four clothes and four branches. Also You need to find a water and food for a life. Good luck for complex mission!">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/80b73feee06f4c8497a4e9fd0fd3e89c-512x512.jpg" id="game-icon" class="game-icon" alt="Radiation Zone" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/Radiation_Zone.jpg" id="game-icon" class="game-icon" alt="Radiation Zone" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Radiation Zone</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

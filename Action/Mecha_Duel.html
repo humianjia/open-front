@@ -13,7 +13,7 @@
     <meta property="og:description" content="Crazy about robot fighting games? Wanna fight robots on the mech arena? This Mecha Duel game will not let you down. Your robot has to defeat real steel enemies in a mech arena. It&#39;s hard to survive. Upgrade your hero to defeat war robots. Unleash fighting attacks in one-on-one robot battle with simple gameplay. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Action/Mecha_Duel.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/e352461696b14d86bda7963cb2aaca8a-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Action/Mecha_Duel.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mecha Duel - Play Free Online | open front">
     <meta name="twitter:description" content="Crazy about robot fighting games? Wanna fight robots on the mech arena? This Mecha Duel game will not let you down. Your robot has to defeat real steel enemies in a mech arena. It&#39;s hard to survive. Upgrade your hero to defeat war robots. Unleash fighting attacks in one-on-one robot battle with simple gameplay.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/e352461696b14d86bda7963cb2aaca8a-512x512.jpg" id="game-icon" class="game-icon" alt="Mecha Duel" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Action/Mecha_Duel.jpg" id="game-icon" class="game-icon" alt="Mecha Duel" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Mecha Duel</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

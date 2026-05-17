@@ -13,7 +13,7 @@
     <meta property="og:description" content="Is a massive online world where three unique modes are waiting for you! Take on the challenge of 100 levels of hard obby, compete in crazy races with 5 players, and test your fate on a glass bridge in the spirit of Squid Game! Create your unique character by choosing from over 100 cool skins! Team up with friends using a code in squads of up to 3 people and conquer all modes together! Ready to show off your agility and strategy? Set records and become a legend! Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Multiplayer/Obby_Modes_Online_Mini-Games.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/7fb77a35cb98418c9a8b16278e7b74b0-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Multiplayer/Obby_Modes_Online_Mini-Games.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Obby Modes! Online Mini-Games - Play Free Online | open front">
     <meta name="twitter:description" content="Is a massive online world where three unique modes are waiting for you! Take on the challenge of 100 levels of hard obby, compete in crazy races with 5 players, and test your fate on a glass bridge in the spirit of Squid Game! Create your unique character by choosing from over 100 cool skins! Team up with friends using a code in squads of up to 3 people and conquer all modes together! Ready to show off your agility and strategy? Set records and become a legend!">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/7fb77a35cb98418c9a8b16278e7b74b0-512x512.jpg" id="game-icon" class="game-icon" alt="Obby Modes! Online Mini-Games" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Multiplayer/Obby_Modes_Online_Mini-Games.jpg" id="game-icon" class="game-icon" alt="Obby Modes! Online Mini-Games" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Obby Modes! Online Mini-Games</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

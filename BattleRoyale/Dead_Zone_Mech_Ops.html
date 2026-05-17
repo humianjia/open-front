@@ -13,7 +13,7 @@
     <meta property="og:description" content="Dead Zone: Mech Ops thrusts players into the heart of a scorched Earth ravaged by endless war, where autonomous factions and rogue AI compete for control over the planet&#39;s last remaining strongholds. You are a combat pilot in the elite &quot;Mech Ops&quot; unit - the final line of defense in a world on the brink of total collapse. Players will command next-gen combat exosuits equipped with modular weapon systems, advanced targeting tech, and adaptive armor that reacts to battlefield conditions. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/Dead_Zone_Mech_Ops.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/b20ef15d895d4ebc840f64a3f70ba12b-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/Dead_Zone_Mech_Ops.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dead Zone Mech Ops - Play Free Online | open front">
     <meta name="twitter:description" content="Dead Zone: Mech Ops thrusts players into the heart of a scorched Earth ravaged by endless war, where autonomous factions and rogue AI compete for control over the planet&#39;s last remaining strongholds. You are a combat pilot in the elite &quot;Mech Ops&quot; unit - the final line of defense in a world on the brink of total collapse. Players will command next-gen combat exosuits equipped with modular weapon systems, advanced targeting tech, and adaptive armor that reacts to battlefield conditions.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/b20ef15d895d4ebc840f64a3f70ba12b-512x512.jpg" id="game-icon" class="game-icon" alt="Dead Zone Mech Ops" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/Dead_Zone_Mech_Ops.jpg" id="game-icon" class="game-icon" alt="Dead Zone Mech Ops" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Dead Zone Mech Ops</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

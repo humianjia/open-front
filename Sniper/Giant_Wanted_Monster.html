@@ -13,7 +13,7 @@
     <meta property="og:description" content="The city is being occupied by giant monsters. You, as an elite sniper, pick up your sniper gun. Defeat these crazy monsters and protect the survival of humanity. In Giant Wanted Monster, the fate of the city is at stake with every bullet. You need to use the powerful sniper weapon to shoot accurately from a distance and hit the monster&#39;s Achilles heel. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Sniper/Giant_Wanted_Monster.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/036e270492174a10a16ab5d5ef91cb45-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Sniper/Giant_Wanted_Monster.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Giant Wanted Monster - Play Free Online | open front">
     <meta name="twitter:description" content="The city is being occupied by giant monsters. You, as an elite sniper, pick up your sniper gun. Defeat these crazy monsters and protect the survival of humanity. In Giant Wanted Monster, the fate of the city is at stake with every bullet. You need to use the powerful sniper weapon to shoot accurately from a distance and hit the monster&#39;s Achilles heel.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/036e270492174a10a16ab5d5ef91cb45-512x512.jpg" id="game-icon" class="game-icon" alt="Giant Wanted Monster" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Sniper/Giant_Wanted_Monster.jpg" id="game-icon" class="game-icon" alt="Giant Wanted Monster" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Giant Wanted Monster</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

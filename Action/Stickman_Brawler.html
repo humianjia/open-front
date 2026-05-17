@@ -13,7 +13,7 @@
     <meta property="og:description" content="Embark on an epic stickman conquest in Stickman Brawler, where you navigate a relentless battlefield, pitted against hordes of stickman adversaries. Harness your combat skills by selecting up to three powerful abilities, such as devastating swipe kicks, golem summoning, and colossal transformations. Unlock achievements, gather town resources to acquire potent power-ups from the godfather, and collect cards for exciting new skins, as you strive to become the ultimate stickman brawler. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Action/Stickman_Brawler.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/cdcea02863574af4af2b24945e343f86-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Action/Stickman_Brawler.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Stickman Brawler - Play Free Online | open front">
     <meta name="twitter:description" content="Embark on an epic stickman conquest in Stickman Brawler, where you navigate a relentless battlefield, pitted against hordes of stickman adversaries. Harness your combat skills by selecting up to three powerful abilities, such as devastating swipe kicks, golem summoning, and colossal transformations. Unlock achievements, gather town resources to acquire potent power-ups from the godfather, and collect cards for exciting new skins, as you strive to become the ultimate stickman brawler.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/cdcea02863574af4af2b24945e343f86-512x512.jpg" id="game-icon" class="game-icon" alt="Stickman Brawler" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Action/Stickman_Brawler.jpg" id="game-icon" class="game-icon" alt="Stickman Brawler" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Stickman Brawler</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

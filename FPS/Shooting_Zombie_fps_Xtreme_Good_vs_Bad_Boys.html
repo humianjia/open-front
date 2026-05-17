@@ -13,7 +13,7 @@
     <meta property="og:description" content="Shooting Zombie fps Xtreme Good vs Bad Boys free to play against much enemy AI like soldier and realistic zombie, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/FPS/Shooting_Zombie_fps_Xtreme_Good_vs_Bad_Boys.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/483afadadbf943c8b2ec7d4594da012b-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/FPS/Shooting_Zombie_fps_Xtreme_Good_vs_Bad_Boys.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shooting Zombie fps Xtreme Good vs Bad Boys - Play Free Online | open front">
     <meta name="twitter:description" content="Shooting Zombie fps Xtreme Good vs Bad Boys free to play against much enemy AI like soldier and realistic zombie, 5 game modes like gun game, survival, TDM, DM and much more, multiplayer play with friends and offline with 40 levels. Have fun here.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/483afadadbf943c8b2ec7d4594da012b-512x512.jpg" id="game-icon" class="game-icon" alt="Shooting Zombie fps Xtreme Good vs Bad Boys" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/FPS/Shooting_Zombie_fps_Xtreme_Good_vs_Bad_Boys.jpeg" id="game-icon" class="game-icon" alt="Shooting Zombie fps Xtreme Good vs Bad Boys" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Shooting Zombie fps Xtreme Good vs Bad Boys</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

@@ -79,7 +79,7 @@
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3>All Games</h3>
-                    <p>1000+ Games</p>
+                    <p>55 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -88,7 +88,7 @@
                         <i class="fas fa-fist-raised"></i>
                     </div>
                     <h3>Action</h3>
-                    <p>150+ Games</p>
+                    <p>10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -97,7 +97,7 @@
                         <i class="fas fa-skull"></i>
                     </div>
                     <h3>Battle</h3>
-                    <p>80+ Games</p>
+                    <p>10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -106,7 +106,7 @@
                         <i class="fas fa-crosshairs"></i>
                     </div>
                     <h3>Shooter</h3>
-                    <p>120+ Games</p>
+                    <p>10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -115,7 +115,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Multiplayer</h3>
-                    <p>300+ Games</p>
+                    <p>10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -124,7 +124,7 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Sniper</h3>
-                    <p>250+ Games</p>
+                    <p>10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
             </section>
@@ -189,6 +189,99 @@
             'action': window.actionGames || []
         };
 
+        function escapeSvgText(value) {
+            return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function getGameAssetInfo(game) {
+            const link = String(game && game.link ? game.link : '');
+            const parts = link.split('/');
+            const folder = parts.length > 1 ? parts[0] : '';
+            const fileName = parts.length > 1 ? parts[1] : parts[0];
+            const baseName = fileName ? fileName.replace(/\.html$/i, '') : '';
+            return { folder, baseName };
+        }
+
+        function createGameImagePlaceholder(game, categoryLabel) {
+            const gameName = escapeSvgText(game && game.name ? game.name : 'Open Front');
+            const label = escapeSvgText((game && game.gameType) || categoryLabel || 'Game');
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+                    <defs>
+                        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#071019" />
+                            <stop offset="50%" stop-color="#0f1f2f" />
+                            <stop offset="100%" stop-color="#08141f" />
+                        </linearGradient>
+                        <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#48d1ff" />
+                            <stop offset="100%" stop-color="#8df7ff" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="640" height="360" fill="url(#bg)" />
+                    <rect x="18" y="18" width="604" height="324" rx="18" fill="none" stroke="rgba(141,247,255,0.28)" stroke-width="2" />
+                    <path d="M38 52 H602" stroke="rgba(141,247,255,0.16)" stroke-width="2" />
+                    <path d="M72 180 H568 M320 84 V276" stroke="rgba(141,247,255,0.18)" stroke-width="3" />
+                    <circle cx="320" cy="180" r="72" fill="none" stroke="rgba(72,209,255,0.22)" stroke-width="2" />
+                    <circle cx="320" cy="180" r="34" fill="none" stroke="url(#accent)" stroke-width="4" />
+                    <circle cx="320" cy="180" r="8" fill="#8df7ff" />
+                    <rect x="44" y="42" width="150" height="34" rx="17" fill="rgba(72,209,255,0.14)" stroke="rgba(141,247,255,0.42)" />
+                    <text x="119" y="64" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#baf6ff" letter-spacing="2">${label.toUpperCase()}</text>
+                    <text x="320" y="286" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#f5fbff">${gameName}</text>
+                    <text x="320" y="322" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="rgba(245,251,255,0.62)" letter-spacing="4">OPEN FRONT</text>
+                </svg>
+            `;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        }
+
+        function getGameImageSources(game, categoryLabel) {
+            const sources = [];
+            const fallbackExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+            const assetInfo = getGameAssetInfo(game);
+
+            if (game && game.imageUrl) {
+                sources.push(game.imageUrl);
+            }
+
+            if (assetInfo.folder && assetInfo.baseName) {
+                fallbackExtensions.forEach((extension) => {
+                    sources.push(`img/icon/${assetInfo.folder}/${assetInfo.baseName}.${extension}`);
+                });
+            }
+
+            sources.push('img/icon/veckIo.jpg');
+            sources.push(createGameImagePlaceholder(game, categoryLabel));
+
+            return [...new Set(sources)];
+        }
+
+        function bindGameImage(img, sources) {
+            if (!img || !Array.isArray(sources) || sources.length === 0) {
+                return;
+            }
+
+            let sourceIndex = 0;
+            img.referrerPolicy = 'no-referrer';
+            img.loading = 'lazy';
+            img.decoding = 'async';
+
+            img.onerror = function () {
+                sourceIndex += 1;
+                if (sourceIndex >= sources.length) {
+                    img.onerror = null;
+                    return;
+                }
+                img.src = sources[sourceIndex];
+            };
+
+            img.src = sources[sourceIndex];
+        }
+
         // 加载游戏列表
         function loadGamesByCategory() {
             const container = document.getElementById('games-list-container');
@@ -214,19 +307,27 @@
             allGames.forEach((game, index) => {
                 const gameItem = document.createElement('div');
                 gameItem.className = 'game-item';
-                gameItem.innerHTML = `
-                    <div class="game-item-image">
-                        <img src="${game.imageUrl}" alt="${game.name}" onerror="console.error('Image failed:', '${game.imageUrl}')">
-                    </div>
-                    <div class="game-item-info">
-                        <h4 class="game-item-title">${game.name}</h4>
-                        <div class="game-item-category">${categoryName}</div>
-                        <div class="game-item-stats">
-                            <span><i class="fas fa-play"></i> ${Math.floor(Math.random() * 100000)}</span>
-                            <span><i class="fas fa-star"></i> ${(4 + Math.random()).toFixed(1)}</span>
-                        </div>
+                const gameImage = document.createElement('div');
+                gameImage.className = 'game-item-image';
+
+                const image = document.createElement('img');
+                image.alt = game.name;
+                bindGameImage(image, getGameImageSources(game, categoryName));
+                gameImage.appendChild(image);
+
+                const gameInfo = document.createElement('div');
+                gameInfo.className = 'game-item-info';
+                gameInfo.innerHTML = `
+                    <h4 class="game-item-title">${game.name}</h4>
+                    <div class="game-item-category">${categoryName}</div>
+                    <div class="game-item-stats">
+                        <span><i class="fas fa-play"></i> ${Math.floor(Math.random() * 100000)}</span>
+                        <span><i class="fas fa-star"></i> ${(4 + Math.random()).toFixed(1)}</span>
                     </div>
                 `;
+
+                gameItem.appendChild(gameImage);
+                gameItem.appendChild(gameInfo);
                 gameItem.addEventListener('click', () => {
                     if (game.link) {
                         window.location.href = game.link;

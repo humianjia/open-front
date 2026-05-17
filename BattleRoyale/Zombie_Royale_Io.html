@@ -13,7 +13,7 @@
     <meta property="og:description" content="Zombie Royale io is a collecting survival arcade IO game. With 3D cartoon survivors, you need to help them rescue more survivors and shoot down as many zombies as you can. As the time goes on, you will meet more and more strong zombies. They will come and chase the last survivors randomly. You can summon more soldiers and bombs in the game. After each round, you can use the gold coins to upgrade your survivors. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/BattleRoyale/Zombie_Royale_Io.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/0ff430a7db394a58a3cae92dd5028942-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/BattleRoyale/Zombie_Royale_Io.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zombie Royale Io - Play Free Online | open front">
     <meta name="twitter:description" content="Zombie Royale io is a collecting survival arcade IO game. With 3D cartoon survivors, you need to help them rescue more survivors and shoot down as many zombies as you can. As the time goes on, you will meet more and more strong zombies. They will come and chase the last survivors randomly. You can summon more soldiers and bombs in the game. After each round, you can use the gold coins to upgrade your survivors.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/0ff430a7db394a58a3cae92dd5028942-512x512.jpg" id="game-icon" class="game-icon" alt="Zombie Royale Io" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/BattleRoyale/Zombie_Royale_Io.jpg" id="game-icon" class="game-icon" alt="Zombie Royale Io" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Zombie Royale Io</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <meta property="og:description" content="&quot;CS: Command Snipers&quot; is an exciting online game where players take on the role of elite snipers who carry out challenging missions in various combat environments. The game combines elements of tactics, precision and teamwork, providing a unique experience for fans of shooters and strategies. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Sniper/CS_Command_Snipers.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/dae8b9a130704825bb0875ab51b5ef34-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Sniper/CS_Command_Snipers.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CS: Command Snipers - Play Free Online | open front">
     <meta name="twitter:description" content="&quot;CS: Command Snipers&quot; is an exciting online game where players take on the role of elite snipers who carry out challenging missions in various combat environments. The game combines elements of tactics, precision and teamwork, providing a unique experience for fans of shooters and strategies.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/dae8b9a130704825bb0875ab51b5ef34-512x512.jpg" id="game-icon" class="game-icon" alt="CS: Command Snipers" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Sniper/CS_Command_Snipers.jpg" id="game-icon" class="game-icon" alt="CS: Command Snipers" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">CS: Command Snipers</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <meta property="og:description" content="Take control of a powerful tank and unleash destruction in Wreck The Tower, an explosive demolition game where precision and power determine your success! Your mission is simple: demolish buildings by firing your tank&#39;s bullets repeatedly until the structure collapses. But be careful not to hit the moving walls. If you hit them, your bullet will ricochet back toward you, adding an extra challenge to your aim. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Action/Wreck_The_Tower.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/11d063f81e1b41c99bf6d1a40c83eb37-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/Action/Wreck_The_Tower.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Wreck The Tower - Play Free Online | open front">
     <meta name="twitter:description" content="Take control of a powerful tank and unleash destruction in Wreck The Tower, an explosive demolition game where precision and power determine your success! Your mission is simple: demolish buildings by firing your tank&#39;s bullets repeatedly until the structure collapses. But be careful not to hit the moving walls. If you hit them, your bullet will ricochet back toward you, adding an extra challenge to your aim.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/11d063f81e1b41c99bf6d1a40c83eb37-512x512.jpg" id="game-icon" class="game-icon" alt="Wreck The Tower" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/Action/Wreck_The_Tower.jpg" id="game-icon" class="game-icon" alt="Wreck The Tower" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Wreck The Tower</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

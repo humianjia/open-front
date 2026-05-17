@@ -13,7 +13,7 @@
     <meta property="og:description" content="Survival Zombie virus shooting is here with a great jungle map and awesome mission in offline, each campaign have own difficulty with different number of enemy to destroy also much game mode waiting you to try with guns around the world a. Have fun here. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/FPS/Zombie_Virus_FPS.html">
-    <meta property="og:image" content="https://img.gamedistribution.com/d4f3e9184ee044669935ae5fedb89e81-512x512.jpg">
+    <meta property="og:image" content="https://openfront.space/img/icon/FPS/Zombie_Virus_FPS.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zombie Virus FPS - Play Free Online | open front">
     <meta name="twitter:description" content="Survival Zombie virus shooting is here with a great jungle map and awesome mission in offline, each campaign have own difficulty with different number of enemy to destroy also much game mode waiting you to try with guns around the world a. Have fun here.">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="game-controls">
                     <div class="game-title-section">
-                        <img src="https://img.gamedistribution.com/d4f3e9184ee044669935ae5fedb89e81-512x512.jpg" id="game-icon" class="game-icon" alt="Zombie Virus FPS" onerror="this.src='../img/icon/veckIo.jpg'">
+                        <img src="../img/icon/FPS/Zombie_Virus_FPS.jpeg" id="game-icon" class="game-icon" alt="Zombie Virus FPS" onerror="this.src='../img/icon/veckIo.jpg'">
                         <span class="game-title" id="current-game-title">Zombie Virus FPS</span>
                     </div>
                     <div class="game-actions">
@@ -129,7 +129,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -179,9 +179,11 @@
             });
         }
 
-        window.addEventListener('load', loadRelatedGames);
-        initParticles();
-        initCursorGlow();
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRelatedGames();
+            initParticles();
+            initCursorGlow();
+        });
     </script>
 </body>
 </html>

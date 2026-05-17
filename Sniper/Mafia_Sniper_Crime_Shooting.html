@@ -141,7 +141,7 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 const img = document.createElement('img');
-                img.src = game.imageUrl.replace('img/', '../img/');
+                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
                 img.alt = game.name;
                 img.onerror = function() { this.src = '../img/icon/veckIo.jpg'; };
                 const title = document.createElement('div');
@@ -191,12 +191,11 @@
             });
         }
 
-        window.addEventListener('load', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             loadRelatedGames();
+            initParticles();
+            initCursorGlow();
         });
-
-        initParticles();
-        initCursorGlow();
     </script>
 </body>
 </html>
