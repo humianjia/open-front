@@ -21,7 +21,7 @@ function findHtmlFiles(dir) {
 findHtmlFiles(rootDir);
 
 const newFooterLinks = `<div class="footer-links">
-            <a href="../index.html">About FrontWars.io</a>
+            <a href="../index.html">About open front</a>
             <a href="../contact.html">Contact Us</a>
             <a href="../contact.html">DMCA</a>
             <a href="../privacy-policy.html">Privacy Policy</a>

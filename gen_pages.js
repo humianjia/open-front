@@ -6,18 +6,18 @@ const gamePageTemplate = `<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME_NAME - Play Free Online | Veck.io</title>
-    <meta name="description" content="GAME_DESCRIPTION Play GAME_NAME for free on Veck.io - Fast, browser-based multiplayer FPS games. No download required!">
-    <meta name="keywords" content="GAME_KEYWORDS, veck io, veck io game, veck io FPS, veck io shooter">
+    <title>GAME_NAME - Play Free Online | open front</title>
+    <meta name="description" content="GAME_DESCRIPTION Play GAME_NAME for free on open front - Fast, browser-based multiplayer FPS games. No download required!">
+    <meta name="keywords" content="GAME_KEYWORDS, open front, open front game, open front FPS, open front shooter">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Veck.io">
-    <link rel="canonical" href="https://veck.io/">
-    <meta property="og:title" content="GAME_NAME - Play Free Online | Veck.io">
-    <meta property="og:description" content="GAME_DESCRIPTION Play GAME_NAME for free on Veck.io!">
+    <meta name="author" content="open front">
+    <link rel="canonical" href="https://openfront.space/">
+    <meta property="og:title" content="GAME_NAME - Play Free Online | open front">
+    <meta property="og:description" content="GAME_DESCRIPTION Play GAME_NAME for free on open front!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://veck.io/">
+    <meta property="og:url" content="https://openfront.space/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GAME_NAME - Play Free Online | Veck.io">
+    <meta name="twitter:title" content="GAME_NAME - Play Free Online | open front">
     <meta name="twitter:description" content="GAME_DESCRIPTION">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%234ecca3'/><stop offset='100%25' stop-color='%2300d4ff'/></linearGradient></defs><circle cx='25' cy='25' r='20' fill='none' stroke='url(%23g)' stroke-width='3'/><circle cx='25' cy='25' r='12' fill='none' stroke='url(%23g)' stroke-width='2'/><circle cx='25' cy='25' r='4' fill='%234ecca3'/></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -79,13 +79,13 @@ const gamePageTemplate = `<!DOCTYPE html>
             </div>
             <div class="content-section">
                 <div class="game-info">
-                    <div class="info-header">Welcome to Veck.io - A fast, browser-based 3D multiplayer FPS that delivers quick, intense arena battles. No downloads or installations required - just jump in and start shooting!</div>
+                    <div class="info-header">Welcome to open front - A fast, browser-based 3D multiplayer FPS that delivers quick, intense arena battles. No downloads or installations required - just jump in and start shooting!</div>
                     <div class="info-content">
                         <h2>WHAT IS GAME_NAME?</h2>
                         <p>GAME_DESCRIPTION</p>
                     </div>
                     <div class="tags">
-                        <span class="tag"><i class="fas fa-bullseye"></i> VECK IO</span>
+                        <span class="tag"><i class="fas fa-bullseye"></i> OPEN FRONT</span>
                         <span class="tag"><i class="fas fa-gamepad"></i> GAME_TYPE</span>
                         <span class="tag"><i class="fas fa-crosshairs"></i> SHOOTER</span>
                         <span class="tag"><i class="fas fa-globe"></i> BROWSER GAME</span>
@@ -96,13 +96,13 @@ const gamePageTemplate = `<!DOCTYPE html>
     </div>
     <footer class="footer">
         <div class="footer-links">
-            <a href="../#">About Veck.io</a>
+            <a href="../#">About open front</a>
             <a href="../#">Contact Us</a>
             <a href="../#">DMCA</a>
             <a href="../#">Privacy Policy</a>
             <a href="../#">Terms of Service</a>
         </div>
-        <div class="footer-copyright">© 2024 Veck.io - Free Online Shooter Games. All rights reserved.</div>
+        <div class="footer-copyright">© 2024 open front - Free Online Shooter Games. All rights reserved.</div>
     </footer>
     <script src="../js/game_data/games.js"></script>
     <script src="../js/game_data/action.js"></script>
@@ -229,7 +229,7 @@ function createGamePage(game, category, outputDir) {
 
     const pageContent = gamePageTemplate
         .replace(/GAME_NAME/g, game.name)
-        .replace(/GAME_DESCRIPTION/g, game.description || (game.name + ' - Play free online on Veck.io'))
+        .replace(/GAME_DESCRIPTION/g, game.description || (game.name + ' - Play free online on open front'))
         .replace(/GAME_KEYWORDS/g, game.keywords || game.name)
         .replace(/GAME_TYPE/g, game.gameType || category)
         .replace(/GAME_IMAGE/g, (game.imageUrl || 'img/icon/veckIo.jpg').replace('img/', '../img/'))

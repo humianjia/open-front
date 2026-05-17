@@ -46,7 +46,7 @@ const newLogo = `        <a href="../index.html" class="logo">
                 <line x1="25" y1="15" x2="25" y2="30" stroke="#ff6b35" stroke-width="2"/>
                 <line x1="20" y1="35" x2="30" y2="35" stroke="#ff6b35" stroke-width="2"/>
             </svg>
-            <span class="logo-text">Front<span class="logo-io">Wars</span></span>
+            <span class="logo-text">open <span class="logo-io">front</span></span>
         </a>`;
 
 // 旧的品牌图标和名称（用于匹配）
@@ -82,16 +82,16 @@ const oldLogoUpdated = `        <div class="logo">
                 <line x1="25" y1="15" x2="25" y2="30" stroke="#ff6b35" stroke-width="2"/>
                 <line x1="20" y1="35" x2="30" y2="35" stroke="#ff6b35" stroke-width="2"/>
             </svg>
-            <span class="logo-text">Front<span class="logo-io">Wars</span></span>
+            <span class="logo-text">open <span class="logo-io">front</span></span>
         </div>`;
 
 // 新的页脚链接
-const newFooterAbout = `<a href="#">About FrontWars.io</a>`;
-const oldFooterAbout = `<a href="#">About Veck.io</a>`;
+const newFooterAbout = `<a href="#">About open front</a>`;
+const oldFooterAbout = `<a href="#">About open front</a>`;
 
 // 新的页脚版权信息
-const newFooterCopyright = `<div class="footer-copyright">© 2024 FrontWars.io - Free Online Strategy Games. All rights reserved.</div>`;
-const oldFooterCopyright = `<div class="footer-copyright">© 2024 Veck.io - Free Online Shooter Games. All rights reserved.</div>`;
+const newFooterCopyright = `<div class="footer-copyright">© 2024 open front - Free Online Strategy Games. All rights reserved.</div>`;
+const oldFooterCopyright = `<div class="footer-copyright">© 2024 open front - Free Online Shooter Games. All rights reserved.</div>`;
 
 // 新的 favicon
 const newFavicon = `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ff6b35'/><stop offset='100%25' stop-color='%23f7c59f'/></linearGradient></defs><polygon points='25,5 45,40 5,40' fill='none' stroke='url(%23g)' stroke-width='3'/></svg>">`;

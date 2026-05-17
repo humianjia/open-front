@@ -9,12 +9,12 @@ function fixCanonical(filePath) {
     let modified = false;
 
     if (content.includes('https://veck.io/')) {
-        content = content.replace(/https:\/\/veck\.io\//g, 'https://veckio.space/');
+        content = content.replace(/https:\/\/veck\.io\//g, 'https://openfront.space/');
         modified = true;
     }
 
-    if (content.includes('https://veck.io/')) {
-        content = content.replace(/https:\/\/veck\.io\//g, 'https://veckio.space/');
+    if (content.includes('https://veckio.space/')) {
+        content = content.replace(/https:\/\/veckio\.space\//g, 'https://openfront.space/');
         modified = true;
     }
 

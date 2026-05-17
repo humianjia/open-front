@@ -20,7 +20,7 @@ function findHtmlFiles(dir) {
 
 findHtmlFiles(rootDir);
 
-const newFavicon = '<link rel="icon" type="image/png" href="img/icon/frontwarsio.png">';
+const newFavicon = '<link rel="icon" type="image/svg+xml" href="favicon.svg">';
 
 let updatedCount = 0;
 
