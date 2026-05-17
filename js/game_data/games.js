@@ -1,47 +1,32 @@
 var gamesData = [
     {
-        "id": "frontwars io",
-        "name": "Frontwars.io",
-        "imageUrl": "img/icon/frontwarsio.png",
-        "gameType": "Index",
+        "id": "366a198cba9742ad9a755dbef736743c",
+        "name": "Bullet Heroes",
+        "imageUrl": "https://img.gamedistribution.com/366a198cba9742ad9a755dbef736743c-512x512.jpg",
+        "gameType": "Featured",
         "rating": "4.8",
-        "description": "FrontWars.io is a fast-paced multiplayer real-time strategy game where dozens of players battle for map dominance. Conquer territories, build cities, construct ports, and forge alliances. Victory comes when you control 72% of the map! Play for free on browser.",
-        "keywords": "frontwars io, frontwars io game, frontwars io strategy, frontwars io multiplayer, frontwars io online, frontwars io free, frontwars io browser, frontwars io play, frontwars io battle, frontwars io conquest, frontwars io war, frontwars io territory, frontwars io alliance, frontwars io multiplayer strategy, frontwars io .io games, frontwars io strategy game",
-        "link": "index.html",
+        "description": "Bullet Heroes is a featured team-based browser shooter on open front with fast firefights, online battles, and instant iframe play.",
+        "keywords": "Bullet Heroes, open front, browser shooter, featured game, online game",
+        "link": "Action/Bullet_Heroes.html",
         "tags": [
-            "frontwars io",
-            "strategy",
-            "conquest",
-            "multiplayer",
+            "bullet heroes",
+            "featured",
+            "shooter",
             "browser game",
-            "io games",
-            "action games",
-            "war games",
-            "online game",
-            "free game",
-            "battle",
-            "competitive strategy",
-            "resource management",
-            "alliance system"
+            "open front"
         ],
-        "iframeUrl": "https://frontwars.io",
-        "gameplay": "FrontWars.io gameplay revolves around strategic territory expansion. Start with a small base, conquer adjacent territories, balance troops and workers, and build cities, ports, and defense posts. Form alliances, trade resources, and deploy naval forces and missiles to dominate the map.",
+        "iframeUrl": "https://html5.gamedistribution.com/366a198cba9742ad9a755dbef736743c/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F",
+        "gameplay": "Jump into fast team fights, switch weapons on the fly, and play directly in your browser.",
         "gameModes": [
-            "Free For All",
-            "Alliance Mode",
-            "Conquest",
-            "Team Battle"
+            "Team Battle",
+            "Online Match",
+            "Instant Play"
         ],
         "features": [
             "No download required",
-            "Browser-based multiplayer",
-            "Real-time strategy",
-            "Map conquest gameplay",
-            "Alliance system",
-            "Naval warfare",
-            "Missile system",
-            "Resource management",
-            "Cross-platform play"
+            "Iframe browser play",
+            "Fast multiplayer action",
+            "Open front featured title"
         ]
-    },
-]
+    }
+];

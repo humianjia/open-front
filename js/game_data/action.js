@@ -1,104 +1,172 @@
 var actionGames = [
     {
-        "id": "Revoxel 3D - Voxel RPG Shooter",
-        "name": "Revoxel 3D - Voxel RPG Shooter",
-        "imageUrl": "img/icon/Action/Revoxel3D-VoxelRPGShooter.jpg",
+        "id": "366a198cba9742ad9a755dbef736743c",
+        "name": "Bullet Heroes",
+        "imageUrl": "https://img.gamedistribution.com/366a198cba9742ad9a755dbef736743c-512x512.jpg",
         "gameType": "Action",
-        "rating": "4.5",
-        "description": "Revoxel 3D - Voxel RPG Shooter is a voxel-style action RPG shooter. Players explore a blocky world, complete quests, and battle enemies. The game features character customization, skill trees, and various weapons and items.",
-        "keywords": "Revoxel 3D, Voxel RPG, shooter, action, RPG",
-        "link": "Action/Revoxel_3D_-_Voxel_RPG_Shooter.html",
+        "rating": "4.7",
+        "description": "Join the ultimate team-based shooting game! Team up with players worldwide to strategize, outsmart, and dominate your enemies. Experience intense firefights on stunning high-definition 3D maps, with multiple game modes and a vast arsenal of weapons. Become an elite agent, master your skills, and lead your team to victory. Dive into the action and enjoy the thrill of cooperative gameplay. Are you ready to become a hero?",
+        "keywords": "Bullet Heroes, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Bullet_Heroes.html",
         "tags": [
-            "revoxel 3d",
-            "voxel rpg",
-            "shooter",
-            "action"
+            "bullet heroes",
+            "action",
+            "open front",
+            "browser game"
         ],
-        "iframeUrl": "https://html5.gamedistribution.com/a571ac94d1ed4b2e84a3d604856d81e6/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+        "iframeUrl": "https://html5.gamedistribution.com/366a198cba9742ad9a755dbef736743c/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
     },
     {
-        "id": "Sort Balls - Cones",
-        "name": "Sort Balls - Cones",
-        "imageUrl": "img/icon/Action/SortBalls-Cones.jpg",
+        "id": "30c319848d544c30afbe82ad24fbac5b",
+        "name": "Strike Force: Action Platformer",
+        "imageUrl": "https://img.gamedistribution.com/30c319848d544c30afbe82ad24fbac5b-512x512.jpg",
         "gameType": "Action",
-        "rating": "4.2",
-        "description": "Sort Balls - Cones is a puzzle game where players sort colored balls into the correct cones. The game features various levels of increasing difficulty, time challenges, and colorful graphics. Players must use strategy and quick thinking to complete each level.",
-        "keywords": "Sort Balls, Cones, puzzle, sorting, casual",
-        "link": "Action/Sort_Balls_-_Cones.html",
+        "rating": "4.8",
+        "description": "Step into the explosive world of Strike Force: Action Platformer - a high-octane, side-scrolling action shooter inspired by the legendary Contra series. Fight through thrilling levels packed with non-stop combat, deadly enemies, and intense boss battles. Wield an arsenal of powerful weapons including handguns, rocket launchers, shotguns, machine guns, and devastating grenades. Master your reflexes and tactical skills to survive waves of relentless enemies!",
+        "keywords": "Strike Force: Action Platformer, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Strike_Force_Action_Platformer.html",
         "tags": [
-            "sort balls",
-            "cones",
-            "puzzle",
-            "sorting"
+            "strike force: action platformer",
+            "action",
+            "open front",
+            "browser game"
         ],
-        "iframeUrl": "https://html5.gamedistribution.com/8c028d59fd2946289d5582a4eee6f850/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+        "iframeUrl": "https://html5.gamedistribution.com/30c319848d544c30afbe82ad24fbac5b/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
     },
     {
-        "id": "Dessert DIY",
-        "name": "Dessert DIY",
-        "imageUrl": "img/icon/Action/DessertDIY.jpg",
-        "gameType": "Action",
-        "rating": "4.3",
-        "description": "Dessert DIY is a cooking simulation game where players create and decorate delicious desserts. The game features a variety of ingredients, decorations, and recipe options. Players can customize their desserts and share their creations with friends.",
-        "keywords": "Dessert DIY, cooking, dessert, simulation, casual",
-        "link": "Action/Dessert_DIY.html",
-        "tags": [
-            "dessert diy",
-            "cooking",
-            "dessert",
-            "simulation"
-        ],
-        "iframeUrl": "https://html5.gamedistribution.com/fbfeecb1e2344c839c7a47096f974fe5/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
-    },
-    {
-        "id": "Night Club Security",
-        "name": "Night Club Security",
-        "imageUrl": "img/icon/Action/NightClubSecurity.jpg",
+        "id": "11d063f81e1b41c99bf6d1a40c83eb37",
+        "name": "Wreck The Tower",
+        "imageUrl": "https://img.gamedistribution.com/11d063f81e1b41c99bf6d1a40c83eb37-512x512.jpg",
         "gameType": "Action",
         "rating": "4.1",
-        "description": "Night Club Security is an action game where players protect a nightclub from troublemakers. Players must identify and remove disruptive patrons while ensuring the safety of other guests. The game features various security challenges and realistic nightclub environments.",
-        "keywords": "Night Club Security, security, action, nightclub",
-        "link": "Action/Night_Club_Security.html",
+        "description": "Take control of a powerful tank and unleash destruction in Wreck The Tower, an explosive demolition game where precision and power determine your success! Your mission is simple: demolish buildings by firing your tank's bullets repeatedly until the structure collapses. But be careful not to hit the moving walls. If you hit them, your bullet will ricochet back toward you, adding an extra challenge to your aim.",
+        "keywords": "Wreck The Tower, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Wreck_The_Tower.html",
         "tags": [
-            "night club security",
-            "security",
+            "wreck the tower",
             "action",
-            "nightclub"
+            "open front",
+            "browser game"
         ],
-        "iframeUrl": "https://html5.gamedistribution.com/09d017664cad49e9a36d455b3aa046e5/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+        "iframeUrl": "https://html5.gamedistribution.com/11d063f81e1b41c99bf6d1a40c83eb37/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
     },
     {
-        "id": "Obby Football Soccer 3D",
-        "name": "Obby Football Soccer 3D",
-        "imageUrl": "img/icon/Action/ObbyFootballSoccer3D.jpg",
+        "id": "e352461696b14d86bda7963cb2aaca8a",
+        "name": "Mecha Duel",
+        "imageUrl": "https://img.gamedistribution.com/e352461696b14d86bda7963cb2aaca8a-512x512.jpg",
+        "gameType": "Action",
+        "rating": "4.2",
+        "description": "Crazy about robot fighting games? Wanna fight robots on the mech arena? This Mecha Duel game will not let you down. Your robot has to defeat real steel enemies in a mech arena. It's hard to survive. Upgrade your hero to defeat war robots. Unleash fighting attacks in one-on-one robot battle with simple gameplay.",
+        "keywords": "Mecha Duel, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Mecha_Duel.html",
+        "tags": [
+            "mecha duel",
+            "action",
+            "open front",
+            "browser game"
+        ],
+        "iframeUrl": "https://html5.gamedistribution.com/e352461696b14d86bda7963cb2aaca8a/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+    },
+    {
+        "id": "cdcea02863574af4af2b24945e343f86",
+        "name": "Stickman Brawler",
+        "imageUrl": "https://img.gamedistribution.com/cdcea02863574af4af2b24945e343f86-512x512.jpg",
+        "gameType": "Action",
+        "rating": "4.3",
+        "description": "Embark on an epic stickman conquest in Stickman Brawler, where you navigate a relentless battlefield, pitted against hordes of stickman adversaries. Harness your combat skills by selecting up to three powerful abilities, such as devastating swipe kicks, golem summoning, and colossal transformations. Unlock achievements, gather town resources to acquire potent power-ups from the godfather, and collect cards for exciting new skins, as you strive to become the ultimate stickman brawler.",
+        "keywords": "Stickman Brawler, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Stickman_Brawler.html",
+        "tags": [
+            "stickman brawler",
+            "action",
+            "open front",
+            "browser game"
+        ],
+        "iframeUrl": "https://html5.gamedistribution.com/cdcea02863574af4af2b24945e343f86/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+    },
+    {
+        "id": "0d06ebfcd29443a8a8f88420cc57544d",
+        "name": "Dungeon Master Knight",
+        "imageUrl": "https://img.gamedistribution.com/0d06ebfcd29443a8a8f88420cc57544d-512x512.jpg",
         "gameType": "Action",
         "rating": "4.4",
-        "description": "Obby Football Soccer 3D is a soccer game with obstacle course elements. Players navigate through challenging obstacles while trying to score goals. The game features various levels, power-ups, and competitive gameplay.",
-        "keywords": "Obby Football, Soccer 3D, obstacle, football, sports",
-        "link": "Action/Obby_Football_Soccer_3D.html",
+        "description": "Embark on a medieval odyssey with Dungeon Master Knight, a riveting 2D side-scrolling action game. As a valiant knight, battle diverse enemies in a dungeon, employing automatic sword attacks as you approach foes and strategic shield blocks with the back key, and embrace the tactical use of rewarded video ads to revive, ensuring an immersive experience filled with combat and valor.",
+        "keywords": "Dungeon Master Knight, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Dungeon_Master_Knight.html",
         "tags": [
-            "obby football",
-            "soccer 3d",
-            "obstacle",
-            "football"
+            "dungeon master knight",
+            "action",
+            "open front",
+            "browser game"
         ],
-        "iframeUrl": "https://html5.gamedistribution.com/7c03475573ec4a31b3926cc32b29bff1/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+        "iframeUrl": "https://html5.gamedistribution.com/0d06ebfcd29443a8a8f88420cc57544d/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
     },
     {
-        "id": "Marshmallow Rush",
-        "name": "Marshmallow Rush",
-        "imageUrl": "img/icon/Action/MarshmallowRush.jpg",
+        "id": "d0c31b0603f24b43b33e4b93d13d64bf",
+        "name": "Drunken Fighters",
+        "imageUrl": "https://img.gamedistribution.com/d0c31b0603f24b43b33e4b93d13d64bf-512x512.jpg",
         "gameType": "Action",
-        "rating": "4.0",
-        "description": "Marshmallow Rush is a fun action game where players help marshmallows escape through various obstacles. The game features colorful graphics, power-ups, and challenging levels. Players must guide the marshmallows to safety while avoiding hazards.",
-        "keywords": "Marshmallow Rush, action, arcade, fun",
-        "link": "Action/Marshmallow_Rush.html",
+        "rating": "4.5",
+        "description": "Are you ready for an adrenaline-filled fighting adventure? Step into the ring in Drunken Fighters' single-player mode and face opponents that will test your reflexes, or grab a friend and fight in two-player mode on the same device. Master ragdoll physics and boost the thrill with Funny Mod options: Stretch Kick, Stretch Punch, Big Punch, Super Punch, and Big Head or let Random Mode surprise you with chaos!",
+        "keywords": "Drunken Fighters, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Drunken_Fighters.html",
         "tags": [
-            "marshmallow rush",
+            "drunken fighters",
             "action",
-            "arcade",
-            "fun"
+            "open front",
+            "browser game"
         ],
-        "iframeUrl": "https://html5.gamedistribution.com/c68deacab2474d72adeb8a1d7fb23828/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+        "iframeUrl": "https://html5.gamedistribution.com/d0c31b0603f24b43b33e4b93d13d64bf/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+    },
+    {
+        "id": "b36bea78a87c40d896c663b899e96e60",
+        "name": "We Will Not Survive",
+        "imageUrl": "https://img.gamedistribution.com/b36bea78a87c40d896c663b899e96e60-512x512.jpg",
+        "gameType": "Action",
+        "rating": "4.6",
+        "description": "Survive the apocalypse in We Will Not Survive, an idle tower defense game! Upgrade weapons, harvest resources, and fight relentless zombie waves to protect your base. Are you ready to defend and thrive?",
+        "keywords": "We Will Not Survive, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/We_Will_Not_Survive.html",
+        "tags": [
+            "we will not survive",
+            "action",
+            "open front",
+            "browser game"
+        ],
+        "iframeUrl": "https://html5.gamedistribution.com/b36bea78a87c40d896c663b899e96e60/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+    },
+    {
+        "id": "5b5d6fb2a240493f8b6dd34cb798d612",
+        "name": "Panda Dash Auto Shooting",
+        "imageUrl": "https://img.gamedistribution.com/5b5d6fb2a240493f8b6dd34cb798d612-512x512.jpg",
+        "gameType": "Action",
+        "rating": "4.7",
+        "description": "Jump straight into explosive action with Panda Dash Auto Shooting! In this fast-paced side-scrolling shooting adventure, you guide a fearless panda warrior into chaotic arenas packed with endless zombie waves. Each battle throws you into intense combat where survival depends on positioning and strategy. Every round feels stronger, faster, and more thrilling than the last! Get ready, grab your gear, and dash into zombie chaos!",
+        "keywords": "Panda Dash Auto Shooting, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Panda_Dash_Auto_Shooting.html",
+        "tags": [
+            "panda dash auto shooting",
+            "action",
+            "open front",
+            "browser game"
+        ],
+        "iframeUrl": "https://html5.gamedistribution.com/5b5d6fb2a240493f8b6dd34cb798d612/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
+    },
+    {
+        "id": "0bd1e5d745554a4c9d1defd57dd91aa5",
+        "name": "Cars with Guns: Wasteland Showdown",
+        "imageUrl": "https://img.gamedistribution.com/0bd1e5d745554a4c9d1defd57dd91aa5-512x512.jpg",
+        "gameType": "Action",
+        "rating": "4.8",
+        "description": "Accept the challenge of the post-apocalyptic wasteland. Take on contracts, earn money and reputation, and collect valuable loot. Survival belongs to those with the fastest ride and the biggest gun.",
+        "keywords": "Cars with Guns: Wasteland Showdown, action, combat, platformer, brawler, open front, open front game, open front online, browser game",
+        "link": "Action/Cars_with_Guns_Wasteland_Showdown.html",
+        "tags": [
+            "cars with guns: wasteland showdown",
+            "action",
+            "open front",
+            "browser game"
+        ],
+        "iframeUrl": "https://html5.gamedistribution.com/0bd1e5d745554a4c9d1defd57dd91aa5/?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fcat-runner%2F"
     }
 ];
