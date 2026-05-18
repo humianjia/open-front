@@ -79,7 +79,7 @@
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3>All Games</h3>
-                    <p>55 Games</p>
+                    <p id="count-all">55 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -88,7 +88,7 @@
                         <i class="fas fa-fist-raised"></i>
                     </div>
                     <h3>Action</h3>
-                    <p>10 Games</p>
+                    <p id="count-action">10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -97,7 +97,7 @@
                         <i class="fas fa-skull"></i>
                     </div>
                     <h3>Battle</h3>
-                    <p>10 Games</p>
+                    <p id="count-battle-royale">10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -106,7 +106,7 @@
                         <i class="fas fa-crosshairs"></i>
                     </div>
                     <h3>Shooter</h3>
-                    <p>10 Games</p>
+                    <p id="count-fps">10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -115,7 +115,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Multiplayer</h3>
-                    <p>10 Games</p>
+                    <p id="count-multiplayer">10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
 
@@ -124,7 +124,7 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Sniper</h3>
-                    <p>10 Games</p>
+                    <p id="count-sniper">10 Games</p>
                     <span class="category-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
             </section>
@@ -159,6 +159,7 @@
     <script src="js/game_data/fps.js"></script>
     <script src="js/game_data/multiplayer.js"></script>
     <script src="js/game_data/sniper.js"></script>
+    <script src="js/game_data/gd_extra.js"></script>
     <!-- 主脚本 -->
     <script src="init.js"></script>
     <!-- 分类页面脚本 -->
@@ -181,13 +182,51 @@
 
         // 分类到数据的映射
         const categoryDataMap = {
-            'all': [...(window.gamesData || []), ...(window.actionGames || []), ...(window.battleRoyaleData || []), ...(window.fpsData || []), ...(window.multiplayerGames || []), ...(window.sniperData || [])],
-            'fps': window.fpsData || [],
-            'battle-royale': window.battleRoyaleData || [],
-            'sniper': window.sniperData || [],
-            'multiplayer': window.multiplayerGames || [],
-            'action': window.actionGames || []
+            'all': [...(window.gamesData || []), ...(window.actionGames || []), ...(window.battleRoyaleData || []), ...(window.fpsData || []), ...(window.multiplayerGames || []), ...(window.sniperData || []), ...(window.gdActionGames || []), ...(window.gdBattleRoyaleGames || []), ...(window.gdFpsGames || []), ...(window.gdMultiplayerGames || []), ...(window.gdSniperGames || [])],
+            'fps': [...(window.fpsData || []), ...(window.gdFpsGames || [])],
+            'battle-royale': [...(window.battleRoyaleData || []), ...(window.gdBattleRoyaleGames || [])],
+            'sniper': [...(window.sniperData || []), ...(window.gdSniperGames || [])],
+            'multiplayer': [...(window.multiplayerGames || []), ...(window.gdMultiplayerGames || [])],
+            'action': [...(window.actionGames || []), ...(window.gdActionGames || [])]
         };
+
+        function dedupeGames(games) {
+            const seen = new Set();
+            return (games || []).filter((game) => {
+                const id = String(game && game.id ? game.id : '').trim();
+                const name = String(game && game.name ? game.name : '').trim().toLowerCase();
+                const key = id || name;
+                if (!key || seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+        }
+
+        function updateCategoryCounts() {
+            const counts = {
+                all: dedupeGames(categoryDataMap.all).length,
+                action: dedupeGames(categoryDataMap.action).length,
+                'battle-royale': dedupeGames(categoryDataMap['battle-royale']).length,
+                fps: dedupeGames(categoryDataMap.fps).length,
+                multiplayer: dedupeGames(categoryDataMap.multiplayer).length,
+                sniper: dedupeGames(categoryDataMap.sniper).length
+            };
+
+            const nodes = {
+                all: document.getElementById('count-all'),
+                action: document.getElementById('count-action'),
+                'battle-royale': document.getElementById('count-battle-royale'),
+                fps: document.getElementById('count-fps'),
+                multiplayer: document.getElementById('count-multiplayer'),
+                sniper: document.getElementById('count-sniper')
+            };
+
+            Object.entries(nodes).forEach(([key, node]) => {
+                if (node) {
+                    node.textContent = `${counts[key]} Games`;
+                }
+            });
+        }
 
         function escapeSvgText(value) {
             return String(value || '')
@@ -248,6 +287,11 @@
                 sources.push(game.imageUrl);
             }
 
+            const iframeMatch = String(game && game.iframeUrl ? game.iframeUrl : '').match(/html5\.gamedistribution\.com\/([a-f0-9]{32})/i);
+            if (iframeMatch) {
+                sources.push(`https://img.gamedistribution.com/${iframeMatch[1]}-512x512.jpeg`);
+            }
+
             if (assetInfo.folder && assetInfo.baseName) {
                 fallbackExtensions.forEach((extension) => {
                     sources.push(`img/icon/${assetInfo.folder}/${assetInfo.baseName}.${extension}`);
@@ -266,7 +310,7 @@
             }
 
             let sourceIndex = 0;
-            img.referrerPolicy = 'no-referrer';
+            img.referrerPolicy = 'strict-origin-when-cross-origin';
             img.loading = 'lazy';
             img.decoding = 'async';
 
@@ -300,7 +344,7 @@
             titleElement.textContent = categoryName;
 
             // 根据真实分类数据获取游戏
-            const allGames = categoryDataMap[currentCategory] || [];
+            const allGames = dedupeGames(categoryDataMap[currentCategory] || []);
             console.log('Games loaded:', allGames.length, 'Games:', allGames);
 
             container.innerHTML = '';
@@ -359,6 +403,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // 延迟初始化，提高页面加载速度
             setTimeout(() => {
+                updateCategoryCounts();
                 loadGamesByCategory();
                 highlightCurrentCategory();
             }, 100);
