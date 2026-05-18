@@ -1,15 +1,15 @@
 var gamesData = [
     {
-        "id": "frontwars io",
-        "name": "Frontwars.io",
+        "id": "open front io",
+        "name": "open front",
         "imageUrl": "img/icon/frontwarsio.png",
         "gameType": "Index",
         "rating": "4.8",
-        "description": "FrontWars.io is a fast-paced multiplayer real-time strategy game where dozens of players battle for map dominance. Conquer territories, build cities, construct ports, and forge alliances. Victory comes when you control 72% of the map! Play for free on browser.",
-        "keywords": "frontwars io, frontwars io game, frontwars io strategy, frontwars io multiplayer, frontwars io online, frontwars io free, frontwars io browser, frontwars io play, frontwars io battle, frontwars io conquest, frontwars io war, frontwars io territory, frontwars io alliance, frontwars io multiplayer strategy, frontwars io .io games, frontwars io strategy game",
+        "description": "open front is a fast-paced multiplayer real-time strategy game where dozens of players battle for map dominance. Conquer territories, build cities, construct ports, and forge alliances. Victory comes when you control 72% of the map! Play for free on browser.",
+        "keywords": "open front io,open front io game,open front io strategy,open front io multiplayer,open front io online,open front io free,open front io browser,open front io play,open front io battle,open front io conquest,open front io war,open front io territory,open front io alliance,open front io multiplayer strategy,open front io .io games,open front io strategy game",
         "link": "index.html",
         "tags": [
-            "frontwars io",
+            "open front io",
             "strategy",
             "conquest",
             "multiplayer",
@@ -25,7 +25,7 @@ var gamesData = [
             "alliance system"
         ],
         "iframeUrl": "https://frontwars.io",
-        "gameplay": "FrontWars.io gameplay revolves around strategic territory expansion. Start with a small base, conquer adjacent territories, balance troops and workers, and build cities, ports, and defense posts. Form alliances, trade resources, and deploy naval forces and missiles to dominate the map.",
+        "gameplay": "open front gameplay revolves around strategic territory expansion. Start with a small base, conquer adjacent territories, balance troops and workers, and build cities, ports, and defense posts. Form alliances, trade resources, and deploy naval forces and missiles to dominate the map.",
         "gameModes": [
             "Free For All",
             "Alliance Mode",
