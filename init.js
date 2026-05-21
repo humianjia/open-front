@@ -114,6 +114,10 @@ function loadCategoryHighlights() {
 function loadGameById(gameId) {
     const game = getAllGames().find(g => g.id === gameId);
     if (game && game.link) {
+        if (window.openFrontI18n && typeof window.openFrontI18n.appendLangToUrl === 'function') {
+            window.location.href = window.openFrontI18n.appendLangToUrl(game.link, window.openFrontI18n.getLanguage());
+            return;
+        }
         window.location.href = game.link;
     }
 }

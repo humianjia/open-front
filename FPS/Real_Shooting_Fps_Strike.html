@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -105,7 +105,7 @@
             <a href="../terms-of-service.html">Terms of Service</a>
             <a href="../cookie-policy.html">Cookie Policy</a>
         </div>
-        <div class="footer-copyright">© 2024 open front - Free Online Strategy Games. All rights reserved.</div>
+        <div class="footer-copyright">漏 2024 open front - Free Online Strategy Games. All rights reserved.</div>
     </footer>
     <script src="../js/game_data/games.js"></script>
     <script src="../js/game_data/action.js"></script>
@@ -151,7 +151,7 @@
                 card.appendChild(title);
                 card.addEventListener('click', function() {
                     if (game.link) {
-                        window.location.href = '../' + game.link;
+                        window.location.href = (window.openFrontI18n && typeof window.openFrontI18n.appendLangToUrl === 'function' ? window.openFrontI18n.appendLangToUrl('../' + game.link, window.openFrontI18n.getLanguage()) : '../' + game.link);
                     }
                 });
                 container.appendChild(card);
@@ -197,5 +197,6 @@
             initCursorGlow();
         });
     </script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

@@ -110,6 +110,7 @@ const gamePageTemplate = `<!DOCTYPE html>
     <script src="../js/game_data/fps.js"></script>
     <script src="../js/game_data/multiplayer.js"></script>
     <script src="../js/game_data/sniper.js"></script>
+    <script src="../js/i18n.js"></script>
     <script>
         function shuffleArray(array) {
             const shuffled = [...array];

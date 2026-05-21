@@ -462,6 +462,7 @@ function renderPage(game, categoryMeta, pageFileName) {
     <script src="../js/game_data/multiplayer.js"></script>
     <script src="../js/game_data/sniper.js"></script>
     <script src="../js/game_data/gd_extra.js"></script>
+    <script src="../js/i18n.js"></script>
     <script>
         const currentGameId = ${JSON.stringify(game.id)};
         const currentGameLink = ${JSON.stringify(game.link)};

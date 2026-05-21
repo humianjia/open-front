@@ -5,25 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shell Strikers - Play Free Online | open front</title>
     <meta name="description" content="Shell Strikers is an exciting turn-based artillery combat game where strategy meets action. Lead your team of soldiers in intense battles across diverse battlefields including war-torn cities, scorching deserts, and peaceful meadows. Each turn, you must carefully aim your shots, account for wind conditions, and choose the right weapon from your arsenal. Available weapons include rockets, bombs, laser guns, airstrikes, and dynamite - each with unique properties and limited ammo. Play free on open front. No download required.">
-    <meta name="keywords" content="Shell Strikers, multiplayer, online, io, open front, open front game, open front online, browser game">
+    <meta name="keywords" content="Shell Strikers, Multiplayer, open front, browser game">
     <meta name="robots" content="index, follow">
     <meta name="author" content="open front">
     <link rel="canonical" href="https://openfront.space/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="en" href="https://openfront.space/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="fr" href="https://openfront.space/fr/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="ja" href="https://openfront.space/ja/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="pl" href="https://openfront.space/pl/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="nl-BE" href="https://openfront.space/nl-BE/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="de" href="https://openfront.space/de/Multiplayer/Shell_Strikers.html">
+    <link rel="alternate" hreflang="x-default" href="https://openfront.space/Multiplayer/Shell_Strikers.html">
     <meta property="og:title" content="Shell Strikers - Play Free Online | open front">
     <meta property="og:description" content="Shell Strikers is an exciting turn-based artillery combat game where strategy meets action. Lead your team of soldiers in intense battles across diverse battlefields including war-torn cities, scorching deserts, and peaceful meadows. Each turn, you must carefully aim your shots, account for wind conditions, and choose the right weapon from your arsenal. Available weapons include rockets, bombs, laser guns, airstrikes, and dynamite - each with unique properties and limited ammo. Play free on open front. No download required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://openfront.space/Multiplayer/Shell_Strikers.html">
-    <meta property="og:image" content="https://openfront.space/img/icon/Multiplayer/Shell_Strikers.jpg">
+    <meta property="og:image" content="/img/icon/Multiplayer/Shell_Strikers.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shell Strikers - Play Free Online | open front">
-    <meta name="twitter:description" content="Shell Strikers is an exciting turn-based artillery combat game where strategy meets action. Lead your team of soldiers in intense battles across diverse battlefields including war-torn cities, scorching deserts, and peaceful meadows. Each turn, you must carefully aim your shots, account for wind conditions, and choose the right weapon from your arsenal. Available weapons include rockets, bombs, laser guns, airstrikes, and dynamite - each with unique properties and limited ammo.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23ff6b35'/><stop offset='100%25' stop-color='%23f7c59f'/></linearGradient></defs><polygon points='25,5 45,40 5,40' fill='none' stroke='url(%23g)' stroke-width='3'/></svg>">
+    <meta name="twitter:description" content="Shell Strikers is an exciting turn-based artillery combat game where strategy meets action. Lead your team of soldiers in intense battles across diverse battlefields including war-torn cities, scorching deserts, and peaceful meadows. Each turn, you must carefully aim your shots, account for wind conditions, and choose the right weapon from your arsenal. Available weapons include rockets, bombs, laser guns, airstrikes, and dynamite - each with unique properties and limited ammo. Play free on open front. No download required.">
+    <meta name="twitter:image" content="/img/icon/Multiplayer/Shell_Strikers.jpg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../categories.css">
+    <style>
+        .language-switcher {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 9999;
+            display: flex;
+            gap: 6px;
+            padding: 6px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+        }
+        .language-switcher a {
+            border: 1px solid rgba(78, 204, 163, 0.22);
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.76);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .language-switcher a:hover {
+            color: #fff;
+            border-color: rgba(78, 204, 163, 0.48);
+            background: rgba(78, 204, 163, 0.18);
+        }
+        .language-switcher a.active {
+            color: #0f172a;
+            background: #4ecca3;
+            border-color: #4ecca3;
+        }
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                gap: 4px;
+                padding: 4px;
+            }
+            .language-switcher a {
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+        }
+        
+    </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="language-switcher"><a class="active" href="Shell_Strikers.html" hreflang="en">EN</a><a class="" href="../fr/Multiplayer/Shell_Strikers.html" hreflang="fr">FR</a><a class="" href="../ja/Multiplayer/Shell_Strikers.html" hreflang="ja">JP</a><a class="" href="../pl/Multiplayer/Shell_Strikers.html" hreflang="pl">PL</a><a class="" href="../nl-BE/Multiplayer/Shell_Strikers.html" hreflang="nl-BE">BE</a><a class="" href="../de/Multiplayer/Shell_Strikers.html" hreflang="de">DE</a></div>
     <header class="header">
         <a href="../index.html" class="logo">
             <svg class="logo-icon" viewBox="0 0 50 50" width="45" height="45">
@@ -40,14 +99,14 @@
             <span class="logo-text">open <span class="logo-io">front</span></span>
         </a>
         <nav class="nav-categories">
-            <a href="../categories.html?category=action" class="nav-item">Action</a>
-            <a href="../categories.html?category=battle-royale" class="nav-item">Battle</a>
-            <a href="../categories.html?category=fps" class="nav-item">Shooter</a>
-            <a href="../categories.html?category=multiplayer" class="nav-item">Multiplayer</a>
-            <a href="../categories.html?category=sniper" class="nav-item">Sniper</a>
+            <a href="../categories.html#action" class="nav-item">Action</a>
+            <a href="../categories.html#battle-royale" class="nav-item">Battle Royale</a>
+            <a href="../categories.html#fps" class="nav-item">Shooter</a>
+            <a href="../categories.html#multiplayer" class="nav-item">Multiplayer</a>
+            <a href="../categories.html#sniper" class="nav-item">Sniper</a>
         </nav>
         <div class="search-bar">
-            <input type="text" placeholder="Search games...">
+            <input type="text" placeholder="Search open front games...">
             <i class="fas fa-search"></i>
         </div>
     </header>
@@ -69,121 +128,116 @@
             </div>
             <div class="related-games">
                 <h3 class="section-title">More Open Front Games</h3>
-                <div class="games-grid" id="related-games-container"></div>
+                <div class="games-grid" id="related-games-container"><a class="game-card" href="../GD/multiplayer_2_Player_Dark_Racing_b16baebf.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/b16baebfbdf940bea578f31855d793c5-512x512.jpg" alt="2 Player Dark Racing" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">2 Player Dark Racing</div>
+    </a><a class="game-card" href="../GD/multiplayer_2_Player_Mini_Challenge_a2564c29.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/a2564c29f9444f44a44b897bb5151f8e-512x512.jpg" alt="2 Player Mini Challenge" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">2 Player Mini Challenge</div>
+    </a><a class="game-card" href="../GD/multiplayer_2_Player_Online_Chess_6c943823.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/6c943823fcb94f53a8a0c51f796736aa-512x512.jpg" alt="2 Player Online Chess" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">2 Player Online Chess</div>
+    </a><a class="game-card" href="../GD/multiplayer_2048_Mayhem.io_055561e9.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/055561e9c9da4e69b8a724d06500fdd6-512x512.jpg" alt="2048 Mayhem.io" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">2048 Mayhem.io</div>
+    </a><a class="game-card" href="../GD/multiplayer_Agents_io_9ef3636e.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/9ef3636ea95a4d2486dcfe05bc8393e1-512x512.jpg" alt="Agents io" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Agents io</div>
+    </a><a class="game-card" href="../GD/multiplayer_Barbara_Spy_Squad_Dress_up_5719c64f.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/5719c64ff6c544139183d1e96fd82b7c.jpg" alt="Barbara Spy Squad Dress up" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Barbara Spy Squad Dress up</div>
+    </a><a class="game-card" href="../GD/multiplayer_Brainrots_Lava_Survive_Online_f455a9ca.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/f455a9cabb9248e4ab807672ee11f05f-512x512.jpg" alt="Brainrots Lava Survive Online" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Brainrots Lava Survive Online</div>
+    </a><a class="game-card" href="../GD/multiplayer_Brave_Squad_163f2d49.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/163f2d4954aa48feb40009867a912ce9-512x512.jpeg" alt="Brave Squad" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Brave Squad</div>
+    </a><a class="game-card" href="../GD/multiplayer_Break_Bricks_2_Player_45c618f2.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/45c618f2716645959f118801d00539b4-512x512.jpeg" alt="Break Bricks 2 Player" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Break Bricks 2 Player</div>
+    </a><a class="game-card" href="../GD/multiplayer_College_Girls_Team_Makeover_90159007.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/90159007fdbb4e20a3e56e326057d606-512x512.jpeg" alt="College Girls Team Makeover" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">College Girls Team Makeover</div>
+    </a><a class="game-card" href="ColorWars.io.html" style="text-decoration:none;color:inherit;">
+        <img src="../img/icon/Multiplayer/ColorWars.io.jpg" alt="ColorWars.io" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">ColorWars.io</div>
+    </a><a class="game-card" href="ColorWars.io_-_Conquest_Game.html" style="text-decoration:none;color:inherit;">
+        <img src="../img/icon/Multiplayer/ColorWars.io_-_Conquest_Game.jpg" alt="ColorWars.io - Conquest Game" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">ColorWars.io - Conquest Game</div>
+    </a><a class="game-card" href="../GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/c49a084b24424b219b2ea20c94d5e4c4-512x512.jpeg" alt="Counter Combat Multiplayer" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Counter Combat Multiplayer</div>
+    </a><a class="game-card" href="../GD/multiplayer_Crazy_2_Player_Moto_Racing_a3aa13be.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/a3aa13bec4934ed39db9e3b7cbede84e-512x512.jpeg" alt="Crazy 2 Player Moto Racing" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Crazy 2 Player Moto Racing</div>
+    </a><a class="game-card" href="CS_Chaos_Squad.html" style="text-decoration:none;color:inherit;">
+        <img src="../img/icon/Multiplayer/CS_Chaos_Squad.jpg" alt="CS: Chaos Squad" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">CS: Chaos Squad</div>
+    </a><a class="game-card" href="../GD/multiplayer_Deadlock.io_185c34c3.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/185c34c36c434888a2e901336a799f39-512x512.jpg" alt="Deadlock.io" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Deadlock.io</div>
+    </a><a class="game-card" href="../GD/multiplayer_Dino_Squad_Adventure_efbf5513.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/efbf551300224469bb3cbb7576f380d7-512x512.jpeg" alt="Dino Squad Adventure" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Dino Squad Adventure</div>
+    </a><a class="game-card" href="../GD/multiplayer_Domino_Online_Multiplayer_028fba4e.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/028fba4ebbf242e4a90324c81a3a749f-512x512.jpg" alt="Domino Online Multiplayer" loading="lazy" onerror="this.onerror=null;this.src='../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Domino Online Multiplayer</div>
+    </a></div>
             </div>
             <div class="content-section">
                 <div class="game-info">
                     <div class="info-header">Play Shell Strikers instantly on open front.</div>
                     <div class="info-content">
-                        <h2>ABOUT SHELL STRIKERS</h2>
+                        <h2>About Shell Strikers</h2>
                         <p>Shell Strikers is an exciting turn-based artillery combat game where strategy meets action. Lead your team of soldiers in intense battles across diverse battlefields including war-torn cities, scorching deserts, and peaceful meadows. Each turn, you must carefully aim your shots, account for wind conditions, and choose the right weapon from your arsenal. Available weapons include rockets, bombs, laser guns, airstrikes, and dynamite - each with unique properties and limited ammo.</p>
                     </div>
-                    <div class="tags">
-                    <span class="tag"><i class="fas fa-tag"></i> OPEN FRONT</span>
-                    <span class="tag"><i class="fas fa-gamepad"></i> MULTIPLAYER</span>
-                    <span class="tag"><i class="fas fa-bolt"></i> BROWSER GAME</span>
-                    <span class="tag"><i class="fas fa-crosshairs"></i> Multiplayer MODE</span></div>
+                    <div class="tags"><span class="tag"><i class="fas fa-tag"></i> shell strikers</span><span class="tag"><i class="fas fa-gamepad"></i> multiplayer</span><span class="tag"><i class="fas fa-bolt"></i> open front</span><span class="tag"><i class="fas fa-crosshairs"></i> browser game</span></div>
                 </div>
             </div>
         </main>
     </div>
     <footer class="footer">
         <div class="footer-links">
-            <a href="../index.html">About open front</a>
-            <a href="../contact.html">Contact Us</a>
-            <a href="../privacy-policy.html">Privacy Policy</a>
-            <a href="../terms-of-service.html">Terms of Service</a>
+            <a href="index.html">About open front</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
         </div>
-        <div class="footer-copyright">© 2024 open front - Free Online Games. All rights reserved.</div>
+        <div class="footer-copyright">© 2024 open front - Free online strategy and browser games. All rights reserved.</div>
     </footer>
-    <script src="../js/game_data/games.js"></script>
-    <script src="../js/game_data/action.js"></script>
-    <script src="../js/game_data/battleRoyale.js"></script>
-    <script src="../js/game_data/fps.js"></script>
-    <script src="../js/game_data/multiplayer.js"></script>
-    <script src="../js/game_data/sniper.js"></script>
     <script>
-        function shuffleArray(array) {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        }
-
-        function loadRelatedGames() {
-            const container = document.getElementById('related-games-container');
-            if (!container) return;
-            const allGames = [
-                ...(window.gamesData || []),
-                ...(window.actionGames || []),
-                ...(window.battleRoyaleData || []),
-                ...(window.fpsData || []),
-                ...(window.multiplayerGames || []),
-                ...(window.sniperData || [])
-            ];
-            const shuffledGames = shuffleArray(allGames).slice(0, 18);
-            container.innerHTML = '';
-            shuffledGames.forEach((game) => {
-                const card = document.createElement('div');
-                card.className = 'game-card';
-                const img = document.createElement('img');
-                img.src = game.imageUrl.startsWith('img/') ? '../' + game.imageUrl : game.imageUrl;
-                img.alt = game.name;
-                img.onerror = function () { this.src = '../img/icon/veckIo.jpg'; };
-                const title = document.createElement('div');
-                title.className = 'game-card-title';
-                title.textContent = game.name;
-                card.appendChild(img);
-                card.appendChild(title);
-                card.addEventListener('click', function () {
-                    if (game.link) {
-                        window.location.href = '../' + game.link;
-                    }
-                });
-                container.appendChild(card);
-            });
-        }
-
         function toggleFullscreen() {
-            const iframe = document.getElementById('game-iframe');
+            var iframe = document.getElementById('game-iframe');
+            if (!iframe) return;
             if (document.fullscreenElement) {
                 document.exitFullscreen();
-            } else if (iframe && iframe.requestFullscreen) {
+            } else if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
             }
         }
-
-        function initParticles() {
-            const container = document.getElementById('particles');
-            if (!container) return;
-            for (let i = 0; i < 24; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                particle.style.width = (3 + Math.random() * 4) + 'px';
-                particle.style.height = particle.style.width;
-                container.appendChild(particle);
+        (function () {
+            var container = document.getElementById('particles');
+            if (container) {
+                for (var i = 0; i < 24; i++) {
+                    var particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particle.style.width = (3 + Math.random() * 4) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
+                }
             }
-        }
-
-        function initCursorGlow() {
-            const glow = document.getElementById('cursorGlow');
-            if (!glow) return;
-            document.addEventListener('mousemove', (e) => {
-                glow.style.left = e.clientX - 100 + 'px';
-                glow.style.top = e.clientY - 100 + 'px';
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadRelatedGames();
-            initParticles();
-            initCursorGlow();
-        });
+            var glow = document.getElementById('cursorGlow');
+            if (glow) {
+                document.addEventListener('mousemove', function (e) {
+                    glow.style.left = e.clientX - 100 + 'px';
+                    glow.style.top = e.clientY - 100 + 'px';
+                });
+            }
+        })();
     </script>
 </body>
 </html>
