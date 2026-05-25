@@ -3,4 +3,4 @@ Allow: /
 Disallow: /js/
 Disallow: /css/
 
-Sitemap: https://openfront.space/sitemap.xml
+Sitemap: https://www.openfront.space/sitemap.xml

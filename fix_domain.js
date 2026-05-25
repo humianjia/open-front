@@ -26,8 +26,8 @@ for (const file of htmlFiles) {
     let content = fs.readFileSync(file, 'utf-8');
     
     // 替换错误的canonical和og:url
-    content = content.replace(/canonical href="https:\/\/frontwarsio\.com\//g, 'canonical href="https://openfront.space/');
-    content = content.replace(/og:url" content="https:\/\/frontwarsio\.com\//g, 'og:url" content="https://openfront.space/');
+    content = content.replace(/canonical href="https:\/\/frontwarsio\.com\//g, 'canonical href="https://www.openfront.space/');
+    content = content.replace(/og:url" content="https:\/\/frontwarsio\.com\//g, 'og:url" content="https://www.openfront.space/');
     
     fs.writeFileSync(file, content);
     console.log(`Updated: ${file}`);

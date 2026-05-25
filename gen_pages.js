@@ -11,11 +11,11 @@ const gamePageTemplate = `<!DOCTYPE html>
     <meta name="keywords" content="GAME_KEYWORDS, open front, open front game, open front FPS, open front shooter">
     <meta name="robots" content="index, follow">
     <meta name="author" content="open front">
-    <link rel="canonical" href="https://openfront.space/">
+    <link rel="canonical" href="https://www.openfront.space/">
     <meta property="og:title" content="GAME_NAME - Play Free Online | open front">
     <meta property="og:description" content="GAME_DESCRIPTION Play GAME_NAME for free on open front!">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://openfront.space/">
+    <meta property="og:url" content="https://www.openfront.space/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GAME_NAME - Play Free Online | open front">
     <meta name="twitter:description" content="GAME_DESCRIPTION">

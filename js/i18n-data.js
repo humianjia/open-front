@@ -1221,7 +1221,7 @@ window.openFrontI18nData = {
                         "title": "Website",
                         "description": "Visit the official open front website.",
                         "linkText": "openfront.space",
-                        "href": "https://openfront.space"
+                        "href": "https://www.openfront.space"
                     }
                 ],
                 "responseTime": "We usually respond within 24 to 48 hours on business days.",
@@ -1300,7 +1300,7 @@ window.openFrontI18nData = {
                         "title": "\\nSite Web\\n",
                         "description": "\\nVisitez le site officiel open front site Web.\\n",
                         "linkText": "\\nopenfront.space\\n",
-                        "href": "\\nhttps://openfront.space\\n"
+                        "href": "\\nhttps://www.openfront.space\\n"
                     }
                 ],
                 "responseTime": "\\nNous répondons généralement dans les 24 à 48 heures pour les affaires. jours.\\n",
@@ -1379,7 +1379,7 @@ window.openFrontI18nData = {
                         "title": "ウェブサイト",
                         "description": "公式 open front ウェブサイトにアクセスしてください。",
                         "linkText": "__オープンフロント_スペース__",
-                        "href": "https://openfront.space"
+                        "href": "https://www.openfront.space"
                     }
                 ],
                 "responseTime": "通常、営業日の 24 ～ 48 時間以内に返信させていただきます。",
@@ -1458,7 +1458,7 @@ window.openFrontI18nData = {
                         "title": "Strona internetowa",
                         "description": "Odwiedź oficjalną stronę open front.",
                         "linkText": "openfront.space",
-                        "href": "https://openfront.space"
+                        "href": "https://www.openfront.space"
                     }
                 ],
                 "responseTime": "Zwykle odpowiadamy w ciągu 24 do 48 godzin w dni robocze.",
@@ -1537,7 +1537,7 @@ window.openFrontI18nData = {
                         "title": "Website",
                         "description": "Bezoek de officiële open front website.",
                         "linkText": "openfront.space",
-                        "href": "https://openfront.space"
+                        "href": "https://www.openfront.space"
                     }
                 ],
                 "responseTime": "Op werkdagen reageren wij doorgaans binnen 24 tot 48 uur.",
@@ -1616,7 +1616,7 @@ window.openFrontI18nData = {
                         "title": "Website",
                         "description": "Besuchen Sie die offizielle open front-Website.",
                         "linkText": "openfront.space",
-                        "href": "https://openfront.space"
+                        "href": "https://www.openfront.space"
                     }
                 ],
                 "responseTime": "An Werktagen antworten wir in der Regel innerhalb von 24 bis 48 Stunden.",

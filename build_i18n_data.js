@@ -197,7 +197,7 @@ const STATIC_SOURCE = {
                     title: 'Website',
                     description: 'Visit the official open front website.',
                     linkText: 'openfront.space',
-                    href: 'https://openfront.space'
+                    href: 'https://www.openfront.space'
                 }
             ],
             responseTime: 'We usually respond within 24 to 48 hours on business days.',

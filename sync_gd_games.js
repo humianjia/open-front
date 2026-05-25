@@ -196,7 +196,7 @@ function renderPage(game, categoryMeta, pageFileName, imageUrl) {
     const description = buildDescription(game.title, game.description, categoryMeta.folder);
     const metaDescription = `${description} Play free on open front. No download required.`;
     const keywords = buildKeywords(game.title, categoryMeta);
-    const canonical = `https://openfront.space/${categoryMeta.folder}/${pageFileName}`;
+    const canonical = `https://www.openfront.space/${categoryMeta.folder}/${pageFileName}`;
 
     const sectionCards = `
                     <span class="tag"><i class="fas fa-tag"></i> OPEN FRONT</span>
@@ -404,22 +404,22 @@ async function writeDataFile(categoryName, games) {
 
 async function updateSitemap(pagePaths) {
     const staticUrls = [
-        'https://openfront.space/',
-        'https://openfront.space/categories.html',
-        'https://openfront.space/categories.html?category=action',
-        'https://openfront.space/categories.html?category=battle-royale',
-        'https://openfront.space/categories.html?category=fps',
-        'https://openfront.space/categories.html?category=multiplayer',
-        'https://openfront.space/categories.html?category=sniper',
-        'https://openfront.space/privacy-policy.html',
-        'https://openfront.space/terms-of-service.html',
-        'https://openfront.space/contact.html',
-        'https://openfront.space/cookie-policy.html'
+        'https://www.openfront.space/',
+        'https://www.openfront.space/categories.html',
+        'https://www.openfront.space/categories.html?category=action',
+        'https://www.openfront.space/categories.html?category=battle-royale',
+        'https://www.openfront.space/categories.html?category=fps',
+        'https://www.openfront.space/categories.html?category=multiplayer',
+        'https://www.openfront.space/categories.html?category=sniper',
+        'https://www.openfront.space/privacy-policy.html',
+        'https://www.openfront.space/terms-of-service.html',
+        'https://www.openfront.space/contact.html',
+        'https://www.openfront.space/cookie-policy.html'
     ];
 
     const allUrls = [
         ...staticUrls,
-        ...pagePaths.map((relPath) => `https://openfront.space/${relPath.replace(/\\/g, '/')}`)
+        ...pagePaths.map((relPath) => `https://www.openfront.space/${relPath.replace(/\\/g, '/')}`)
     ];
 
     const lines = [

@@ -3,7 +3,7 @@ const path = require('path');
 const vm = require('vm');
 
 const ROOT = __dirname;
-const BASE_URL = 'https://openfront.space';
+const BASE_URL = 'https://www.openfront.space';
 
 const LANGS = {
     en: { dir: '', hreflang: 'en', htmlLang: 'en', label: 'EN' },

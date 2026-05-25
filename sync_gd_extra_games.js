@@ -354,7 +354,7 @@ async function collectCandidates(categoryMeta, existingIds, existingTitles, used
 function renderPage(game, categoryMeta, pageFileName) {
     const pageTitle = `${game.name} - Play Free Online | open front`;
     const metaDescription = `${buildDescription(game.name, game.description, categoryMeta.label)} Play free on open front. No download required.`;
-    const canonical = `https://openfront.space/${categoryMeta.folder}/${pageFileName}`;
+    const canonical = `https://www.openfront.space/${categoryMeta.folder}/${pageFileName}`;
 
     return `<!DOCTYPE html>
 <html lang="en">
