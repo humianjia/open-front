@@ -111,6 +111,20 @@ function sanitizeI18nText(value) {
     return text.replace(/\s+/g, ' ').trim();
 }
 
+function buildDetailMetaDescription(description, template) {
+    const cleanDescription = sanitizeI18nText(description || '');
+    const cleanTemplate = sanitizeI18nText(template || '{description}');
+    if (!cleanDescription) {
+        return cleanTemplate.replace('{description}', '').trim();
+    }
+
+    if (/Play .* no download required\.$/i.test(cleanDescription)) {
+        return cleanDescription;
+    }
+
+    return cleanTemplate.replace('{description}', cleanDescription);
+}
+
 function assetUrl(url) {
     const value = String(url || '').trim();
     if (!value) return value;
@@ -964,7 +978,7 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
     const aboutText = sanitizeI18nText((uiCopy.detail && uiCopy.detail.aboutTemplate) || 'About {name}').replace('{name}', gameCopy.name);
     const title = sanitizeI18nText((uiCopy.detail && uiCopy.detail.titleTemplate) || '{name} - Play Free Online | open front').replace('{name}', gameCopy.name);
     const descTemplate = sanitizeI18nText((uiCopy.detail && uiCopy.detail.metaDescriptionTemplate) || '{description} Play free on open front. No download required.');
-    const metaDescription = descTemplate.replace('{description}', sanitizeI18nText(gameCopy.description || baseGame.description || ''));
+    const metaDescription = buildDetailMetaDescription(gameCopy.description || baseGame.description || '', descTemplate);
     const keywords = [
         gameCopy.name,
         sanitizeI18nText(baseGame.gameType || ''),
