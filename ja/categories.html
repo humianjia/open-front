@@ -25,10 +25,12 @@
     <meta name="twitter:title" content="Open Front カテゴリー |アクション、シューティング、マルチプレイヤー、スナイパー ブラウザ ゲーム">
     <meta name="twitter:description" content="アクション、バトル ロイヤル、シューティング、マルチプレイヤー、スナイパー、ストラテジー ブラウザ ゲームの open front カテゴリを参照してください。">
     
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/css.css">
     <link rel="stylesheet" href="../categories.css">
+    
     <style>
         .language-switcher {
             position: fixed;
@@ -79,7 +81,7 @@
         
     </style>
 </head>
-<body>
+<body class="categories-page">
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="language-switcher"><a class="" href="../categories.html" hreflang="en">EN</a><a class="" href="../fr/categories.html" hreflang="fr">FR</a><a class="active" href="categories.html" hreflang="ja">JP</a><a class="" href="../pl/categories.html" hreflang="pl">PL</a><a class="" href="../nl-BE/categories.html" hreflang="nl-BE">BE</a><a class="" href="../de/categories.html" hreflang="de">DE</a></div>
@@ -3795,26 +3797,59 @@
     </footer>
     <script>
         (function () {
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
+            var particleBudget = reduceMotion ? 0 : (minimalEffects ? 0 : 10);
             var container = document.getElementById('particles');
+
             if (container) {
-                for (var i = 0; i < 24; i++) {
-                    var particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 20 + 's';
-                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                    particle.style.width = (3 + Math.random() * 4) + 'px';
-                    particle.style.height = particle.style.width;
-                    container.appendChild(particle);
+                if (particleBudget <= 0) {
+                    container.style.display = 'none';
+                } else {
+                    var fragment = document.createDocumentFragment();
+                    for (var i = 0; i < particleBudget; i++) {
+                        var particle = document.createElement('div');
+                        var size = 2 + Math.random() * 3;
+                        particle.className = 'particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 18 + 's';
+                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
+                        particle.style.width = size + 'px';
+                        particle.style.height = size + 'px';
+                        fragment.appendChild(particle);
+                    }
+                    container.appendChild(fragment);
                 }
             }
+
             var glow = document.getElementById('cursorGlow');
-            if (glow) {
-                document.addEventListener('mousemove', function (e) {
-                    glow.style.left = e.clientX - 100 + 'px';
-                    glow.style.top = e.clientY - 100 + 'px';
-                });
+            if (!glow || minimalEffects) {
+                if (glow) glow.style.display = 'none';
+                return;
             }
+
+            var halfSize = 150;
+            var rafId = 0;
+            var targetX = window.innerWidth * 0.5;
+            var targetY = window.innerHeight * 0.22;
+
+            var paint = function () {
+                rafId = 0;
+                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
+            };
+
+            document.addEventListener('mousemove', function (event) {
+                targetX = event.clientX;
+                targetY = event.clientY;
+                if (!rafId) {
+                    rafId = window.requestAnimationFrame(paint);
+                }
+            }, { passive: true });
+
+            paint();
         })();
     </script>
 </body>
