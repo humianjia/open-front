@@ -25,12 +25,13 @@
     <meta name="twitter:title" content="Action King: Draw Fight - 無料でオンラインでプレイ | open front">
     <meta name="twitter:description" content="Action King: Draw Fight でスリル満点のアクションを体験してください。関節を操作してキャラクターを操作し、敵の攻撃を回避し、反撃を開始します。さまざまな攻撃パターンをマスターして戦闘に勝利しましょう。挑戦する準備はできていますか?あなたのスキルを披露して、忘れられない冒険に参加してください。幸運を祈ります！ open front で無料でプレイできます。ダウンロードは必要ありません。">
     <meta name="twitter:image" content="https://img.gamedistribution.com/f8037e164d8c4e44af3bc1f326b48552-512x512.jpeg">
-    <link rel="preconnect" href="https://html5.gamedistribution.com" crossorigin>
-    <link rel="preconnect" href="https://img.gamedistribution.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/css.css">
-    
+    <link rel="stylesheet" href="../../categories.css">
     <link rel="stylesheet" href="../../css/detail.css">
     <style>
         .language-switcher {
@@ -43,7 +44,8 @@
             padding: 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
         .language-switcher a {
             border: 1px solid rgba(78, 204, 163, 0.22);
@@ -82,6 +84,8 @@
     </style>
 </head>
 <body class="detail-page theme-action">
+    <div class="particles" id="particles"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
     <div class="language-switcher"><a class="" href="../../GD/action_Action_King_Draw_Fight_f8037e16.html" hreflang="en">EN</a><a class="" href="../../fr/GD/action_Action_King_Draw_Fight_f8037e16.html" hreflang="fr">FR</a><a class="active" href="action_Action_King_Draw_Fight_f8037e16.html" hreflang="ja">JP</a><a class="" href="../../pl/GD/action_Action_King_Draw_Fight_f8037e16.html" hreflang="pl">PL</a><a class="" href="../../nl-BE/GD/action_Action_King_Draw_Fight_f8037e16.html" hreflang="nl-BE">BE</a><a class="" href="../../de/GD/action_Action_King_Draw_Fight_f8037e16.html" hreflang="de">DE</a></div>
     <header class="header">
         <a href="../index.html" class="logo">
@@ -174,7 +178,7 @@
                         </div>
                     </div>
                     <div class="game-frame detail-game-frame">
-                        <iframe id="game-iframe" data-src="https://html5.gamedistribution.com/f8037e164d8c4e44af3bc1f326b48552/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Action King: Draw Fight" loading="lazy" allowfullscreen></iframe>
+                        <iframe id="game-iframe" src="https://html5.gamedistribution.com/f8037e164d8c4e44af3bc1f326b48552/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Action King: Draw Fight" loading="lazy" allowfullscreen></iframe>
                     </div>
                     <div class="game-controls detail-game-controls">
                         <div class="detail-control-copy">
@@ -199,7 +203,7 @@
                     <div class="detail-mini-grid">
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">その他の Open Front ゲーム</span>
-                            <strong class="detail-mini-value">10 ゲーム</strong>
+                            <strong class="detail-mini-value">12 ゲーム</strong>
                         </div>
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">すべてのゲーム</span>
@@ -208,43 +212,48 @@
                     </div>
                 </aside>
             </section>
-            <section class="related-games detail-related-panel" id="detail-related-panel">
+            <section class="related-games detail-related-panel">
                 <div class="detail-section-head">
                     <h3 class="section-title">その他の Open Front ゲーム</h3>
-                    <span class="detail-section-count">10 ゲーム</span>
+                    <span class="detail-section-count">12 ゲーム</span>
                 </div>
-                <div class="games-grid detail-quick-grid" id="related-games-container"></div>
-                <template id="related-games-template"><a class="detail-quick-card" href="../Action/Bullet_Heroes.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Bullet Heroes</strong>
-    </a><a class="detail-quick-card" href="../Action/Cars_with_Guns_Wasteland_Showdown.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Cars with Guns: Wasteland Showdown</strong>
-    </a><a class="detail-quick-card" href="action_Drunken_Duel_6e95d1e1.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Drunken Duel</strong>
-    </a><a class="detail-quick-card" href="action_Drunken_Duel_2_c58e09fe.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Drunken Duel 2</strong>
-    </a><a class="detail-quick-card" href="../Action/Drunken_Fighters.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Drunken Fighters</strong>
-    </a><a class="detail-quick-card" href="../Action/Dungeon_Master_Knight.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Dungeon Master Knight</strong>
-    </a><a class="detail-quick-card" href="action_Martial_Arts_Fighter_Duel_1595d769.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Martial Arts: Fighter Duel</strong>
-    </a><a class="detail-quick-card" href="../Action/Mecha_Duel.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Mecha Duel</strong>
-    </a><a class="detail-quick-card" href="action_Mechanic_Master_Run_bc7213a9.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Mechanic Master Run</strong>
-    </a><a class="detail-quick-card" href="action_Ninja_d7bba08a.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">アクション</span>
-        <strong class="detail-quick-title">Ninja</strong>
-    </a></template>
+                <div class="games-grid" id="related-games-container"><a class="game-card" href="../Action/Bullet_Heroes.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/Action/Bullet_Heroes.jpg" alt="Bullet Heroes" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Bullet Heroes</div>
+    </a><a class="game-card" href="../Action/Cars_with_Guns_Wasteland_Showdown.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/Action/Cars_with_Guns_Wasteland_Showdown.jpg" alt="Cars with Guns: Wasteland Showdown" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Cars with Guns: Wasteland Showdown</div>
+    </a><a class="game-card" href="action_Drunken_Duel_6e95d1e1.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/6e95d1e18de748788305de9303bd1a99-512x512.jpg" alt="Drunken Duel" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Drunken Duel</div>
+    </a><a class="game-card" href="action_Drunken_Duel_2_c58e09fe.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/c58e09feb0b148519838e4c43545f849-512x512.jpeg" alt="Drunken Duel 2" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Drunken Duel 2</div>
+    </a><a class="game-card" href="../Action/Drunken_Fighters.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/Action/Drunken_Fighters.jpg" alt="Drunken Fighters" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Drunken Fighters</div>
+    </a><a class="game-card" href="../Action/Dungeon_Master_Knight.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/Action/Dungeon_Master_Knight.jpg" alt="Dungeon Master Knight" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Dungeon Master Knight</div>
+    </a><a class="game-card" href="action_Martial_Arts_Fighter_Duel_1595d769.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/1595d769da7540f0af5f3f9884227599-512x512.jpeg" alt="Martial Arts: Fighter Duel" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Martial Arts: Fighter Duel</div>
+    </a><a class="game-card" href="../Action/Mecha_Duel.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/Action/Mecha_Duel.jpg" alt="Mecha Duel" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Mecha Duel</div>
+    </a><a class="game-card" href="action_Mechanic_Master_Run_bc7213a9.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/bc7213a93c194c7484aa4821981b54c2-512x512.jpeg" alt="Mechanic Master Run" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Mechanic Master Run</div>
+    </a><a class="game-card" href="action_Ninja_d7bba08a.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/d7bba08af8b944c2ab0a009bdd633a6c-512x512.jpeg" alt="Ninja" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Ninja</div>
+    </a><a class="game-card" href="action_Ninja_dash_Cozy_tactic_puzzle_096146cf.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/096146cf258d4000a0ac904766059294-512x512.jpg" alt="Ninja dash Cozy tactic puzzle" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Ninja dash Cozy tactic puzzle</div>
+    </a><a class="game-card" href="action_Ninja_Rian_Adventure_21d96a8d.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/21d96a8d362d4d9a8d210ed6c4903ace-512x512.jpeg" alt="Ninja Rian Adventure" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Ninja Rian Adventure</div>
+    </a></div>
             </section>
         </main>
     </div>
@@ -268,66 +277,63 @@
                 iframe.requestFullscreen();
             }
         }
-
-        function bootDetailIframe() {
-            var iframe = document.getElementById('game-iframe');
-            if (!iframe || iframe.getAttribute('src')) return;
-            var src = iframe.getAttribute('data-src');
-            if (src) {
-                iframe.setAttribute('src', src);
-            }
-        }
-
-        function mountRelatedGames() {
-            var container = document.getElementById('related-games-container');
-            var template = document.getElementById('related-games-template');
-            if (!container || !template || container.childElementCount) return;
-            container.appendChild(template.content.cloneNode(true));
-        }
-
+    </script>
+    <script>
         (function () {
-            var panel = document.getElementById('detail-related-panel');
-            var mounted = false;
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
+            var particleBudget = reduceMotion ? 0 : (minimalEffects ? 0 : 10);
+            var container = document.getElementById('particles');
 
-            function scheduleMount() {
-                if (mounted) return;
-                mounted = true;
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(mountRelatedGames, { timeout: 1500 });
+            if (container) {
+                if (particleBudget <= 0) {
+                    container.style.display = 'none';
                 } else {
-                    setTimeout(mountRelatedGames, 300);
-                }
-            }
-
-            if (panel && 'IntersectionObserver' in window) {
-                var observer = new IntersectionObserver(function (entries) {
-                    if (entries.some(function (entry) { return entry.isIntersecting; })) {
-                        observer.disconnect();
-                        scheduleMount();
+                    var fragment = document.createDocumentFragment();
+                    for (var i = 0; i < particleBudget; i++) {
+                        var particle = document.createElement('div');
+                        var size = 2 + Math.random() * 3;
+                        particle.className = 'particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 18 + 's';
+                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
+                        particle.style.width = size + 'px';
+                        particle.style.height = size + 'px';
+                        fragment.appendChild(particle);
                     }
-                }, { rootMargin: '240px 0px' });
-                observer.observe(panel);
-            } else {
-                window.addEventListener('load', scheduleMount, { once: true });
-            }
-        })();
-
-        (function () {
-            function scheduleIframeBoot() {
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(bootDetailIframe, { timeout: 1800 });
-                } else {
-                    setTimeout(bootDetailIframe, 260);
+                    container.appendChild(fragment);
                 }
             }
 
-            if (document.readyState === 'complete') {
-                scheduleIframeBoot();
-            } else {
-                window.addEventListener('load', scheduleIframeBoot, { once: true });
+            var glow = document.getElementById('cursorGlow');
+            if (!glow || minimalEffects) {
+                if (glow) glow.style.display = 'none';
+                return;
             }
+
+            var halfSize = 140;
+            var rafId = 0;
+            var targetX = window.innerWidth * 0.5;
+            var targetY = window.innerHeight * 0.22;
+
+            var paint = function () {
+                rafId = 0;
+                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
+            };
+
+            document.addEventListener('mousemove', function (event) {
+                targetX = event.clientX;
+                targetY = event.clientY;
+                if (!rafId) {
+                    rafId = window.requestAnimationFrame(paint);
+                }
+            }, { passive: true });
+
+            paint();
         })();
     </script>
-    
 </body>
 </html>

@@ -25,12 +25,13 @@
     <meta name="twitter:title" content="Dead City : Zombie Shooter - Zagraj w darmowe gry online | open front">
     <meta name="twitter:description" content="Przygotuj się już teraz na jedną z najlepszych strzelanek snajperskich FPS! Czas się przygotować i wejść do apokaliptycznego pustkowia w Last Hope. Zombie, najeźdźcy i zabójczy wrogowie przemierzają pustkowia po całym świecie. Ratuj ocalałych i zabijaj, aby pozostać przy życiu. Tylko Ty możesz ocalić świat w tej opartej na fabule strzelance FPS. Zagraj za darmo na open front. Nie wymaga pobierania.">
     <meta name="twitter:image" content="https://img.gamedistribution.com/c3d70145df5f43cfa524cd817004e147-512x512.jpeg">
-    <link rel="preconnect" href="https://html5.gamedistribution.com" crossorigin>
-    <link rel="preconnect" href="https://img.gamedistribution.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/css.css">
-    
+    <link rel="stylesheet" href="../../categories.css">
     <link rel="stylesheet" href="../../css/detail.css">
     <style>
         .language-switcher {
@@ -43,7 +44,8 @@
             padding: 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
         .language-switcher a {
             border: 1px solid rgba(78, 204, 163, 0.22);
@@ -82,6 +84,8 @@
     </style>
 </head>
 <body class="detail-page theme-fps">
+    <div class="particles" id="particles"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
     <div class="language-switcher"><a class="" href="../../GD/fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="en">EN</a><a class="" href="../../fr/GD/fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="fr">FR</a><a class="" href="../../ja/GD/fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="ja">JP</a><a class="active" href="fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="pl">PL</a><a class="" href="../../nl-BE/GD/fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="nl-BE">BE</a><a class="" href="../../de/GD/fps_Dead_City_Zombie_Shooter_c3d70145.html" hreflang="de">DE</a></div>
     <header class="header">
         <a href="../index.html" class="logo">
@@ -174,7 +178,7 @@
                         </div>
                     </div>
                     <div class="game-frame detail-game-frame">
-                        <iframe id="game-iframe" data-src="https://html5.gamedistribution.com/c3d70145df5f43cfa524cd817004e147/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Dead City : Zombie Shooter" loading="lazy" allowfullscreen></iframe>
+                        <iframe id="game-iframe" src="https://html5.gamedistribution.com/c3d70145df5f43cfa524cd817004e147/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Dead City : Zombie Shooter" loading="lazy" allowfullscreen></iframe>
                     </div>
                     <div class="game-controls detail-game-controls">
                         <div class="detail-control-copy">
@@ -199,7 +203,7 @@
                     <div class="detail-mini-grid">
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">Więcej Open Front gier</span>
-                            <strong class="detail-mini-value">10 gier</strong>
+                            <strong class="detail-mini-value">12 gier</strong>
                         </div>
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">Wszystkie gry</span>
@@ -208,43 +212,48 @@
                     </div>
                 </aside>
             </section>
-            <section class="related-games detail-related-panel" id="detail-related-panel">
+            <section class="related-games detail-related-panel">
                 <div class="detail-section-head">
                     <h3 class="section-title">Więcej Open Front gier</h3>
-                    <span class="detail-section-count">10 gier</span>
+                    <span class="detail-section-count">12 gier</span>
                 </div>
-                <div class="games-grid detail-quick-grid" id="related-games-container"></div>
-                <template id="related-games-template"><a class="detail-quick-card" href="fps_3D_FPS_Target_Shooting_75a87aa8.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">3D FPS Target Shooting</strong>
-    </a><a class="detail-quick-card" href="fps_Blockapolypse_Zombie_Shooter_827331e3.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">Blockapolypse Zombie Shooter</strong>
-    </a><a class="detail-quick-card" href="fps_CS_War_Gun_King_FPS_f29a502f.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">CS War Gun King FPS</strong>
-    </a><a class="detail-quick-card" href="fps_Dead_Target_Zombie_Shooter_b340afba.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">Dead Target Zombie Shooter</strong>
-    </a><a class="detail-quick-card" href="fps_EG_Zombie_Shooter_d7a2083b.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">EG Zombie Shooter</strong>
-    </a><a class="detail-quick-card" href="fps_FPS_Assault_Shooter_0eb473da.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">FPS Assault Shooter</strong>
-    </a><a class="detail-quick-card" href="fps_FPS_Shooter_3D_City_Wars_08e88c3f.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">FPS Shooter 3D City Wars</strong>
-    </a><a class="detail-quick-card" href="fps_FPS_Shooting_Strike_Modern_Combat_War_2k20_f7f0ad06.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">FPS Shooting Strike : Modern Combat War 2k20</strong>
-    </a><a class="detail-quick-card" href="fps_FPS_Sniper_Shooter_Battle_Survival_f8c5baef.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">FPS Sniper Shooter: Battle Survival</strong>
-    </a><a class="detail-quick-card" href="../FPS/Get_To_The_Chopper.html" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">Strzelec</span>
-        <strong class="detail-quick-title">Get To The Chopper</strong>
-    </a></template>
+                <div class="games-grid" id="related-games-container"><a class="game-card" href="fps_3D_FPS_Target_Shooting_75a87aa8.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/75a87aa8fd5a47bf9abb24f0b20488e7-512x512.jpg" alt="3D FPS Target Shooting" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">3D FPS Target Shooting</div>
+    </a><a class="game-card" href="fps_Blockapolypse_Zombie_Shooter_827331e3.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/827331e3831541baa8ee51d63d6ceec2-512x512.jpg" alt="Blockapolypse Zombie Shooter" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Blockapolypse Zombie Shooter</div>
+    </a><a class="game-card" href="fps_CS_War_Gun_King_FPS_f29a502f.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/f29a502f781449489e9771112f61d907-512x512.jpeg" alt="CS War Gun King FPS" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">CS War Gun King FPS</div>
+    </a><a class="game-card" href="fps_Dead_Target_Zombie_Shooter_b340afba.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/b340afba827d473db55262fc7a9fa3f0-512x512.jpeg" alt="Dead Target Zombie Shooter" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Dead Target Zombie Shooter</div>
+    </a><a class="game-card" href="fps_EG_Zombie_Shooter_d7a2083b.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/d7a2083b81ea4d24beddb2632c6d5d1f-512x384.jpeg" alt="EG Zombie Shooter" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">EG Zombie Shooter</div>
+    </a><a class="game-card" href="fps_FPS_Assault_Shooter_0eb473da.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/0eb473da1c0546f39e348d83219db5e7-512x512.jpeg" alt="FPS Assault Shooter" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">FPS Assault Shooter</div>
+    </a><a class="game-card" href="fps_FPS_Shooter_3D_City_Wars_08e88c3f.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/08e88c3fb875479488c5ed76aa5da40d-512x512.jpeg" alt="FPS Shooter 3D City Wars" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">FPS Shooter 3D City Wars</div>
+    </a><a class="game-card" href="fps_FPS_Shooting_Strike_Modern_Combat_War_2k20_f7f0ad06.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/f7f0ad0613b142f6a3ab06ca1dfc8e5e-512x512.jpeg" alt="FPS Shooting Strike : Modern Combat War 2k20" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">FPS Shooting Strike : Modern Combat War 2k20</div>
+    </a><a class="game-card" href="fps_FPS_Sniper_Shooter_Battle_Survival_f8c5baef.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/f8c5baef6b0d4a4db11dbe3fa72ff93e-512x512.jpg" alt="FPS Sniper Shooter: Battle Survival" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">FPS Sniper Shooter: Battle Survival</div>
+    </a><a class="game-card" href="../FPS/Get_To_The_Chopper.html" style="text-decoration:none;color:inherit;">
+        <img src="../../img/icon/FPS/Get_To_The_Chopper.jpg" alt="Get To The Chopper" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Get To The Chopper</div>
+    </a><a class="game-card" href="fps_Merge_Gun_Fps_Shooting_Zombie_a299af92.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/a299af92e23148ae8cc80731ca3fb229-512x512.jpg" alt="Merge Gun Fps Shooting Zombie" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Merge Gun Fps Shooting Zombie</div>
+    </a><a class="game-card" href="fps_Mine_FPS_shooter_Noob_Arena_59120d9d.html" style="text-decoration:none;color:inherit;">
+        <img src="https://img.gamedistribution.com/59120d9d755c41beb2f00bb73737cd70-512x512.jpg" alt="Mine FPS shooter: Noob Arena" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
+        <div class="game-card-title">Mine FPS shooter: Noob Arena</div>
+    </a></div>
             </section>
         </main>
     </div>
@@ -268,66 +277,63 @@
                 iframe.requestFullscreen();
             }
         }
-
-        function bootDetailIframe() {
-            var iframe = document.getElementById('game-iframe');
-            if (!iframe || iframe.getAttribute('src')) return;
-            var src = iframe.getAttribute('data-src');
-            if (src) {
-                iframe.setAttribute('src', src);
-            }
-        }
-
-        function mountRelatedGames() {
-            var container = document.getElementById('related-games-container');
-            var template = document.getElementById('related-games-template');
-            if (!container || !template || container.childElementCount) return;
-            container.appendChild(template.content.cloneNode(true));
-        }
-
+    </script>
+    <script>
         (function () {
-            var panel = document.getElementById('detail-related-panel');
-            var mounted = false;
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
+            var particleBudget = reduceMotion ? 0 : (minimalEffects ? 0 : 10);
+            var container = document.getElementById('particles');
 
-            function scheduleMount() {
-                if (mounted) return;
-                mounted = true;
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(mountRelatedGames, { timeout: 1500 });
+            if (container) {
+                if (particleBudget <= 0) {
+                    container.style.display = 'none';
                 } else {
-                    setTimeout(mountRelatedGames, 300);
-                }
-            }
-
-            if (panel && 'IntersectionObserver' in window) {
-                var observer = new IntersectionObserver(function (entries) {
-                    if (entries.some(function (entry) { return entry.isIntersecting; })) {
-                        observer.disconnect();
-                        scheduleMount();
+                    var fragment = document.createDocumentFragment();
+                    for (var i = 0; i < particleBudget; i++) {
+                        var particle = document.createElement('div');
+                        var size = 2 + Math.random() * 3;
+                        particle.className = 'particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 18 + 's';
+                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
+                        particle.style.width = size + 'px';
+                        particle.style.height = size + 'px';
+                        fragment.appendChild(particle);
                     }
-                }, { rootMargin: '240px 0px' });
-                observer.observe(panel);
-            } else {
-                window.addEventListener('load', scheduleMount, { once: true });
-            }
-        })();
-
-        (function () {
-            function scheduleIframeBoot() {
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(bootDetailIframe, { timeout: 1800 });
-                } else {
-                    setTimeout(bootDetailIframe, 260);
+                    container.appendChild(fragment);
                 }
             }
 
-            if (document.readyState === 'complete') {
-                scheduleIframeBoot();
-            } else {
-                window.addEventListener('load', scheduleIframeBoot, { once: true });
+            var glow = document.getElementById('cursorGlow');
+            if (!glow || minimalEffects) {
+                if (glow) glow.style.display = 'none';
+                return;
             }
+
+            var halfSize = 140;
+            var rafId = 0;
+            var targetX = window.innerWidth * 0.5;
+            var targetY = window.innerHeight * 0.22;
+
+            var paint = function () {
+                rafId = 0;
+                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
+            };
+
+            document.addEventListener('mousemove', function (event) {
+                targetX = event.clientX;
+                targetY = event.clientY;
+                if (!rafId) {
+                    rafId = window.requestAnimationFrame(paint);
+                }
+            }, { passive: true });
+
+            paint();
         })();
     </script>
-    
 </body>
 </html>

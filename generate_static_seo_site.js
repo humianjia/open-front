@@ -285,7 +285,8 @@ function getCommonHead({ langKey, relPath, title, description, keywords, image, 
             padding: 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
         .language-switcher a {
             border: 1px solid rgba(78, 204, 163, 0.22);
@@ -542,17 +543,8 @@ function buildGameCard(game, langKey, fromRelPath = 'index.html') {
     const image = relativeResourceUrl(langKey, fromRelPath, game.imageUrl || '/img/icon/veckIo.jpg');
     const fallback = relativeResourceUrl(langKey, fromRelPath, '/img/icon/veckIo.jpg');
     return `<a class="game-card" href="${href}" style="text-decoration:none;color:inherit;">
-        <img src="${escapeAttr(image)}" alt="${escapeAttr(game.name)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${escapeAttr(fallback)}'">
+        <img src="${escapeAttr(image)}" alt="${escapeAttr(game.name)}" loading="lazy" onerror="this.onerror=null;this.src='${escapeAttr(fallback)}'">
         <div class="game-card-title">${escapeHtml(game.name)}</div>
-    </a>`;
-}
-
-function buildCompactGameCard(game, langKey, uiCopy, fromRelPath = 'index.html') {
-    const href = relativePageUrl(langKey, fromRelPath, langKey, game.link);
-    const categoryLabel = getCategoryLabel(uiCopy, categoryKeyFromGame(game));
-    return `<a class="detail-quick-card" href="${href}" style="text-decoration:none;color:inherit;">
-        <span class="detail-quick-type">${escapeHtml(categoryLabel)}</span>
-        <strong class="detail-quick-title">${escapeHtml(game.name)}</strong>
     </a>`;
 }
 
@@ -577,11 +569,6 @@ function buildCategoryItem(game, langKey, categoryLabel, fromRelPath = 'index.ht
 }
 
 function getAmbientEffectsScript({ desktopParticles = 16, mobileParticles = 0, glowSize = 300 } = {}) {
-    const safeGlowSize = Math.max(0, glowSize);
-    if (desktopParticles <= 0 && mobileParticles <= 0 && safeGlowSize <= 0) {
-        return '';
-    }
-
     return `<script>
         (function () {
             var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -613,12 +600,12 @@ function getAmbientEffectsScript({ desktopParticles = 16, mobileParticles = 0, g
             }
 
             var glow = document.getElementById('cursorGlow');
-            if (!glow || minimalEffects || ${safeGlowSize} <= 0) {
+            if (!glow || minimalEffects) {
                 if (glow) glow.style.display = 'none';
                 return;
             }
 
-            var halfSize = ${Math.round(safeGlowSize / 2)};
+            var halfSize = ${Math.round(glowSize / 2)};
             var rafId = 0;
             var targetX = window.innerWidth * 0.5;
             var targetY = window.innerHeight * 0.22;
@@ -1174,8 +1161,8 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
         'open front',
         'browser game'
     ].filter(Boolean).join(', ');
-    const relatedGames = sortRelatedGames(baseGames, baseGame, 10);
-    const relatedCards = relatedGames.map((game) => buildCompactGameCard(game, langKey, uiCopy, relPath)).join('');
+    const relatedGames = sortRelatedGames(baseGames, baseGame, 12);
+    const relatedCards = relatedGames.map((game) => buildGameCard(game, langKey, relPath)).join('');
     const relatedCountText = buildCountLabel(uiCopy, relatedGames.length);
     const totalGamesText = buildCountLabel(uiCopy, baseGames.length);
     const playFreeLabel = sanitizeI18nText(uiCopy.playFreeOnline || 'Play free online');
@@ -1208,8 +1195,9 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
         const icon = icons[index] || 'tag';
         return `<span class="tag"><i class="fas fa-${icon}"></i> ${escapeHtml(sanitizeI18nText(tag))}</span>`;
     }).join('');
-    const extraHead = `<link rel="preconnect" href="https://html5.gamedistribution.com" crossorigin>
-    <link rel="preconnect" href="https://img.gamedistribution.com" crossorigin>`;
+    const extraHead = `<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">`;
 
     return `${getCommonHead({
         langKey,
@@ -1219,9 +1207,12 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
         keywords,
         image: assetUrl(gameCopy.imageUrl || baseGame.imageUrl),
         extraHead,
+        includeCategoriesCss: true,
         extraStylesheets: ['/css/detail.css']
     })}
 <body class="detail-page theme-${detailTheme.key}">
+    <div class="particles" id="particles"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
     ${getLanguageSwitcherHtml(langKey, relPath)}
     <header class="header">
         <a href="${relativePageUrl(langKey, relPath, langKey, '')}" class="logo">
@@ -1305,7 +1296,7 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
                         </div>
                     </div>
                     <div class="game-frame detail-game-frame">
-                        <iframe id="game-iframe" data-src="${escapeAttr(gameCopy.iframeUrl || baseGame.iframeUrl || '')}" title="${escapeAttr(gameCopy.name)}" loading="lazy" allowfullscreen></iframe>
+                        <iframe id="game-iframe" src="${escapeAttr(gameCopy.iframeUrl || baseGame.iframeUrl || '')}" title="${escapeAttr(gameCopy.name)}" loading="lazy" allowfullscreen></iframe>
                     </div>
                     <div class="game-controls detail-game-controls">
                         <div class="detail-control-copy">
@@ -1339,13 +1330,12 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
                     </div>
                 </aside>
             </section>
-            <section class="related-games detail-related-panel" id="detail-related-panel">
+            <section class="related-games detail-related-panel">
                 <div class="detail-section-head">
                     <h3 class="section-title">${escapeHtml(relatedTitle)}</h3>
                     <span class="detail-section-count">${escapeHtml(relatedCountText)}</span>
                 </div>
-                <div class="games-grid detail-quick-grid" id="related-games-container"></div>
-                <template id="related-games-template">${relatedCards}</template>
+                <div class="games-grid" id="related-games-container">${relatedCards}</div>
             </section>
         </main>
     </div>
@@ -1360,67 +1350,8 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
                 iframe.requestFullscreen();
             }
         }
-
-        function bootDetailIframe() {
-            var iframe = document.getElementById('game-iframe');
-            if (!iframe || iframe.getAttribute('src')) return;
-            var src = iframe.getAttribute('data-src');
-            if (src) {
-                iframe.setAttribute('src', src);
-            }
-        }
-
-        function mountRelatedGames() {
-            var container = document.getElementById('related-games-container');
-            var template = document.getElementById('related-games-template');
-            if (!container || !template || container.childElementCount) return;
-            container.appendChild(template.content.cloneNode(true));
-        }
-
-        (function () {
-            var panel = document.getElementById('detail-related-panel');
-            var mounted = false;
-
-            function scheduleMount() {
-                if (mounted) return;
-                mounted = true;
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(mountRelatedGames, { timeout: 1500 });
-                } else {
-                    setTimeout(mountRelatedGames, 300);
-                }
-            }
-
-            if (panel && 'IntersectionObserver' in window) {
-                var observer = new IntersectionObserver(function (entries) {
-                    if (entries.some(function (entry) { return entry.isIntersecting; })) {
-                        observer.disconnect();
-                        scheduleMount();
-                    }
-                }, { rootMargin: '240px 0px' });
-                observer.observe(panel);
-            } else {
-                window.addEventListener('load', scheduleMount, { once: true });
-            }
-        })();
-
-        (function () {
-            function scheduleIframeBoot() {
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(bootDetailIframe, { timeout: 1800 });
-                } else {
-                    setTimeout(bootDetailIframe, 260);
-                }
-            }
-
-            if (document.readyState === 'complete') {
-                scheduleIframeBoot();
-            } else {
-                window.addEventListener('load', scheduleIframeBoot, { once: true });
-            }
-        })();
     </script>
-    ${getAmbientEffectsScript({ desktopParticles: 0, mobileParticles: 0, glowSize: 0 })}
+    ${getAmbientEffectsScript({ desktopParticles: 10, mobileParticles: 0, glowSize: 280 })}
 </body>
 </html>`;
 }

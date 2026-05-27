@@ -44,7 +44,8 @@
             padding: 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
         .language-switcher a {
             border: 1px solid rgba(78, 204, 163, 0.22);
@@ -418,7 +419,7 @@
             }
 
             var glow = document.getElementById('cursorGlow');
-            if (!glow || minimalEffects || 320 <= 0) {
+            if (!glow || minimalEffects) {
                 if (glow) glow.style.display = 'none';
                 return;
             }
