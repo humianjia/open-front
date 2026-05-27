@@ -25,13 +25,12 @@
     <meta name="twitter:title" content="Counter Combat Multiplayer - Zagraj w darmowe gry online | open front">
     <meta name="twitter:description" content="Counter Terrorist Multiplayer to internetowa gra FPS, która przetestuje Twoje umiejętności. Przeciwdziałaj drużynie Swat przeciwko współczesnemu terrorystowi, walczysz z krytyczną grą wojenną, rozbrajasz bombę terrorysty. Walcz ze znajomymi, stwórz drużynę i pokaż swoje umiejętności, prowadząc indywidualną tablicę wyników. Zorganizujemy turniej. Dołącz do bojowych przenośnych fpsów! Zadzwoń do znajomych i zaproś ich na pole bitwy, aby pełnili obowiązki przywódcy. Funkcje * Stworzyliśmy 22 mapy CS w grze. * Przerabiamy modele i zmieniamy menu, interfejs lobby. * Wykonaliśmy nową broń: pistolety, maszyny podrzędne, maszyny ciężkie, snajperskie, awp. * Wprowadziliśmy tryby rozbrajania bomb, deathmatchu drużynowego i deathmatchu. Dodamy nowe mody :) * Stworzyliśmy system nagrywania wideo w grze. Możesz nagrać wideo z rozgrywki i opublikować je na Youtube, Facebooku. * Nowoczesna grafika wysokiej jakości * Najpopularniejsze bronie Desert Eagle, AWP, Knife, M4a1, mp5 itp. * Unikalne dźwięki i muzyka Zagraj za darmo na open front. Nie wymaga pobierania.">
     <meta name="twitter:image" content="https://img.gamedistribution.com/c49a084b24424b219b2ea20c94d5e4c4-512x512.jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://html5.gamedistribution.com" crossorigin>
+    <link rel="preconnect" href="https://img.gamedistribution.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/css.css">
-    <link rel="stylesheet" href="../../categories.css">
+    
     <link rel="stylesheet" href="../../css/detail.css">
     <style>
         .language-switcher {
@@ -44,8 +43,7 @@
             padding: 6px;
             border-radius: 999px;
             background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(16px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
         }
         .language-switcher a {
             border: 1px solid rgba(78, 204, 163, 0.22);
@@ -84,8 +82,6 @@
     </style>
 </head>
 <body class="detail-page theme-multiplayer">
-    <div class="particles" id="particles"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
     <div class="language-switcher"><a class="" href="../../GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="en">EN</a><a class="" href="../../fr/GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="fr">FR</a><a class="" href="../../ja/GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="ja">JP</a><a class="active" href="multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="pl">PL</a><a class="" href="../../nl-BE/GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="nl-BE">BE</a><a class="" href="../../de/GD/multiplayer_Counter_Combat_Multiplayer_c49a084b.html" hreflang="de">DE</a></div>
     <header class="header">
         <a href="../index.html" class="logo">
@@ -178,7 +174,7 @@
                         </div>
                     </div>
                     <div class="game-frame detail-game-frame">
-                        <iframe id="game-iframe" src="https://html5.gamedistribution.com/c49a084b24424b219b2ea20c94d5e4c4/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Counter Combat Multiplayer" loading="lazy" allowfullscreen></iframe>
+                        <iframe id="game-iframe" data-src="https://html5.gamedistribution.com/c49a084b24424b219b2ea20c94d5e4c4/?gd_sdk_referrer_url=https://www.onlinegames.io/cat-runner/" title="Counter Combat Multiplayer" loading="lazy" allowfullscreen></iframe>
                     </div>
                     <div class="game-controls detail-game-controls">
                         <div class="detail-control-copy">
@@ -203,7 +199,7 @@
                     <div class="detail-mini-grid">
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">Więcej Open Front gier</span>
-                            <strong class="detail-mini-value">12 gier</strong>
+                            <strong class="detail-mini-value">10 gier</strong>
                         </div>
                         <div class="detail-mini-card">
                             <span class="detail-mini-label">Wszystkie gry</span>
@@ -212,48 +208,43 @@
                     </div>
                 </aside>
             </section>
-            <section class="related-games detail-related-panel">
+            <section class="related-games detail-related-panel" id="detail-related-panel">
                 <div class="detail-section-head">
                     <h3 class="section-title">Więcej Open Front gier</h3>
-                    <span class="detail-section-count">12 gier</span>
+                    <span class="detail-section-count">10 gier</span>
                 </div>
-                <div class="games-grid" id="related-games-container"><a class="game-card" href="multiplayer_2_Player_Dark_Racing_b16baebf.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/b16baebfbdf940bea578f31855d793c5-512x512.jpg" alt="2 Player Dark Racing" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">2 Player Dark Racing</div>
-    </a><a class="game-card" href="multiplayer_2_Player_Mini_Challenge_a2564c29.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/a2564c29f9444f44a44b897bb5151f8e-512x512.jpg" alt="2 Player Mini Challenge" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">2 Player Mini Challenge</div>
-    </a><a class="game-card" href="multiplayer_2_Player_Online_Chess_6c943823.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/6c943823fcb94f53a8a0c51f796736aa-512x512.jpg" alt="2 Player Online Chess" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">2 Player Online Chess</div>
-    </a><a class="game-card" href="multiplayer_2048_Mayhem.io_055561e9.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/055561e9c9da4e69b8a724d06500fdd6-512x512.jpg" alt="2048 Mayhem.io" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">2048 Mayhem.io</div>
-    </a><a class="game-card" href="multiplayer_Agents_io_9ef3636e.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/9ef3636ea95a4d2486dcfe05bc8393e1-512x512.jpg" alt="Agents io" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">Agents io</div>
-    </a><a class="game-card" href="multiplayer_Barbara_Spy_Squad_Dress_up_5719c64f.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/5719c64ff6c544139183d1e96fd82b7c.jpg" alt="Barbara Spy Squad Dress up" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">Barbara Spy Squad Dress up</div>
-    </a><a class="game-card" href="multiplayer_Brainrots_Lava_Survive_Online_f455a9ca.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/f455a9cabb9248e4ab807672ee11f05f-512x512.jpg" alt="Brainrots Lava Survive Online" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">Brainrots Lava Survive Online</div>
-    </a><a class="game-card" href="multiplayer_Brave_Squad_163f2d49.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/163f2d4954aa48feb40009867a912ce9-512x512.jpeg" alt="Brave Squad" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">Brave Squad</div>
-    </a><a class="game-card" href="multiplayer_Break_Bricks_2_Player_45c618f2.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/45c618f2716645959f118801d00539b4-512x512.jpeg" alt="Break Bricks 2 Player" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">Break Bricks 2 Player</div>
-    </a><a class="game-card" href="multiplayer_College_Girls_Team_Makeover_90159007.html" style="text-decoration:none;color:inherit;">
-        <img src="https://img.gamedistribution.com/90159007fdbb4e20a3e56e326057d606-512x512.jpeg" alt="College Girls Team Makeover" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">College Girls Team Makeover</div>
-    </a><a class="game-card" href="../Multiplayer/ColorWars.io.html" style="text-decoration:none;color:inherit;">
-        <img src="../../img/icon/Multiplayer/ColorWars.io.jpg" alt="ColorWars.io" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">ColorWars.io</div>
-    </a><a class="game-card" href="../Multiplayer/ColorWars.io_-_Conquest_Game.html" style="text-decoration:none;color:inherit;">
-        <img src="../../img/icon/Multiplayer/ColorWars.io_-_Conquest_Game.jpg" alt="ColorWars.io - Conquest Game" loading="lazy" onerror="this.onerror=null;this.src='../../img/icon/veckIo.jpg'">
-        <div class="game-card-title">ColorWars.io - Conquest Game</div>
-    </a></div>
+                <div class="games-grid detail-quick-grid" id="related-games-container"></div>
+                <template id="related-games-template"><a class="detail-quick-card" href="multiplayer_2_Player_Dark_Racing_b16baebf.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">2 Player Dark Racing</strong>
+    </a><a class="detail-quick-card" href="multiplayer_2_Player_Mini_Challenge_a2564c29.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">2 Player Mini Challenge</strong>
+    </a><a class="detail-quick-card" href="multiplayer_2_Player_Online_Chess_6c943823.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">2 Player Online Chess</strong>
+    </a><a class="detail-quick-card" href="multiplayer_2048_Mayhem.io_055561e9.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">2048 Mayhem.io</strong>
+    </a><a class="detail-quick-card" href="multiplayer_Agents_io_9ef3636e.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">Agents io</strong>
+    </a><a class="detail-quick-card" href="multiplayer_Barbara_Spy_Squad_Dress_up_5719c64f.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">Barbara Spy Squad Dress up</strong>
+    </a><a class="detail-quick-card" href="multiplayer_Brainrots_Lava_Survive_Online_f455a9ca.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">Brainrots Lava Survive Online</strong>
+    </a><a class="detail-quick-card" href="multiplayer_Brave_Squad_163f2d49.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">Brave Squad</strong>
+    </a><a class="detail-quick-card" href="multiplayer_Break_Bricks_2_Player_45c618f2.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">Break Bricks 2 Player</strong>
+    </a><a class="detail-quick-card" href="multiplayer_College_Girls_Team_Makeover_90159007.html" style="text-decoration:none;color:inherit;">
+        <span class="detail-quick-type">Tryb wieloosobowy</span>
+        <strong class="detail-quick-title">College Girls Team Makeover</strong>
+    </a></template>
             </section>
         </main>
     </div>
@@ -277,63 +268,66 @@
                 iframe.requestFullscreen();
             }
         }
-    </script>
-    <script>
+
+        function bootDetailIframe() {
+            var iframe = document.getElementById('game-iframe');
+            if (!iframe || iframe.getAttribute('src')) return;
+            var src = iframe.getAttribute('data-src');
+            if (src) {
+                iframe.setAttribute('src', src);
+            }
+        }
+
+        function mountRelatedGames() {
+            var container = document.getElementById('related-games-container');
+            var template = document.getElementById('related-games-template');
+            if (!container || !template || container.childElementCount) return;
+            container.appendChild(template.content.cloneNode(true));
+        }
+
         (function () {
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
-            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
-            var particleBudget = reduceMotion ? 0 : (minimalEffects ? 0 : 10);
-            var container = document.getElementById('particles');
+            var panel = document.getElementById('detail-related-panel');
+            var mounted = false;
 
-            if (container) {
-                if (particleBudget <= 0) {
-                    container.style.display = 'none';
+            function scheduleMount() {
+                if (mounted) return;
+                mounted = true;
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(mountRelatedGames, { timeout: 1500 });
                 } else {
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0; i < particleBudget; i++) {
-                        var particle = document.createElement('div');
-                        var size = 2 + Math.random() * 3;
-                        particle.className = 'particle';
-                        particle.style.left = Math.random() * 100 + '%';
-                        particle.style.animationDelay = Math.random() * 18 + 's';
-                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
-                        particle.style.width = size + 'px';
-                        particle.style.height = size + 'px';
-                        fragment.appendChild(particle);
+                    setTimeout(mountRelatedGames, 300);
+                }
+            }
+
+            if (panel && 'IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    if (entries.some(function (entry) { return entry.isIntersecting; })) {
+                        observer.disconnect();
+                        scheduleMount();
                     }
-                    container.appendChild(fragment);
+                }, { rootMargin: '240px 0px' });
+                observer.observe(panel);
+            } else {
+                window.addEventListener('load', scheduleMount, { once: true });
+            }
+        })();
+
+        (function () {
+            function scheduleIframeBoot() {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(bootDetailIframe, { timeout: 1800 });
+                } else {
+                    setTimeout(bootDetailIframe, 260);
                 }
             }
 
-            var glow = document.getElementById('cursorGlow');
-            if (!glow || minimalEffects) {
-                if (glow) glow.style.display = 'none';
-                return;
+            if (document.readyState === 'complete') {
+                scheduleIframeBoot();
+            } else {
+                window.addEventListener('load', scheduleIframeBoot, { once: true });
             }
-
-            var halfSize = 140;
-            var rafId = 0;
-            var targetX = window.innerWidth * 0.5;
-            var targetY = window.innerHeight * 0.22;
-
-            var paint = function () {
-                rafId = 0;
-                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
-            };
-
-            document.addEventListener('mousemove', function (event) {
-                targetX = event.clientX;
-                targetY = event.clientY;
-                if (!rafId) {
-                    rafId = window.requestAnimationFrame(paint);
-                }
-            }, { passive: true });
-
-            paint();
         })();
     </script>
+    
 </body>
 </html>
