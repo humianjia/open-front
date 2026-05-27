@@ -242,7 +242,7 @@ function getHreflangHtml(relPath) {
     }).concat(`<link rel="alternate" hreflang="x-default" href="${canonicalUrl('en', relPath)}">`).join('\n    ');
 }
 
-function getCommonHead({ langKey, relPath, title, description, keywords, image, extraMeta = '', extraHead = '', includeCategoriesCss = false, extraStylesheets = [] }) {
+function getCommonHead({ langKey, relPath, title, description, keywords, image, extraMeta = '' }) {
     const canonical = canonicalUrl(langKey, relPath);
     const lang = LANGS[langKey];
     const cssHref = relativeResourceUrl(langKey, relPath, '/css/css.css');
@@ -268,12 +268,10 @@ function getCommonHead({ langKey, relPath, title, description, keywords, image, 
     <meta name="twitter:title" content="${escapeAttr(title)}">
     <meta name="twitter:description" content="${escapeAttr(description)}">
     ${image ? `<meta name="twitter:image" content="${escapeAttr(assetUrl(image))}">` : ''}
-    ${extraHead}
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="${escapeAttr(cssHref)}">
-    ${includeCategoriesCss ? `<link rel="stylesheet" href="${escapeAttr(categoriesHref)}">` : ''}
-    ${extraStylesheets.map((href) => `<link rel="stylesheet" href="${escapeAttr(relativeResourceUrl(langKey, relPath, href))}">`).join('\n    ')}
+    <link rel="stylesheet" href="${escapeAttr(categoriesHref)}">
     <style>
         .language-switcher {
             position: fixed;
@@ -366,7 +364,7 @@ function getHeader(langKey, uiCopy) {
     </header>`;
 }
 
-function getFooter(langKey, uiCopy, fromRelPath = 'index.html') {
+function getFooter(langKey, uiCopy) {
     const map = uiCopy.footerLinks || {};
     const aboutLabel = sanitizeI18nText(map.about || 'About open front');
     const contactLabel = sanitizeI18nText(map.contact || 'Contact Us');
@@ -376,11 +374,11 @@ function getFooter(langKey, uiCopy, fromRelPath = 'index.html') {
     const copyrightText = sanitizeI18nText(uiCopy.footerCopyright || '漏 2024 open front');
     return `<footer class="footer">
         <div class="footer-links">
-            <a href="${relativePageUrl(langKey, fromRelPath, langKey, '')}">${escapeHtml(aboutLabel)}</a>
-            <a href="${relativePageUrl(langKey, fromRelPath, langKey, 'contact.html')}">${escapeHtml(contactLabel)}</a>
-            <a href="${relativePageUrl(langKey, fromRelPath, langKey, 'privacy-policy.html')}">${escapeHtml(privacyLabel)}</a>
-            <a href="${relativePageUrl(langKey, fromRelPath, langKey, 'terms-of-service.html')}">${escapeHtml(termsLabel)}</a>
-            <a href="${relativePageUrl(langKey, fromRelPath, langKey, 'cookie-policy.html')}">${escapeHtml(cookieLabel)}</a>
+            <a href="${relativePageUrl(langKey, 'index.html', langKey, '')}">${escapeHtml(aboutLabel)}</a>
+            <a href="${relativePageUrl(langKey, 'index.html', langKey, 'contact.html')}">${escapeHtml(contactLabel)}</a>
+            <a href="${relativePageUrl(langKey, 'index.html', langKey, 'privacy-policy.html')}">${escapeHtml(privacyLabel)}</a>
+            <a href="${relativePageUrl(langKey, 'index.html', langKey, 'terms-of-service.html')}">${escapeHtml(termsLabel)}</a>
+            <a href="${relativePageUrl(langKey, 'index.html', langKey, 'cookie-policy.html')}">${escapeHtml(cookieLabel)}</a>
         </div>
         <div class="footer-copyright">${escapeHtml(uiCopy.footerCopyright || '© 2024 open front')}</div>
     </footer>`;
@@ -398,18 +396,13 @@ function getAllGames(baseGames) {
 
 function categoryKeyFromGame(game) {
     const type = normalizeText(game.gameType).toLowerCase();
-    const link = String(game.link || '').replace(/\\/g, '/').trim().toLowerCase();
+    const link = String(game.link || '').toLowerCase();
     if (link === 'index.html') return 'strategy';
-    if (/^(action\/|gd\/action_)/.test(link)) return 'action';
-    if (/^(battleroyale\/|gd\/battle_royale_)/.test(link)) return 'battle-royale';
-    if (/^(fps\/|gd\/fps_)/.test(link)) return 'fps';
-    if (/^(multiplayer\/|gd\/multiplayer_)/.test(link)) return 'multiplayer';
-    if (/^(sniper\/|gd\/sniper_)/.test(link)) return 'sniper';
     if (type.includes('battle')) return 'battle-royale';
-    if (type.includes('sniper')) return 'sniper';
-    if (type.includes('multiplayer')) return 'multiplayer';
-    if (type.includes('fps') || type.includes('shooter')) return 'fps';
-    if (type.includes('action')) return 'action';
+    if (type.includes('sniper') || link.includes('/sniper/')) return 'sniper';
+    if (type.includes('multiplayer') || link.includes('/multiplayer/')) return 'multiplayer';
+    if (type.includes('fps') || type.includes('shooter') || link.includes('/fps/')) return 'fps';
+    if (type.includes('action') || link.includes('/action/')) return 'action';
     return 'all';
 }
 
@@ -433,55 +426,6 @@ function getCategoryLabel(uiCopy, key) {
         strategy: sanitizeI18nText(categories.index || 'Strategy')
     };
     return labels[key] || titleCase(key);
-}
-
-function categoryAnchorFromKey(key) {
-    const valid = ['action', 'battle-royale', 'fps', 'multiplayer', 'sniper'];
-    return valid.includes(key) ? key : 'all';
-}
-
-function buildCountLabel(uiCopy, count) {
-    const template = count === 0 ? uiCopy.countTemplateZero : uiCopy.countTemplate;
-    return sanitizeI18nText((template || '{count} games').replace('{count}', String(count)));
-}
-
-function clampText(text, maxLength) {
-    const clean = sanitizeI18nText(text || '');
-    if (!clean || clean.length <= maxLength) {
-        return clean;
-    }
-
-    const sliced = clean.slice(0, maxLength + 1);
-    const lastBreak = Math.max(
-        sliced.lastIndexOf('. '),
-        sliced.lastIndexOf('! '),
-        sliced.lastIndexOf('? '),
-        sliced.lastIndexOf('; '),
-        sliced.lastIndexOf(', ')
-    );
-
-    if (lastBreak >= Math.floor(maxLength * 0.55)) {
-        return `${sliced.slice(0, lastBreak + 1).trim()}…`;
-    }
-
-    const softBreak = sliced.lastIndexOf(' ');
-    if (softBreak >= Math.floor(maxLength * 0.6)) {
-        return `${sliced.slice(0, softBreak).trim()}…`;
-    }
-
-    return `${sliced.slice(0, maxLength).trim()}…`;
-}
-
-function getDetailTheme(categoryKey) {
-    const themes = {
-        action: { key: 'action', icon: 'bolt' },
-        'battle-royale': { key: 'battle-royale', icon: 'crown' },
-        fps: { key: 'fps', icon: 'crosshairs' },
-        multiplayer: { key: 'multiplayer', icon: 'users' },
-        sniper: { key: 'sniper', icon: 'satellite-dish' },
-        all: { key: 'all', icon: 'gamepad' }
-    };
-    return themes[categoryKey] || themes.all;
 }
 
 function buildGameIndex(baseGames) {
@@ -522,7 +466,7 @@ function pickFeaturedGames(allGames, excludeLink, limit = 18) {
         .slice(0, limit);
 }
 
-function sortRelatedGames(allGames, currentGame, limit = 12) {
+function sortRelatedGames(allGames, currentGame) {
     const currentKey = categoryKeyFromGame(currentGame);
     return allGames
         .filter((game) => game.link !== currentGame.link)
@@ -535,7 +479,7 @@ function sortRelatedGames(allGames, currentGame, limit = 12) {
             return normalizeText(a.game.name).localeCompare(normalizeText(b.game.name));
         })
         .map((item) => item.game)
-        .slice(0, limit);
+        .slice(0, 18);
 }
 
 function buildGameCard(game, langKey, fromRelPath = 'index.html') {
@@ -568,66 +512,6 @@ function buildCategoryItem(game, langKey, categoryLabel, fromRelPath = 'index.ht
     </a>`;
 }
 
-function getAmbientEffectsScript({ desktopParticles = 16, mobileParticles = 0, glowSize = 300 } = {}) {
-    return `<script>
-        (function () {
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
-            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
-            var particleBudget = reduceMotion ? 0 : (minimalEffects ? ${mobileParticles} : ${desktopParticles});
-            var container = document.getElementById('particles');
-
-            if (container) {
-                if (particleBudget <= 0) {
-                    container.style.display = 'none';
-                } else {
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0; i < particleBudget; i++) {
-                        var particle = document.createElement('div');
-                        var size = 2 + Math.random() * 3;
-                        particle.className = 'particle';
-                        particle.style.left = Math.random() * 100 + '%';
-                        particle.style.animationDelay = Math.random() * 18 + 's';
-                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
-                        particle.style.width = size + 'px';
-                        particle.style.height = size + 'px';
-                        fragment.appendChild(particle);
-                    }
-                    container.appendChild(fragment);
-                }
-            }
-
-            var glow = document.getElementById('cursorGlow');
-            if (!glow || minimalEffects) {
-                if (glow) glow.style.display = 'none';
-                return;
-            }
-
-            var halfSize = ${Math.round(glowSize / 2)};
-            var rafId = 0;
-            var targetX = window.innerWidth * 0.5;
-            var targetY = window.innerHeight * 0.22;
-
-            var paint = function () {
-                rafId = 0;
-                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
-            };
-
-            document.addEventListener('mousemove', function (event) {
-                targetX = event.clientX;
-                targetY = event.clientY;
-                if (!rafId) {
-                    rafId = window.requestAnimationFrame(paint);
-                }
-            }, { passive: true });
-
-            paint();
-        })();
-    </script>`;
-}
-
 function renderHomePage(langKey, data, baseGames) {
     const uiCopy = getLocalizedUi(data, langKey);
     const pageCopy = getLocalizedPageCopy(data, 'home', langKey);
@@ -641,53 +525,20 @@ function renderHomePage(langKey, data, baseGames) {
     const description = sanitizeI18nText(pageCopy.metaDescription || '');
     const keywords = sanitizeI18nText(pageCopy.metaKeywords || '');
     const intro = sanitizeI18nText(pageCopy.intro || '');
-    const totalGamesText = buildCountLabel(uiCopy, allGames.length);
-    const actionCountText = buildCountLabel(uiCopy, allGames.filter((game) => categoryKeyFromGame(game) === 'action').length);
-    const multiplayerCountText = buildCountLabel(uiCopy, allGames.filter((game) => categoryKeyFromGame(game) === 'multiplayer').length);
-    const battleRoyaleCountText = buildCountLabel(uiCopy, allGames.filter((game) => categoryKeyFromGame(game) === 'battle-royale').length);
-    const featuredName = sanitizeI18nText(featuredCopy.name || featured.name || 'open front');
-    const heroEyebrow = sanitizeI18nText(uiCopy.freeOnlineGame || 'Free online game');
-    const heroLead = clampText(intro || description, 220);
-    const playOnlineLabel = sanitizeI18nText(uiCopy.playFreeOnline || 'Play free online');
-    const browserGameLabel = sanitizeI18nText(uiCopy.browserGame || 'Browser game');
-    const featuredImageUrl = relativeResourceUrl(langKey, relPath, featuredCopy.imageUrl || featured.imageUrl || '/img/icon/veckIo.jpg');
-    const featuredFallbackImageUrl = relativeResourceUrl(langKey, relPath, '/img/icon/veckIo.jpg');
-    const heroStats = [
-        { label: sanitizeI18nText(uiCopy.allGames || 'All Games'), value: totalGamesText, icon: 'layer-group' },
-        { label: sanitizeI18nText(getCategoryLabel(uiCopy, 'action')), value: actionCountText, icon: 'bolt' },
-        { label: sanitizeI18nText(getCategoryLabel(uiCopy, 'multiplayer')), value: multiplayerCountText, icon: 'users' },
-        { label: sanitizeI18nText(getCategoryLabel(uiCopy, 'battle-royale')), value: battleRoyaleCountText, icon: 'crown' }
-    ];
-    const heroStatHtml = heroStats.map((item) => `<div class="home-stat-card">
-        <span class="home-stat-label"><i class="fas fa-${item.icon}"></i>${escapeHtml(item.label)}</span>
-        <strong class="home-stat-value">${escapeHtml(item.value)}</strong>
-    </div>`).join('');
-    const relatedCards = relatedGames.map((game, index) => `<a class="home-game-card" href="${relativePageUrl(langKey, relPath, langKey, game.link)}" style="text-decoration:none;color:inherit;--card-index:${index};">
-        <div class="home-game-card-media">
-            <img src="${escapeAttr(relativeResourceUrl(langKey, relPath, game.imageUrl || '/img/icon/veckIo.jpg'))}" alt="${escapeAttr(game.name)}" loading="lazy" onerror="this.onerror=null;this.src='${escapeAttr(relativeResourceUrl(langKey, relPath, '/img/icon/veckIo.jpg'))}'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">${escapeHtml(getCategoryLabel(uiCopy, categoryKeyFromGame(game)))}</span>
-            <strong class="home-game-card-title">${escapeHtml(game.name)}</strong>
-        </div>
-    </a>`).join('');
-    const sectionBlocks = (pageCopy.sections || []).map((section, index) => {
+    const sectionHtml = (pageCopy.sections || []).map((section, index) => {
         const headingTag = index === 0 ? 'h2' : 'h3';
         const heading = sanitizeI18nText(section.heading || '');
         const paragraphs = (section.paragraphs || []).map((p) => `<p>${escapeHtml(sanitizeI18nText(p))}</p>`).join('');
         const items = Array.isArray(section.items) && section.items.length
             ? `<ul>${section.items.map((item) => `<li><strong>${escapeHtml(sanitizeI18nText(item.label || ''))}:</strong> ${escapeHtml(sanitizeI18nText(item.text || ''))}</li>`).join('')}</ul>`
             : '';
-        return `<article class="home-story-block"><${headingTag}>${escapeHtml(heading)}</${headingTag}>${paragraphs}${items}</article>`;
+        return `<${headingTag}>${escapeHtml(heading)}</${headingTag}>${paragraphs}${items}`;
     }).join('');
     const tags = (pageCopy.tags || []).map((tag, index) => {
         const icons = ['globe', 'chess', 'flag', 'users', 'shield-alt', 'ship', 'bomb', 'rocket'];
         const icon = icons[index] || 'tag';
-        return `<span class="home-tag"><i class="fas fa-${icon}"></i>${escapeHtml(sanitizeI18nText(tag))}</span>`;
+        return `<span class="tag"><i class="fas fa-${icon}"></i>${escapeHtml(sanitizeI18nText(tag))}</span>`;
     }).join('');
-    const extraHead = `<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">`;
 
     const html = `${getCommonHead({
         langKey,
@@ -695,109 +546,44 @@ function renderHomePage(langKey, data, baseGames) {
         title,
         description,
         keywords,
-        image: assetUrl(featuredCopy.imageUrl || featured.imageUrl),
-        extraHead,
-        extraStylesheets: ['/css/home.css']
+        image: assetUrl(featuredCopy.imageUrl || featured.imageUrl)
     })}
-<body class="home-page">
+<body>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     ${getLanguageSwitcherHtml(langKey, relPath)}
     ${getHeader(langKey, uiCopy)}
-    <div class="main-container home-layout">
+    <div class="main-container">
         <main class="main-content">
-            <section class="home-hero">
-                <div class="home-hero-copy">
-                    <div class="home-eyebrow">
-                        <span class="home-eyebrow-pulse"></span>
-                        <span>${escapeHtml(heroEyebrow)}</span>
-                    </div>
-                    <h1 class="home-hero-title">Command the map in <span>${escapeHtml(featuredName)}</span></h1>
-                    <p class="home-hero-summary">${escapeHtml(heroLead)}</p>
-                    <div class="home-hero-actions">
-                        <a class="home-primary-action" href="#battle-station">
-                            <span>${escapeHtml(playOnlineLabel)}</span>
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                        <a class="home-secondary-action" href="categories.html#all">
-                            <i class="fas fa-grip"></i>
-                            <span>${escapeHtml(sanitizeI18nText(uiCopy.allGames || 'All Games'))}</span>
-                        </a>
-                    </div>
-                    <div class="home-hero-stats">${heroStatHtml}</div>
+            <div class="game-showcase">
+                <div class="game-frame">
+                    <iframe id="game-iframe" src="${escapeAttr(featuredCopy.iframeUrl || featured.iframeUrl || '')}" allowfullscreen></iframe>
                 </div>
-                <div class="home-radar-panel">
-                    <div class="home-radar-grid"></div>
-                    <div class="home-radar-sweep"></div>
-                    <div class="home-radar-core">
-                        <img src="${escapeAttr(featuredImageUrl)}" class="home-radar-art" alt="${escapeAttr(featuredName)}" onerror="this.src='${escapeAttr(featuredFallbackImageUrl)}'">
+                <div class="game-controls">
+                    <div class="game-title-section">
+                        <img src="${escapeAttr(relativeResourceUrl(langKey, relPath, featuredCopy.imageUrl || featured.imageUrl || '/img/icon/veckIo.jpg'))}" id="game-icon" class="game-icon" alt="${escapeAttr(featuredCopy.name || featured.name)}" onerror="this.src='${escapeAttr(relativeResourceUrl(langKey, relPath, '/img/icon/veckIo.jpg'))}'">
+                        <span class="game-title" id="current-game-title">${escapeHtml(featuredCopy.name || featured.name)}</span>
                     </div>
-                    <div class="home-radar-notes">
-                        <span class="home-radar-chip">${escapeHtml(sanitizeI18nText(getCategoryLabel(uiCopy, 'multiplayer')))}</span>
-                        <span class="home-radar-chip">${escapeHtml(sanitizeI18nText(getCategoryLabel(uiCopy, 'battle-royale')))}</span>
-                        <span class="home-radar-chip">${escapeHtml(sanitizeI18nText(getCategoryLabel(uiCopy, 'action')))}</span>
+                    <div class="game-actions">
+                        <i class="fas fa-expand" onclick="toggleFullscreen()"></i>
                     </div>
                 </div>
-            </section>
-            <section class="home-battle-station" id="battle-station">
-                <div class="home-stage-header">
-                    <div class="home-stage-title-block">
-                        <span class="home-stage-label">Live Battle Feed</span>
-                        <h2 class="home-stage-title">${escapeHtml(featuredName)}</h2>
+            </div>
+            <div class="related-games">
+                <h3 class="section-title">${escapeHtml(sanitizeI18nText(pageCopy.relatedTitle || 'More Open Front Games'))}</h3>
+                <div class="games-grid" id="related-games-container">
+                    ${relatedGames.map((game) => buildGameCard(game, langKey)).join('')}
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="game-info">
+                    <div class="info-header">${escapeHtml(intro)}</div>
+                    <div class="info-content">
+                        ${sectionHtml}
                     </div>
-                    <button class="home-icon-action" type="button" onclick="toggleFullscreen()" aria-label="Toggle fullscreen">
-                        <i class="fas fa-expand"></i>
-                    </button>
+                    <div class="tags">${tags}</div>
                 </div>
-                <div class="game-showcase home-showcase">
-                    <div class="game-frame home-frame">
-                        <iframe id="game-iframe" src="${escapeAttr(featuredCopy.iframeUrl || featured.iframeUrl || '')}" title="${escapeAttr(featuredName)}" allowfullscreen></iframe>
-                    </div>
-                    <div class="game-controls home-controls">
-                        <div class="game-title-section home-title-section">
-                            <img src="${escapeAttr(featuredImageUrl)}" id="game-icon" class="game-icon home-game-icon" alt="${escapeAttr(featuredCopy.name || featured.name)}" onerror="this.src='${escapeAttr(featuredFallbackImageUrl)}'">
-                            <div class="home-title-copy">
-                                <span class="home-title-meta">${escapeHtml(browserGameLabel)}</span>
-                                <span class="game-title" id="current-game-title">${escapeHtml(featuredCopy.name || featured.name)}</span>
-                            </div>
-                        </div>
-                        <div class="home-control-tags">
-                            <span class="home-control-tag"><i class="fas fa-tower-broadcast"></i>Live</span>
-                            <span class="home-control-tag"><i class="fas fa-globe"></i>${escapeHtml(browserGameLabel)}</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="home-shelf">
-                <div class="home-section-head">
-                    <h3 class="section-title">${escapeHtml(sanitizeI18nText(pageCopy.relatedTitle || 'More Open Front Games'))}</h3>
-                    <a class="home-inline-link" href="categories.html#all">View All</a>
-                </div>
-                <div class="home-games-rack" id="related-games-container">
-                    ${relatedCards}
-                </div>
-            </section>
-            <section class="home-story">
-                <div class="home-story-intro">
-                    <span class="home-story-kicker">Intel Brief</span>
-                    <p>${escapeHtml(intro)}</p>
-                </div>
-                <div class="home-story-grid">
-                    <div class="home-story-content">
-                        ${sectionBlocks}
-                    </div>
-                    <aside class="home-story-sidebar">
-                        <div class="home-story-card">
-                            <h3>Why Players Stay</h3>
-                            <div class="home-tags">${tags}</div>
-                        </div>
-                        <div class="home-story-card home-story-card-accent">
-                            <h3>Jump Back In Fast</h3>
-                            <p>Launch a match, test a new route, pressure the coast, and reset into another lobby without downloads or setup friction.</p>
-                        </div>
-                    </aside>
-                </div>
-            </section>
+            </div>
         </main>
     </div>
     ${getFooter(langKey, uiCopy)}
@@ -811,8 +597,29 @@ function renderHomePage(langKey, data, baseGames) {
                 iframe.requestFullscreen();
             }
         }
+        (function () {
+            var container = document.getElementById('particles');
+            if (container) {
+                for (var i = 0; i < 24; i++) {
+                    var particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particle.style.width = (3 + Math.random() * 4) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
+                }
+            }
+            var glow = document.getElementById('cursorGlow');
+            if (glow) {
+                document.addEventListener('mousemove', function (e) {
+                    glow.style.left = e.clientX - 100 + 'px';
+                    glow.style.top = e.clientY - 100 + 'px';
+                });
+            }
+        })();
     </script>
-    ${getAmbientEffectsScript({ desktopParticles: 12, mobileParticles: 0, glowSize: 320 })}
 </body>
 </html>`;
 
@@ -854,10 +661,9 @@ function renderCategoriesPage(langKey, data, baseGames) {
         relPath,
         title,
         description,
-        keywords,
-        includeCategoriesCss: true
+        keywords
     })}
-<body class="categories-page">
+<body>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     ${getLanguageSwitcherHtml(langKey, relPath)}
@@ -875,7 +681,30 @@ function renderCategoriesPage(langKey, data, baseGames) {
         </main>
     </div>
     ${getFooter(langKey, uiCopy)}
-    ${getAmbientEffectsScript({ desktopParticles: 10, mobileParticles: 0, glowSize: 300 })}
+    <script>
+        (function () {
+            var container = document.getElementById('particles');
+            if (container) {
+                for (var i = 0; i < 24; i++) {
+                    var particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particle.style.width = (3 + Math.random() * 4) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
+                }
+            }
+            var glow = document.getElementById('cursorGlow');
+            if (glow) {
+                document.addEventListener('mousemove', function (e) {
+                    glow.style.left = e.clientX - 100 + 'px';
+                    glow.style.top = e.clientY - 100 + 'px';
+                });
+            }
+        })();
+    </script>
 </body>
 </html>`;
 }
@@ -1141,63 +970,32 @@ function renderPolicyPage(langKey, data, pageKey, containerClass, sectionClass) 
 
 function renderDetailPage(langKey, data, baseGame, baseGames) {
     const uiCopy = getLocalizedUi(data, langKey);
+    const pageCopy = getLocalizedPageCopy(data, 'home', langKey);
     const relPath = baseGame.link;
     const gameCopy = getLocalizedGame(data, baseGame.link, langKey) || baseGame;
-    const categoryKey = categoryKeyFromGame(baseGame);
-    const categoryLabel = getCategoryLabel(uiCopy, categoryKey);
-    const categoryAnchor = categoryAnchorFromKey(categoryKey);
-    const detailTheme = getDetailTheme(categoryKey);
     const relatedTitle = sanitizeI18nText((uiCopy.detail && uiCopy.detail.relatedTitle) || 'More Open Front Games');
     const headerText = sanitizeI18nText((uiCopy.detail && uiCopy.detail.headerTemplate) || 'Play {name} instantly on open front.').replace('{name}', gameCopy.name);
     const aboutText = sanitizeI18nText((uiCopy.detail && uiCopy.detail.aboutTemplate) || 'About {name}').replace('{name}', gameCopy.name);
     const title = sanitizeI18nText((uiCopy.detail && uiCopy.detail.titleTemplate) || '{name} - Play Free Online | open front').replace('{name}', gameCopy.name);
     const descTemplate = sanitizeI18nText((uiCopy.detail && uiCopy.detail.metaDescriptionTemplate) || '{description} Play free on open front. No download required.');
     const metaDescription = buildDetailMetaDescription(gameCopy.description || baseGame.description || '', descTemplate);
-    const detailDescription = sanitizeI18nText(gameCopy.description || baseGame.description || '') || headerText;
-    const detailPreview = clampText(detailDescription, 220);
     const keywords = [
         gameCopy.name,
         sanitizeI18nText(baseGame.gameType || ''),
         'open front',
         'browser game'
     ].filter(Boolean).join(', ');
-    const relatedGames = sortRelatedGames(baseGames, baseGame, 12);
+    const categoryLabel = getCategoryLabel(uiCopy, categoryKeyFromGame(baseGame));
+    const relatedGames = sortRelatedGames(baseGames, baseGame);
     const relatedCards = relatedGames.map((game) => buildGameCard(game, langKey, relPath)).join('');
-    const relatedCountText = buildCountLabel(uiCopy, relatedGames.length);
-    const totalGamesText = buildCountLabel(uiCopy, baseGames.length);
-    const playFreeLabel = sanitizeI18nText(uiCopy.playFreeOnline || 'Play free online');
-    const browserGameLabel = sanitizeI18nText(uiCopy.browserGame || 'Browser game');
-    const freeOnlineLabel = sanitizeI18nText(uiCopy.freeOnlineGame || 'Free online game');
-    const modeLabel = sanitizeI18nText(uiCopy.mode || 'Mode');
-    const detailBrand = sanitizeI18nText((uiCopy.detail && uiCopy.detail.tagBrand) || 'open front');
-    const categoryModeText = sanitizeI18nText((uiCopy.detail && uiCopy.detail.tagCategoryModeTemplate) || '{category} mode').replace('{category}', categoryLabel);
-    const iconUrl = relativeResourceUrl(langKey, relPath, gameCopy.imageUrl || baseGame.imageUrl || '/img/icon/veckIo.jpg');
-    const fallbackIconUrl = relativeResourceUrl(langKey, relPath, '/img/icon/veckIo.jpg');
-    const heroStats = [
-        { label: modeLabel, value: categoryLabel, icon: detailTheme.icon },
-        { label: browserGameLabel, value: freeOnlineLabel, icon: 'globe' },
-        { label: sanitizeI18nText(uiCopy.allGames || 'All Games'), value: totalGamesText, icon: 'layer-group' }
-    ];
-    const heroStatHtml = heroStats.map((item) => `<div class="detail-stat-card">
-        <span class="detail-stat-label"><i class="fas fa-${item.icon}"></i>${escapeHtml(item.label)}</span>
-        <strong class="detail-stat-value">${escapeHtml(item.value)}</strong>
-    </div>`).join('');
-    const heroBadgeHtml = [
-        { icon: detailTheme.icon, text: categoryLabel },
-        { icon: 'gamepad', text: browserGameLabel },
-        { icon: 'bolt', text: detailBrand }
-    ].map((item) => `<span class="detail-badge"><i class="fas fa-${item.icon}"></i>${escapeHtml(item.text)}</span>`).join('');
     const tags = Array.isArray(gameCopy.tags) && gameCopy.tags.length
         ? gameCopy.tags
-        : [detailBrand, sanitizeI18nText(baseGame.gameType || ''), browserGameLabel, categoryModeText];
+        : [sanitizeI18nText((uiCopy.detail && uiCopy.detail.tagBrand) || 'open front'), sanitizeI18nText(baseGame.gameType || ''), sanitizeI18nText(uiCopy.browserGame || 'Browser game'), `${categoryLabel} mode`];
     const tagHtml = tags.slice(0, 8).map((tag, index) => {
         const icons = ['tag', 'gamepad', 'bolt', 'crosshairs', 'globe', 'chess', 'users', 'shield-alt'];
         const icon = icons[index] || 'tag';
         return `<span class="tag"><i class="fas fa-${icon}"></i> ${escapeHtml(sanitizeI18nText(tag))}</span>`;
     }).join('');
-    const extraHead = `<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">`;
 
     return `${getCommonHead({
         langKey,
@@ -1205,12 +1003,9 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
         title,
         description: metaDescription,
         keywords,
-        image: assetUrl(gameCopy.imageUrl || baseGame.imageUrl),
-        extraHead,
-        includeCategoriesCss: true,
-        extraStylesheets: ['/css/detail.css']
+        image: assetUrl(gameCopy.imageUrl || baseGame.imageUrl)
     })}
-<body class="detail-page theme-${detailTheme.key}">
+<body>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     ${getLanguageSwitcherHtml(langKey, relPath)}
@@ -1241,105 +1036,39 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
             <i class="fas fa-search"></i>
         </div>
     </header>
-    <div class="main-container detail-layout">
+    <div class="main-container">
         <main class="main-content">
-            <section class="detail-hero">
-                <div class="detail-hero-copy">
-                    <div class="detail-kicker">
-                        <span class="detail-kicker-mark"></span>
-                        <span class="detail-kicker-text">${escapeHtml(headerText)}</span>
+            <div class="game-showcase">
+                <div class="game-frame">
+                    <iframe id="game-iframe" src="${escapeAttr(gameCopy.iframeUrl || baseGame.iframeUrl || '')}" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <div class="game-title-section">
+                        <img src="${escapeAttr(relativeResourceUrl(langKey, relPath, gameCopy.imageUrl || baseGame.imageUrl || '/img/icon/veckIo.jpg'))}" id="game-icon" class="game-icon" alt="${escapeAttr(gameCopy.name)}" onerror="this.src='${escapeAttr(relativeResourceUrl(langKey, relPath, '/img/icon/veckIo.jpg'))}'">
+                        <span class="game-title" id="current-game-title">${escapeHtml(gameCopy.name)}</span>
                     </div>
-                    <div class="detail-badge-row">${heroBadgeHtml}</div>
-                    <h1 class="detail-hero-title">${escapeHtml(gameCopy.name)}</h1>
-                    <p class="detail-hero-summary">${escapeHtml(detailPreview)}</p>
-                    <div class="detail-hero-stats">${heroStatHtml}</div>
-                    <div class="detail-hero-actions">
-                        <a class="detail-primary-action" href="#game-panel">
-                            <span>${escapeHtml(playFreeLabel)}</span>
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                        <button class="detail-secondary-action" type="button" onclick="toggleFullscreen()">
-                            <i class="fas fa-expand"></i>
-                            <span>Fullscreen</span>
-                        </button>
+                    <div class="game-actions">
+                        <i class="fas fa-expand" onclick="toggleFullscreen()"></i>
                     </div>
                 </div>
-                <div class="detail-hero-visual">
-                    <div class="detail-poster-shell">
-                        <div class="detail-poster-orbit"></div>
-                        <img src="${escapeAttr(iconUrl)}" id="game-icon" class="detail-poster-image" alt="${escapeAttr(gameCopy.name)}" onerror="this.src='${escapeAttr(fallbackIconUrl)}'">
-                        <div class="detail-poster-caption">
-                            <span class="detail-poster-mode">${escapeHtml(categoryModeText)}</span>
-                            <span class="detail-poster-brand">${escapeHtml(detailBrand)}</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="detail-stage" id="game-panel">
-                <div class="game-showcase detail-stage-player">
-                    <div class="detail-stage-header">
-                        <div class="game-title-section detail-stage-title">
-                            <img src="${escapeAttr(iconUrl)}" class="game-icon detail-stage-icon" alt="${escapeAttr(gameCopy.name)}" onerror="this.src='${escapeAttr(fallbackIconUrl)}'">
-                            <div class="detail-stage-copy">
-                                <span class="detail-stage-label">${escapeHtml(categoryModeText)}</span>
-                                <span class="game-title" id="current-game-title">${escapeHtml(gameCopy.name)}</span>
-                            </div>
-                        </div>
-                        <div class="game-actions detail-stage-actions">
-                            <a class="detail-stage-chip" href="${relativePageUrl(langKey, relPath, langKey, 'categories.html')}#${categoryAnchor}">
-                                <i class="fas fa-${detailTheme.icon}"></i>
-                                <span>${escapeHtml(categoryLabel)}</span>
-                            </a>
-                            <button class="detail-icon-button" type="button" onclick="toggleFullscreen()" aria-label="Toggle fullscreen">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="game-frame detail-game-frame">
-                        <iframe id="game-iframe" src="${escapeAttr(gameCopy.iframeUrl || baseGame.iframeUrl || '')}" title="${escapeAttr(gameCopy.name)}" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                    <div class="game-controls detail-game-controls">
-                        <div class="detail-control-copy">
-                            <span class="detail-control-tag"><i class="fas fa-signal"></i>${escapeHtml(browserGameLabel)}</span>
-                            <span class="detail-control-tag"><i class="fas fa-link"></i>${escapeHtml(detailBrand)}</span>
-                        </div>
-                        <button class="detail-secondary-action detail-compact-action" type="button" onclick="toggleFullscreen()">
-                            <i class="fas fa-expand"></i>
-                            <span>Fullscreen</span>
-                        </button>
-                    </div>
-                </div>
-                <aside class="content-section detail-sidebar">
-                    <div class="game-info detail-info-card">
-                        <div class="info-header">${escapeHtml(headerText)}</div>
-                        <div class="info-content">
-                            <h2>${escapeHtml(aboutText)}</h2>
-                            <p>${escapeHtml(detailDescription)}</p>
-                        </div>
-                        <div class="tags">${tagHtml}</div>
-                    </div>
-                    <div class="detail-mini-grid">
-                        <div class="detail-mini-card">
-                            <span class="detail-mini-label">${escapeHtml(relatedTitle)}</span>
-                            <strong class="detail-mini-value">${escapeHtml(relatedCountText)}</strong>
-                        </div>
-                        <div class="detail-mini-card">
-                            <span class="detail-mini-label">${escapeHtml(sanitizeI18nText(uiCopy.allGames || 'All Games'))}</span>
-                            <strong class="detail-mini-value">${escapeHtml(totalGamesText)}</strong>
-                        </div>
-                    </div>
-                </aside>
-            </section>
-            <section class="related-games detail-related-panel">
-                <div class="detail-section-head">
-                    <h3 class="section-title">${escapeHtml(relatedTitle)}</h3>
-                    <span class="detail-section-count">${escapeHtml(relatedCountText)}</span>
-                </div>
+            </div>
+            <div class="related-games">
+                <h3 class="section-title">${escapeHtml(relatedTitle)}</h3>
                 <div class="games-grid" id="related-games-container">${relatedCards}</div>
-            </section>
+            </div>
+            <div class="content-section">
+                <div class="game-info">
+                    <div class="info-header">${escapeHtml(headerText)}</div>
+                    <div class="info-content">
+                        <h2>${escapeHtml(aboutText)}</h2>
+                        <p>${escapeHtml(sanitizeI18nText(gameCopy.description || baseGame.description || ''))}</p>
+                    </div>
+                    <div class="tags">${tagHtml}</div>
+                </div>
+            </div>
         </main>
     </div>
-    ${getFooter(langKey, uiCopy, relPath)}
+    ${getFooter(langKey, uiCopy)}
     <script>
         function toggleFullscreen() {
             var iframe = document.getElementById('game-iframe');
@@ -1350,8 +1079,29 @@ function renderDetailPage(langKey, data, baseGame, baseGames) {
                 iframe.requestFullscreen();
             }
         }
+        (function () {
+            var container = document.getElementById('particles');
+            if (container) {
+                for (var i = 0; i < 24; i++) {
+                    var particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particle.style.width = (3 + Math.random() * 4) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
+                }
+            }
+            var glow = document.getElementById('cursorGlow');
+            if (glow) {
+                document.addEventListener('mousemove', function (e) {
+                    glow.style.left = e.clientX - 100 + 'px';
+                    glow.style.top = e.clientY - 100 + 'px';
+                });
+            }
+        })();
     </script>
-    ${getAmbientEffectsScript({ desktopParticles: 10, mobileParticles: 0, glowSize: 280 })}
 </body>
 </html>`;
 }

@@ -8,7 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     background-size: 400% 400%;
-    animation: gradientShift 24s ease infinite;
+    animation: gradientShift 15s ease infinite;
     min-height: 100vh;
     color: #fff;
 }
@@ -19,7 +19,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 绮掑瓙鑳屾櫙 */
+/* 粒子背景 */
 .particles {
     position: fixed;
     top: 0;
@@ -58,7 +58,7 @@ body {
     }
 }
 
-/* 榧犳爣璺熼殢鍏夋晥 */
+/* 鼠标跟随光效 */
 .cursor-glow {
     position: fixed;
     width: 300px;
@@ -67,12 +67,11 @@ body {
     background: radial-gradient(circle, rgba(78, 204, 163, 0.15) 0%, transparent 70%);
     pointer-events: none;
     z-index: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate(-50%, -50%);
     transition: opacity 0.3s;
-    will-change: transform;
 }
 
-/* 椤堕儴瀵艰埅 */
+/* 顶部导航 */
 .header {
     background: rgba(0, 0, 0, 0.4);
     padding: 15px 30px;
@@ -168,7 +167,7 @@ body {
     color: #4ecca3;
 }
 
-/* 瀵艰埅鍒嗙被 */
+/* 导航分类 */
 .nav-categories {
     display: flex;
     gap: 5px;
@@ -216,7 +215,7 @@ body {
     box-shadow: 0 0 15px rgba(78, 204, 163, 0.3);
 }
 
-/* 涓诲竷灞€ */
+/* 主布局 */
 .main-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -225,12 +224,12 @@ body {
     z-index: 2;
 }
 
-/* 涓棿鍐呭鍖?*/
+/* 中间内容区 */
 .main-content {
     width: 100%;
 }
 
-/* 娓告垙灞曠ず鍖?*/
+/* 游戏展示区 */
 .game-showcase {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 12px;
@@ -301,7 +300,7 @@ body {
     color: #4ecca3;
 }
 
-/* 鐩稿叧娓告垙缃戞牸 */
+/* 相关游戏网格 */
 .related-games {
     margin-bottom: 20px;
 }
@@ -350,7 +349,7 @@ body {
     text-align: center;
 }
 
-/* 娓告垙绯诲垪 */
+/* 游戏系列 */
 .game-series {
     margin-bottom: 20px;
 }
@@ -423,19 +422,19 @@ body {
     object-fit: cover;
 }
 
-/* 鍐呭鍖哄煙 - 鏀逛负鍗曞垪甯冨眬 */
+/* 内容区域 - 改为单列布局 */
 .content-section {
     margin-bottom: 20px;
 }
 
-/* 娓告垙浠嬬粛 */
+/* 游戏介绍 */
 .game-info {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     padding: 20px;
 }
 
-/* info-header 鏂板竷灞€ - 鏀惧湪鏍囬涓婃柟锛岀嫭绔嬫牱寮?*/
+/* info-header 新布局 - 放在标题上方，独立样式 */
 .info-header {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
     border-left: 4px solid #ffd700;
@@ -478,7 +477,7 @@ body {
     text-decoration: underline;
 }
 
-/* 鏍囩 */
+/* 标签 */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -503,12 +502,12 @@ body {
     cursor: pointer;
 }
 
-/* 鏂版父鎴忓尯鍩?*/
+/* 新游戏区域 */
 .new-games {
     margin-bottom: 20px;
 }
 
-/* 椤佃剼 */
+/* 页脚 */
 .footer {
     background: rgba(0, 0, 0, 0.3);
     padding: 20px;
@@ -539,12 +538,8 @@ body {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* 鍝嶅簲寮?*/
+/* 响应式 */
 @media (max-width: 768px) {
-    body {
-        animation: none;
-    }
-
     .games-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
@@ -554,13 +549,3 @@ body {
         padding: 12px 15px;
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    body,
-    .particle,
-    .logo-icon,
-    .game-showcase {
-        animation: none !important;
-    }
-}
-

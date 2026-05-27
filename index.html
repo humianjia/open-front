@@ -25,14 +25,10 @@
     <meta name="twitter:title" content="Open Front | Play Open Front Online Free Strategy Game">
     <meta name="twitter:description" content="Play open front online for free. Open Front is a real-time multiplayer strategy browser game about conquest, alliances, ports, ships, missiles, and 72% map control.">
     <meta name="twitter:image" content="/img/icon/frontwarsio.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%3E%3Cpolygon%20points%3D%2225%2C5%2045%2C40%205%2C40%22%20fill%3D%22none%22%20stroke%3D%22%23ff6b35%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/css.css">
-    
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="categories.css">
     <style>
         .language-switcher {
             position: fixed;
@@ -83,7 +79,7 @@
         
     </style>
 </head>
-<body class="home-page">
+<body>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <div class="language-switcher"><a class="active" href="index.html" hreflang="en">EN</a><a class="" href="fr/index.html" hreflang="fr">FR</a><a class="" href="ja/index.html" hreflang="ja">JP</a><a class="" href="pl/index.html" hreflang="pl">PL</a><a class="" href="nl-BE/index.html" hreflang="nl-BE">BE</a><a class="" href="de/index.html" hreflang="de">DE</a></div>
@@ -115,256 +111,91 @@
             <i class="fas fa-search"></i>
         </div>
     </header>
-    <div class="main-container home-layout">
+    <div class="main-container">
         <main class="main-content">
-            <section class="home-hero">
-                <div class="home-hero-copy">
-                    <div class="home-eyebrow">
-                        <span class="home-eyebrow-pulse"></span>
-                        <span>Free online game</span>
-                    </div>
-                    <h1 class="home-hero-title">Command the map in <span>open front</span></h1>
-                    <p class="home-hero-summary">Open Front is a fast-paced multiplayer real-time strategy browser game where players fight for territory, build cities, form alliances, and race to control 72% of the map.</p>
-                    <div class="home-hero-actions">
-                        <a class="home-primary-action" href="#battle-station">
-                            <span>Play free online</span>
-                            <i class="fas fa-arrow-down"></i>
-                        </a>
-                        <a class="home-secondary-action" href="categories.html#all">
-                            <i class="fas fa-grip"></i>
-                            <span>All Games</span>
-                        </a>
-                    </div>
-                    <div class="home-hero-stats"><div class="home-stat-card">
-        <span class="home-stat-label"><i class="fas fa-layer-group"></i>All Games</span>
-        <strong class="home-stat-value">151 games</strong>
-    </div><div class="home-stat-card">
-        <span class="home-stat-label"><i class="fas fa-bolt"></i>Action</span>
-        <strong class="home-stat-value">30 games</strong>
-    </div><div class="home-stat-card">
-        <span class="home-stat-label"><i class="fas fa-users"></i>Multiplayer</span>
-        <strong class="home-stat-value">30 games</strong>
-    </div><div class="home-stat-card">
-        <span class="home-stat-label"><i class="fas fa-crown"></i>Battle Royale</span>
-        <strong class="home-stat-value">30 games</strong>
-    </div></div>
+            <div class="game-showcase">
+                <div class="game-frame">
+                    <iframe id="game-iframe" src="https://frontwars.io" allowfullscreen></iframe>
                 </div>
-                <div class="home-radar-panel">
-                    <div class="home-radar-grid"></div>
-                    <div class="home-radar-sweep"></div>
-                    <div class="home-radar-core">
-                        <img src="img/icon/frontwarsio.png" class="home-radar-art" alt="open front" onerror="this.src='img/icon/veckIo.jpg'">
+                <div class="game-controls">
+                    <div class="game-title-section">
+                        <img src="img/icon/frontwarsio.png" id="game-icon" class="game-icon" alt="open front" onerror="this.src='img/icon/veckIo.jpg'">
+                        <span class="game-title" id="current-game-title">open front</span>
                     </div>
-                    <div class="home-radar-notes">
-                        <span class="home-radar-chip">Multiplayer</span>
-                        <span class="home-radar-chip">Battle Royale</span>
-                        <span class="home-radar-chip">Action</span>
+                    <div class="game-actions">
+                        <i class="fas fa-expand" onclick="toggleFullscreen()"></i>
                     </div>
                 </div>
-            </section>
-            <section class="home-battle-station" id="battle-station">
-                <div class="home-stage-header">
-                    <div class="home-stage-title-block">
-                        <span class="home-stage-label">Live Battle Feed</span>
-                        <h2 class="home-stage-title">open front</h2>
-                    </div>
-                    <button class="home-icon-action" type="button" onclick="toggleFullscreen()" aria-label="Toggle fullscreen">
-                        <i class="fas fa-expand"></i>
-                    </button>
-                </div>
-                <div class="game-showcase home-showcase">
-                    <div class="game-frame home-frame">
-                        <iframe id="game-iframe" src="https://frontwars.io" title="open front" allowfullscreen></iframe>
-                    </div>
-                    <div class="game-controls home-controls">
-                        <div class="game-title-section home-title-section">
-                            <img src="img/icon/frontwarsio.png" id="game-icon" class="game-icon home-game-icon" alt="open front" onerror="this.src='img/icon/veckIo.jpg'">
-                            <div class="home-title-copy">
-                                <span class="home-title-meta">Browser game</span>
-                                <span class="game-title" id="current-game-title">open front</span>
-                            </div>
-                        </div>
-                        <div class="home-control-tags">
-                            <span class="home-control-tag"><i class="fas fa-tower-broadcast"></i>Live</span>
-                            <span class="home-control-tag"><i class="fas fa-globe"></i>Browser game</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="home-shelf">
-                <div class="home-section-head">
-                    <h3 class="section-title">Popular Open Front Strategy Games</h3>
-                    <a class="home-inline-link" href="categories.html#all">View All</a>
-                </div>
-                <div class="home-games-rack" id="related-games-container">
-                    <a class="home-game-card" href="Action/Bullet_Heroes.html" style="text-decoration:none;color:inherit;--card-index:0;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Bullet_Heroes.jpg" alt="Bullet Heroes" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Bullet Heroes</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Strike_Force_Action_Platformer.html" style="text-decoration:none;color:inherit;--card-index:1;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Strike_Force_Action_Platformer.jpg" alt="Strike Force: Action Platformer" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Strike Force: Action Platformer</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Wreck_The_Tower.html" style="text-decoration:none;color:inherit;--card-index:2;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Wreck_The_Tower.jpg" alt="Wreck The Tower" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Wreck The Tower</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Mecha_Duel.html" style="text-decoration:none;color:inherit;--card-index:3;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Mecha_Duel.jpg" alt="Mecha Duel" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Mecha Duel</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Stickman_Brawler.html" style="text-decoration:none;color:inherit;--card-index:4;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Stickman_Brawler.jpg" alt="Stickman Brawler" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Stickman Brawler</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Dungeon_Master_Knight.html" style="text-decoration:none;color:inherit;--card-index:5;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Dungeon_Master_Knight.jpg" alt="Dungeon Master Knight" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Dungeon Master Knight</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Drunken_Fighters.html" style="text-decoration:none;color:inherit;--card-index:6;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Drunken_Fighters.jpg" alt="Drunken Fighters" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Drunken Fighters</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/We_Will_Not_Survive.html" style="text-decoration:none;color:inherit;--card-index:7;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/We_Will_Not_Survive.jpg" alt="We Will Not Survive" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">We Will Not Survive</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Panda_Dash_Auto_Shooting.html" style="text-decoration:none;color:inherit;--card-index:8;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Panda_Dash_Auto_Shooting.jpg" alt="Panda Dash Auto Shooting" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Panda Dash Auto Shooting</strong>
-        </div>
-    </a><a class="home-game-card" href="Action/Cars_with_Guns_Wasteland_Showdown.html" style="text-decoration:none;color:inherit;--card-index:9;">
-        <div class="home-game-card-media">
-            <img src="img/icon/Action/Cars_with_Guns_Wasteland_Showdown.jpg" alt="Cars with Guns: Wasteland Showdown" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Action</span>
-            <strong class="home-game-card-title">Cars with Guns: Wasteland Showdown</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/GunGame_Poligon_Battle_Royale.html" style="text-decoration:none;color:inherit;--card-index:10;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/GunGame_Poligon_Battle_Royale.jpeg" alt="GunGame Poligon Battle Royale" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">GunGame Poligon Battle Royale</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Zombie_Survival_Shooter.html" style="text-decoration:none;color:inherit;--card-index:11;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Zombie_Survival_Shooter.jpg" alt="Zombie Survival Shooter" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Zombie Survival Shooter</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Battle_Zone_2D.html" style="text-decoration:none;color:inherit;--card-index:12;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Battle_Zone_2D.jpg" alt="Battle Zone 2D" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Battle Zone 2D</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Zombie_Last_Survivor.html" style="text-decoration:none;color:inherit;--card-index:13;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Zombie_Last_Survivor.jpg" alt="Zombie Last Survivor" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Zombie Last Survivor</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Zombie_Royale_Io.html" style="text-decoration:none;color:inherit;--card-index:14;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Zombie_Royale_Io.jpg" alt="Zombie Royale Io" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Zombie Royale Io</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Mine_Shooter_Monsters_Royale.html" style="text-decoration:none;color:inherit;--card-index:15;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Mine_Shooter_Monsters_Royale.jpeg" alt="Mine Shooter Monsters Royale" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Mine Shooter Monsters Royale</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Last_Standing.html" style="text-decoration:none;color:inherit;--card-index:16;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Last_Standing.jpg" alt="Last Standing" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Last Standing</strong>
-        </div>
-    </a><a class="home-game-card" href="BattleRoyale/Radiation_Zone.html" style="text-decoration:none;color:inherit;--card-index:17;">
-        <div class="home-game-card-media">
-            <img src="img/icon/BattleRoyale/Radiation_Zone.jpg" alt="Radiation Zone" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
-        </div>
-        <div class="home-game-card-copy">
-            <span class="home-game-card-type">Battle Royale</span>
-            <strong class="home-game-card-title">Radiation Zone</strong>
-        </div>
+            </div>
+            <div class="related-games">
+                <h3 class="section-title">Popular Open Front Strategy Games</h3>
+                <div class="games-grid" id="related-games-container">
+                    <a class="game-card" href="Action/Bullet_Heroes.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Bullet_Heroes.jpg" alt="Bullet Heroes" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Bullet Heroes</div>
+    </a><a class="game-card" href="Action/Strike_Force_Action_Platformer.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Strike_Force_Action_Platformer.jpg" alt="Strike Force: Action Platformer" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Strike Force: Action Platformer</div>
+    </a><a class="game-card" href="Action/Wreck_The_Tower.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Wreck_The_Tower.jpg" alt="Wreck The Tower" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Wreck The Tower</div>
+    </a><a class="game-card" href="Action/Mecha_Duel.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Mecha_Duel.jpg" alt="Mecha Duel" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Mecha Duel</div>
+    </a><a class="game-card" href="Action/Stickman_Brawler.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Stickman_Brawler.jpg" alt="Stickman Brawler" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Stickman Brawler</div>
+    </a><a class="game-card" href="Action/Dungeon_Master_Knight.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Dungeon_Master_Knight.jpg" alt="Dungeon Master Knight" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Dungeon Master Knight</div>
+    </a><a class="game-card" href="Action/Drunken_Fighters.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Drunken_Fighters.jpg" alt="Drunken Fighters" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Drunken Fighters</div>
+    </a><a class="game-card" href="Action/We_Will_Not_Survive.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/We_Will_Not_Survive.jpg" alt="We Will Not Survive" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">We Will Not Survive</div>
+    </a><a class="game-card" href="Action/Panda_Dash_Auto_Shooting.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Panda_Dash_Auto_Shooting.jpg" alt="Panda Dash Auto Shooting" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Panda Dash Auto Shooting</div>
+    </a><a class="game-card" href="Action/Cars_with_Guns_Wasteland_Showdown.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/Action/Cars_with_Guns_Wasteland_Showdown.jpg" alt="Cars with Guns: Wasteland Showdown" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Cars with Guns: Wasteland Showdown</div>
+    </a><a class="game-card" href="BattleRoyale/GunGame_Poligon_Battle_Royale.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/GunGame_Poligon_Battle_Royale.jpeg" alt="GunGame Poligon Battle Royale" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">GunGame Poligon Battle Royale</div>
+    </a><a class="game-card" href="BattleRoyale/Zombie_Survival_Shooter.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Zombie_Survival_Shooter.jpg" alt="Zombie Survival Shooter" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Zombie Survival Shooter</div>
+    </a><a class="game-card" href="BattleRoyale/Battle_Zone_2D.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Battle_Zone_2D.jpg" alt="Battle Zone 2D" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Battle Zone 2D</div>
+    </a><a class="game-card" href="BattleRoyale/Zombie_Last_Survivor.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Zombie_Last_Survivor.jpg" alt="Zombie Last Survivor" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Zombie Last Survivor</div>
+    </a><a class="game-card" href="BattleRoyale/Zombie_Royale_Io.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Zombie_Royale_Io.jpg" alt="Zombie Royale Io" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Zombie Royale Io</div>
+    </a><a class="game-card" href="BattleRoyale/Mine_Shooter_Monsters_Royale.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Mine_Shooter_Monsters_Royale.jpeg" alt="Mine Shooter Monsters Royale" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Mine Shooter Monsters Royale</div>
+    </a><a class="game-card" href="BattleRoyale/Last_Standing.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Last_Standing.jpg" alt="Last Standing" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Last Standing</div>
+    </a><a class="game-card" href="BattleRoyale/Radiation_Zone.html" style="text-decoration:none;color:inherit;">
+        <img src="img/icon/BattleRoyale/Radiation_Zone.jpg" alt="Radiation Zone" loading="lazy" onerror="this.onerror=null;this.src='img/icon/veckIo.jpg'">
+        <div class="game-card-title">Radiation Zone</div>
     </a>
                 </div>
-            </section>
-            <section class="home-story">
-                <div class="home-story-intro">
-                    <span class="home-story-kicker">Intel Brief</span>
-                    <p>Open Front is a fast-paced multiplayer real-time strategy browser game where players fight for territory, build cities, form alliances, and race to control 72% of the map.</p>
-                </div>
-                <div class="home-story-grid">
-                    <div class="home-story-content">
-                        <article class="home-story-block"><h2>What is open front?</h2><p>open front is a real-time strategy .io-style browser game focused on map conquest, economic growth, and tactical expansion.</p><p>Every match starts with a small territory. From there, you expand, defend borders, manage workers and troops, and react to human players and bots in real time.</p></article><article class="home-story-block"><h3>How to win in open front</h3><ul><li><strong>Expand smartly:</strong> Capture nearby land, but do not overextend your military and leave your borders exposed.</li><li><strong>Grow your economy:</strong> Build cities and keep enough workers alive so your empire can keep scaling.</li><li><strong>Control the sea:</strong> Ports, warships, and trade routes create pressure far beyond your borders.</li><li><strong>Use diplomacy:</strong> Alliances can protect you, but betrayal and timing often decide the match.</li><li><strong>Reach 72%:</strong> The main victory condition is controlling 72% of the map before your rivals do.</li></ul></article><article class="home-story-block"><h3>Core buildings and weapons</h3><ul><li><strong>City:</strong> Raises your maximum population and lets your empire support larger armies.</li><li><strong>Defense Post:</strong> Slows enemy invasions and increases the cost of attacking your territory.</li><li><strong>Port:</strong> Unlocks naval pressure, sea travel, and profitable trade routes.</li><li><strong>Missile Silo:</strong> Launches devastating bombs against enemy territory when the timing is right.</li><li><strong>SAM Launcher:</strong> Intercepts incoming missiles and helps protect your late-game infrastructure.</li></ul></article><article class="home-story-block"><h3>Why players search for open front</h3><ul><li><strong>Real-time strategy depth:</strong> open front combines territory expansion, economy management, and military timing in every match.</li><li><strong>Large multiplayer battles:</strong> You can compete against large lobbies where alliances and betrayals matter.</li><li><strong>Browser-first convenience:</strong> You can jump into open front instantly without a heavy download or install process.</li><li><strong>Replayable matches:</strong> Different spawns, different neighbors, and different alliances keep every game fresh.</li></ul></article><article class="home-story-block"><h3>open front controls</h3><ul><li><strong>Move camera:</strong> W, A, S, D</li><li><strong>Zoom:</strong> Q / E or mouse wheel</li><li><strong>Select and attack:</strong> Left click to select, then drag toward adjacent territory.</li><li><strong>Radial menu:</strong> Right click to build, attack, send boats, or manage diplomacy.</li><li><strong>Center camera:</strong> Press C to focus on your territory.</li><li><strong>Alternate view:</strong> Press Space to switch between terrain and country view.</li><li><strong>Attack ratio:</strong> Hold Shift and left click, or use the slider to adjust troop commitment.</li><li><strong>Quick chat:</strong> Use preset messages and emojis to communicate during battle.</li></ul></article>
+            </div>
+            <div class="content-section">
+                <div class="game-info">
+                    <div class="info-header">Open Front is a fast-paced multiplayer real-time strategy browser game where players fight for territory, build cities, form alliances, and race to control 72% of the map.</div>
+                    <div class="info-content">
+                        <h2>What is open front?</h2><p>open front is a real-time strategy .io-style browser game focused on map conquest, economic growth, and tactical expansion.</p><p>Every match starts with a small territory. From there, you expand, defend borders, manage workers and troops, and react to human players and bots in real time.</p><h3>How to win in open front</h3><ul><li><strong>Expand smartly:</strong> Capture nearby land, but do not overextend your military and leave your borders exposed.</li><li><strong>Grow your economy:</strong> Build cities and keep enough workers alive so your empire can keep scaling.</li><li><strong>Control the sea:</strong> Ports, warships, and trade routes create pressure far beyond your borders.</li><li><strong>Use diplomacy:</strong> Alliances can protect you, but betrayal and timing often decide the match.</li><li><strong>Reach 72%:</strong> The main victory condition is controlling 72% of the map before your rivals do.</li></ul><h3>Core buildings and weapons</h3><ul><li><strong>City:</strong> Raises your maximum population and lets your empire support larger armies.</li><li><strong>Defense Post:</strong> Slows enemy invasions and increases the cost of attacking your territory.</li><li><strong>Port:</strong> Unlocks naval pressure, sea travel, and profitable trade routes.</li><li><strong>Missile Silo:</strong> Launches devastating bombs against enemy territory when the timing is right.</li><li><strong>SAM Launcher:</strong> Intercepts incoming missiles and helps protect your late-game infrastructure.</li></ul><h3>Why players search for open front</h3><ul><li><strong>Real-time strategy depth:</strong> open front combines territory expansion, economy management, and military timing in every match.</li><li><strong>Large multiplayer battles:</strong> You can compete against large lobbies where alliances and betrayals matter.</li><li><strong>Browser-first convenience:</strong> You can jump into open front instantly without a heavy download or install process.</li><li><strong>Replayable matches:</strong> Different spawns, different neighbors, and different alliances keep every game fresh.</li></ul><h3>open front controls</h3><ul><li><strong>Move camera:</strong> W, A, S, D</li><li><strong>Zoom:</strong> Q / E or mouse wheel</li><li><strong>Select and attack:</strong> Left click to select, then drag toward adjacent territory.</li><li><strong>Radial menu:</strong> Right click to build, attack, send boats, or manage diplomacy.</li><li><strong>Center camera:</strong> Press C to focus on your territory.</li><li><strong>Alternate view:</strong> Press Space to switch between terrain and country view.</li><li><strong>Attack ratio:</strong> Hold Shift and left click, or use the slider to adjust troop commitment.</li><li><strong>Quick chat:</strong> Use preset messages and emojis to communicate during battle.</li></ul>
                     </div>
-                    <aside class="home-story-sidebar">
-                        <div class="home-story-card">
-                            <h3>Why Players Stay</h3>
-                            <div class="home-tags"><span class="home-tag"><i class="fas fa-globe"></i>open front</span><span class="home-tag"><i class="fas fa-chess"></i>strategy</span><span class="home-tag"><i class="fas fa-flag"></i>conquest</span><span class="home-tag"><i class="fas fa-users"></i>multiplayer</span><span class="home-tag"><i class="fas fa-shield-alt"></i>alliance</span><span class="home-tag"><i class="fas fa-ship"></i>naval warfare</span><span class="home-tag"><i class="fas fa-bomb"></i>missiles</span><span class="home-tag"><i class="fas fa-rocket"></i>browser game</span></div>
-                        </div>
-                        <div class="home-story-card home-story-card-accent">
-                            <h3>Jump Back In Fast</h3>
-                            <p>Launch a match, test a new route, pressure the coast, and reset into another lobby without downloads or setup friction.</p>
-                        </div>
-                    </aside>
+                    <div class="tags"><span class="tag"><i class="fas fa-globe"></i>open front</span><span class="tag"><i class="fas fa-chess"></i>strategy</span><span class="tag"><i class="fas fa-flag"></i>conquest</span><span class="tag"><i class="fas fa-users"></i>multiplayer</span><span class="tag"><i class="fas fa-shield-alt"></i>alliance</span><span class="tag"><i class="fas fa-ship"></i>naval warfare</span><span class="tag"><i class="fas fa-bomb"></i>missiles</span><span class="tag"><i class="fas fa-rocket"></i>browser game</span></div>
                 </div>
-            </section>
+            </div>
         </main>
     </div>
     <footer class="footer">
@@ -387,62 +218,27 @@
                 iframe.requestFullscreen();
             }
         }
-    </script>
-    <script>
         (function () {
-            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-            var smallViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-            var lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) || (navigator.deviceMemory && navigator.deviceMemory <= 4);
-            var minimalEffects = reduceMotion || coarsePointer || smallViewport || lowPowerDevice;
-            var particleBudget = reduceMotion ? 0 : (minimalEffects ? 0 : 12);
             var container = document.getElementById('particles');
-
             if (container) {
-                if (particleBudget <= 0) {
-                    container.style.display = 'none';
-                } else {
-                    var fragment = document.createDocumentFragment();
-                    for (var i = 0; i < particleBudget; i++) {
-                        var particle = document.createElement('div');
-                        var size = 2 + Math.random() * 3;
-                        particle.className = 'particle';
-                        particle.style.left = Math.random() * 100 + '%';
-                        particle.style.animationDelay = Math.random() * 18 + 's';
-                        particle.style.animationDuration = (18 + Math.random() * 12) + 's';
-                        particle.style.width = size + 'px';
-                        particle.style.height = size + 'px';
-                        fragment.appendChild(particle);
-                    }
-                    container.appendChild(fragment);
+                for (var i = 0; i < 24; i++) {
+                    var particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                    particle.style.width = (3 + Math.random() * 4) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
                 }
             }
-
             var glow = document.getElementById('cursorGlow');
-            if (!glow || minimalEffects) {
-                if (glow) glow.style.display = 'none';
-                return;
+            if (glow) {
+                document.addEventListener('mousemove', function (e) {
+                    glow.style.left = e.clientX - 100 + 'px';
+                    glow.style.top = e.clientY - 100 + 'px';
+                });
             }
-
-            var halfSize = 160;
-            var rafId = 0;
-            var targetX = window.innerWidth * 0.5;
-            var targetY = window.innerHeight * 0.22;
-
-            var paint = function () {
-                rafId = 0;
-                glow.style.transform = 'translate3d(' + (targetX - halfSize) + 'px, ' + (targetY - halfSize) + 'px, 0)';
-            };
-
-            document.addEventListener('mousemove', function (event) {
-                targetX = event.clientX;
-                targetY = event.clientY;
-                if (!rafId) {
-                    rafId = window.requestAnimationFrame(paint);
-                }
-            }, { passive: true });
-
-            paint();
         })();
     </script>
 </body>
